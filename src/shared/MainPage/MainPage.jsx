@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import cn from 'cn-decorator';
+import React, { Component, Fragment } from 'react';
+import './MainPage.scss';
+import PageHeader from '../PageHeader/PageHeader';
 
-@cn('main-page')
 class MainPage extends Component {
-    render(cn) {
+    render() {
         return (
-            <div className={cn('test')}>1</div>
+            <Fragment>
+                <PageHeader />
+            </Fragment>
         );
     }
 };
