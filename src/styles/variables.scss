@@ -1,0 +1,38 @@
+//site colors
+$white: #fff;
+$black: #333;
+$lightBlack: #252525;
+$orange: #ffbf00;
+$sandy: #e7ac04;
+$gray: #999;
+$lightGray: #dcdcdc;
+
+//breakpoints
+$mobileSmallEnd:      479px;
+$mobileMiddleStart:   480px;
+$mobileMiddleEnd:     767px;
+$mobileBigStart:      768px;
+$mobileBigEnd:        1023px;
+$desktopSmallStart:   1024px;
+$desktopSmallEnd:     1279px;
+$desktopMiddleStart:  1280px;
+
+$mobileS:   "screen and (max-width: #{$mobileSmallEnd})";                                                 // ∞ - 479
+$mobileM:   "screen and (min-width: #{$mobileMiddleStart}) and (max-width: #{$mobileMiddleEnd})";        // 480 - 767
+$mobileB:   "screen and (min-width: #{$mobileBigStart}) and (max-width: #{$mobileBigEnd})";              // 768 - 1023
+$mobileSM:  "screen and (max-width: #{$mobileMiddleEnd})";                                                // ∞ - 767
+$mobileMB:  "screen and (min-width: #{$mobileMiddleStart}) and (max-width: #{$mobileBigEnd})";           // 480 - 1023
+$mobile:    "screen and (max-width: #{$mobileBigEnd})";                                                   // ∞ - 1023
+$mobileMU:  "screen and (min-width: #{$mobileMiddleStart})";                                              // 480 - ∞
+$mobileBU:  "screen and (min-width: #{$mobileBigStart})";                                                 // 768 - ∞
+$desktopS:  "screen and (min-width: #{$desktopSmallStart}) and (max-width: #{$desktopSmallEnd})";        // 1024 - 1279
+$desktop:   "screen and (min-width: #{$desktopSmallStart})";                                              // 1024 - ∞
+$desktopMU: "screen and (min-width: #{$desktopMiddleStart})";                                             // 1280 - ∞
+
+//mixins
+@mixin Arial {
+    font-family: Arial, Helvetica, sans-serif;
+}
+@mixin Ubuntu {
+    font-family: Ubuntu, Arial, sans-serif;
+}
