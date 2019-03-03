@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Authorization.scss';
 import Icon from '../../ui/Icon/Icon';
+import Link from '../../ui/Link/Link';
 import icons from '../../constants/icons';
 
 class Authorization extends Component {
@@ -8,14 +9,20 @@ class Authorization extends Component {
         return (
             <div className="authorization__login">
                 <div className="authorization__enter">
-                    <a href="/login/" className="authorization__enter-link">
-                        Войти
-                    </a>
+                    <Link
+                        href="/login/"
+                        className="authorization__link authorization__enter-link"
+                        hoverColor="sandy"
+                        title="Войти"
+                    />
                 </div>
                 <div className="authorization__register">
-                    <a href="/register/" className="authorization__register-link">
-                        Регистрация
-                    </a>
+                    <Link
+                        href="/register/"
+                        className="authorization__link authorization__register-link"
+                        hoverColor="sandy"
+                        title="Регистрация"
+                    />
                 </div>
             </div>
         );
@@ -24,9 +31,12 @@ class Authorization extends Component {
     renderLk() {
         return (
             <div className="authorization__personal">
-                <a href="/lk/" className="authorization__lk-link">
-                    Личный кабинет
-                </a>
+                <Link
+                    href="/lk/"
+                    className="authorization__link authorization__lk-link"
+                    hoverColor="sandy"
+                    title="Личный кабинет"
+                />
             </div>
         );
     }

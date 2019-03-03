@@ -1,0 +1,16 @@
+@import '../../../styles/variables.scss';
+
+.top-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-basis: 100%;
+    min-height: 20px;
+    font-size: 13px;
+    &__link {
+        color: #{$black};
+    }
+    &__element:not(:last-child) {
+        margin-right: 2.5839%;
+    }
+};

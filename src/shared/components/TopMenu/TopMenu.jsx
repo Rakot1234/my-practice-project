@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './TopMenu';
+import './TopMenu.scss';
 import PropTypes from 'prop-types';
+import Link from '../../ui/Link/Link';
 
 class TopMenu extends Component {
     static propTypes = {
@@ -20,9 +21,12 @@ class TopMenu extends Component {
                     const { title, link } = element;
                     return (
                         <li className="top-menu__element" key={index + element}>
-                            <a href={link} className="top-menu__link">
-                                {title}
-                            </a> 
+                            <Link
+                                href={link}
+                                className="top-menu__link"
+                                hoverColor="sandy"
+                                title={title}
+                            />
                         </li>
                     );
                 })}

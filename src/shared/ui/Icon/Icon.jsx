@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import './Icon.scss';
 import PropTypes from 'prop-types';
 
 class Icon extends PureComponent {

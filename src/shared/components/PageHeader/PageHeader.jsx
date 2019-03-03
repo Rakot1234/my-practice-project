@@ -19,9 +19,13 @@ class PageHeader extends Component {
 
         return (
             <div className="header">
-                <Location city={region}/>
-                <TopMenu menu={topMenu} />
-                <Authorization />
+                <div className="header__left">
+                    <Location city={region}/>
+                    <TopMenu menu={topMenu} />
+                </div>
+                <div className="header__right">
+                    <Authorization />
+                </div>
             </div>
         );
     };

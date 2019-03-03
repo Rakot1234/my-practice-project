@@ -36,8 +36,9 @@ input::-ms-clear {
 a {
     color: #{$sandy};
     text-decoration: none;
+    transition: 0.3s all;
     &:hover {
-        text-decoration: underline;
+        color: #{yellow};
     }
 }
 

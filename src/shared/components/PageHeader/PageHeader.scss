@@ -1,6 +1,16 @@
 @import '../../../styles/variables.scss';
 
 .header {
+    position: fixed;
     box-shadow: 0px 0px 9px 0px rgba(0,0,0, 0.2);
-    padding: 14px 123px 13px 115px;
+    padding: 14px 8.7857% 13px 8.2143%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    &__left {
+        display: flex;
+        flex-basis: 100%;
+    }
 };

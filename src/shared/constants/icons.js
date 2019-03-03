@@ -6,6 +6,7 @@ import grammofon from '../../icons/grammofon.png';
 import menuArrow from '../../icons/menu-arrow.png';
 import menuIcon from '../../icons/menu-icon.png';
 import region from '../../icons/region.png';
+import regionArrow from '../../icons/region-arrow.png';
 import search from '../../icons/search.png';
 import skype from '../../icons/skype.png';
 import waiting from '../../icons/waiting.png';
@@ -19,6 +20,7 @@ export default {
     menuArrow,
     menuIcon,
     region,
+    regionArrow,
     search,
     skype,
     waiting

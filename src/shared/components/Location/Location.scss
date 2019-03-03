@@ -1,0 +1,28 @@
+@import '../../../styles/variables.scss';
+
+.location {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 17px;
+    padding-right: 35px;
+    margin-right: 20px;
+    font-size: 13px;
+    min-height: 20px;
+    border-right: 1px solid #{$semiGray};
+    &__icon,
+    &__arrow
+    {
+        position: absolute;
+        margin: auto;
+    };
+    &__icon {
+        left: 0;
+        top: 3px;
+    };
+    &__arrow {
+        cursor: pointer;
+        right: 21px;
+        top: 10px;
+    };
+};

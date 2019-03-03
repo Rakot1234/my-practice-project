@@ -1,0 +1,29 @@
+@import '../../../styles/variables.scss';
+
+.authorization {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 27px;
+    min-height: 20px;
+    font-size: 13px;
+    &__icon { 
+        position: absolute;
+        left: 0;
+    }
+    &__login {
+        display: flex;
+    }
+    &__personal {
+        display: none;
+    }
+    &__link {
+        color: #{$black};
+        flex-shrink: 1;
+    }
+    &__enter-link {
+        padding-right: 17px;
+        margin-right: 18px;
+        border-right: 1px solid #{$semiGray};
+    }
+};
