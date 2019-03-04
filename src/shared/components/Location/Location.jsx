@@ -14,9 +14,9 @@ class Location extends PureComponent {
 
         return (
             <div className="location">
-                <Icon className="location__icon" icon={icons.region} />
+                <Icon className="location__icon" icon={icons.REGION} />
                 <div className="location__city">{city}</div>
-                <Icon className="location__arrow" icon={icons.regionArrow} />
+                <Icon className="location__arrow" icon={icons.REGION_ARROW} />
             </div>
         );
     }

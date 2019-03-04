@@ -16,7 +16,7 @@ class Icon extends PureComponent {
         const { icon, className } = this.props;
 
         return (
-            <div className={`icon ${className && className}`}>
+            <div className={`icon ${className}`}>
                 <img
                     src={icon}
                     alt=""
