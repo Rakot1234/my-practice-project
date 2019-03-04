@@ -7,8 +7,8 @@ class Link extends PureComponent {
         href: PropTypes.string.isRequired,
         className: PropTypes.string,
         hoverColor: PropTypes.oneOf(['yellow', 'sandy']),
+        title: PropTypes.string.isRequired,
         onClick: PropTypes.func,
-        title: PropTypes.string.isRequired
     };
 
     static defaultProps = {

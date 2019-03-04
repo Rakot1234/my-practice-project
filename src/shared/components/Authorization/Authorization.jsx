@@ -44,7 +44,7 @@ class Authorization extends Component {
     render() {
         return (
             <div className="authorization">
-                <Icon className="authorization__icon" icon={icons.authorise} />
+                <Icon className="authorization__icon" icon={icons.AUTHORISE} />
                 {this.renderLogin()}
                 {this.renderLk()}
             </div>

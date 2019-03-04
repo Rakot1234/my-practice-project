@@ -1,27 +1,27 @@
-import authorise from '../../icons/authorize.png';
-import cart from '../../icons/cart.png';
-import email from '../../icons/email.png';
-import equality from '../../icons/equality.png';
-import grammofon from '../../icons/grammofon.png';
-import menuArrow from '../../icons/menu-arrow.png';
-import menuIcon from '../../icons/menu-icon.png';
-import region from '../../icons/region.png';
-import regionArrow from '../../icons/region-arrow.png';
-import search from '../../icons/search.png';
-import skype from '../../icons/skype.png';
-import waiting from '../../icons/waiting.png';
+import AUTHORISE from '../../icons/authorize.png';
+import CART from '../../icons/cart.png';
+import EMAIL from '../../icons/email.png';
+import EQUALITY from '../../icons/equality.png';
+import GRAMMOFON from '../../icons/grammofon.png';
+import MENU_ARROW from '../../icons/menu-arrow.png';
+import MENU_ICON from '../../icons/menu-icon.png';
+import REGION from '../../icons/region.png';
+import REGION_ARROW from '../../icons/region-arrow.png';
+import SEARCH from '../../icons/search.png';
+import SKYPE from '../../icons/skype.png';
+import WAITING from '../../icons/waiting.png';
 
 export default {
-    authorise,
-    cart,
-    email,
-    equality,
-    grammofon,
-    menuArrow,
-    menuIcon,
-    region,
-    regionArrow,
-    search,
-    skype,
-    waiting
+    AUTHORISE,
+    CART,
+    EMAIL,
+    EQUALITY,
+    GRAMMOFON,
+    MENU_ARROW,
+    MENU_ICON,
+    REGION,
+    REGION_ARROW,
+    SEARCH,
+    SKYPE,
+    WAITING
 };
