@@ -1,0 +1,26 @@
+@import '../../../styles/variables.scss';
+
+$block: block-wrapper;
+
+.#{$block} {
+    &__inner {
+        max-width: 1170px;
+        padding: 50px 0 40px 0;
+        margin: auto;
+    }
+    &_bottom-border_true {
+        border-bottom: 1px solid #{$slightGray};
+    }
+    //inner color mods
+    &_inner-color {
+        &_transparent {
+            background-color: transparent;
+        }
+        &_white {
+            background-color: #{white};   
+        }
+        &_gray {
+            background-color: #{$darkGray};
+        }
+    }
+};

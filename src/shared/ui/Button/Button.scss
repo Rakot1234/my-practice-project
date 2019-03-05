@@ -1,0 +1,82 @@
+@import '../../../styles/variables.scss';
+
+$block: button;
+
+.#{$block} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 50px;
+
+    &__link:hover {
+        text-decoration: none;
+    }
+    &__icon {
+        margin-right: 13px;
+    }
+
+    //size mods
+    &__size {
+        &_small {
+            min-height: 32px;
+        }
+        &_medium {
+            min-height: 35px;
+        }
+        &_large {
+            min-height: 44px;
+        }
+    }
+
+    //color mods
+    &__color {
+        &_yellow {
+            background-color: #{yellow};
+        }
+        &_red {
+            background-color: #{red};
+        }
+    }
+
+    //hover color mods
+    &__hover-color {
+        &_black:hover {
+            background-color: #{black};
+        }
+        &_sandy:hover {
+            background-color: #{$sandy};
+        }
+    }
+
+    //button font size
+    &__font-size {
+        &_medium {
+            font-size: 14px;
+        }
+        &_large {
+            font-size: 16px;
+        }
+    }
+
+    //button font color
+    &__font-color {
+        &_white {
+            color: #{white};
+            .#{$block}__link {
+                color: #{white};
+            }
+        }
+        &_black {
+            color: #{black};
+            .#{$block}__link {
+                color: #{black};
+            }
+        }
+    }
+};
