@@ -8,6 +8,7 @@ $block: phone;
         color: #{black};
         font-size: 24px;
         margin-bottom: 5px;
+        @include Ubuntu;
         &:hover {
             color: #{black};
         }

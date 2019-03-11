@@ -3,5 +3,52 @@
 $block: contacts;
 
 .#{$block} {
-    
+    display: flex;
+    justify-content: flex-start;
+
+    &__wrapper {
+        padding-top: 75px !important;
+    }
+
+    &__logo {
+        display: inline-block;
+        margin-left: 61px;
+        margin-right: 100px;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-basis: 100%;
+    }
+
+    &__phone {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__socials-wrapper {
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-bottom: 13px;
+        }
+    }
+
+    &__socials-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 13px;
+    }
+
+    &__socials-link {
+        color: #{$black};
+    }
+
+    &__actions {
+        max-width: 214px !important;
+    }
 };

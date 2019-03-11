@@ -56,11 +56,12 @@ $block: button;
 
     //button font size
     &__font-size {
-        &_medium {
+        &_medium .#{$block}__link {
             font-size: 14px;
         }
-        &_large {
+        &_large .#{$block}__link {
             font-size: 16px;
+            @include Ubuntu;
         }
     }
 
