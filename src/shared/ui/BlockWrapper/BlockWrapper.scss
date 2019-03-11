@@ -17,7 +17,7 @@ $block: block-wrapper;
             background-color: transparent;
         }
         &_white {
-            background-color: #{white};   
+            background-color: #{$white};   
         }
         &_gray {
             background-color: #{$darkGray};

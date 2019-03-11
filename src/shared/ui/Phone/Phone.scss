@@ -5,12 +5,12 @@ $block: phone;
 .#{$block} {
     &__value {
         display: inline-block;
-        color: #{black};
+        color: #{$black};
         font-size: 24px;
         margin-bottom: 5px;
         @include Ubuntu;
         &:hover {
-            color: #{black};
+            color: #{$black};
         }
     }
     &__description {

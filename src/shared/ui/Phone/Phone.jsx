@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import './Phone.scss';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import Link from '../../ui/Link/Link';
 
 class Phone extends PureComponent {
@@ -9,7 +10,7 @@ class Phone extends PureComponent {
         description: PropTypes.string,
         className: PropTypes.string,
         view: PropTypes.oneOf(['header', 'footer']),
-        descriptionEvent: PropTypes.func
+        onClickDescription: PropTypes.func
     };
 
     static defaultProps = {
@@ -23,18 +24,19 @@ class Phone extends PureComponent {
             description,
             className,
             view,
-            descriptionEvent
+            onClickDescription
         } = this.props;
-        const isEvent = descriptionEvent ? 'phone__description_with-event' : '';
 
         return (
-            <div className={`phone ${className} phone__view-${view}`}>
+            <div className={cx('phone', className, `phone__view-${view}`)}>
                 <Link
                     href={`tel:${phone.replace(/[^\d]/g, '')}`}
                     title={phone}
-                    className="phone__value"
+                    className={cx('phone__value')}
                 />
-                <div className={`phone__description ${isEvent}`} onClick={descriptionEvent}>
+                <div className={cx('phone__description', {'phone__description_with-event': onClickDescription})}
+                    onClick={onClickDescription}
+                >
                     {description}
                 </div>
             </div>

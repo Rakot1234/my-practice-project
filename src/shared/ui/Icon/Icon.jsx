@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import './Icon.scss';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 class Icon extends PureComponent {
     static propTypes = {
@@ -16,11 +17,11 @@ class Icon extends PureComponent {
         const { icon, className } = this.props;
 
         return (
-            <div className={`icon ${className}`}>
+            <div className={cx('icon', className)}>
                 <img
                     src={icon}
                     alt=""
-                    className="icon__image"
+                    className={cx('icon__image')}
                 />
             </div>
         );

@@ -7,12 +7,12 @@ $block: contacts;
     justify-content: flex-start;
 
     &__wrapper {
-        padding-top: 75px !important;
+        padding-top: 75px;
     }
 
     &__logo {
         display: inline-block;
-        margin-left: 61px;
+        margin-left: 60px;
         margin-right: 100px;
     }
 
@@ -49,6 +49,6 @@ $block: contacts;
     }
 
     &__actions {
-        max-width: 214px !important;
+        max-width: 214px;
     }
 };

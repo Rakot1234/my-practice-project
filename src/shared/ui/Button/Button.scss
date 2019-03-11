@@ -37,17 +37,17 @@ $block: button;
     //color mods
     &__color {
         &_yellow {
-            background-color: #{yellow};
+            background-color: #{$orange};
         }
         &_red {
-            background-color: #{red};
+            background-color: #{$red};
         }
     }
 
     //hover color mods
     &__hover-color {
         &_black:hover {
-            background-color: #{black};
+            background-color: #{$black};
         }
         &_sandy:hover {
             background-color: #{$sandy};
@@ -68,15 +68,15 @@ $block: button;
     //button font color
     &__font-color {
         &_white {
-            color: #{white};
+            color: #{$white};
             .#{$block}__link {
-                color: #{white};
+                color: #{$white};
             }
         }
         &_black {
-            color: #{black};
+            color: #{$black};
             .#{$block}__link {
-                color: #{black};
+                color: #{$black};
             }
         }
     }

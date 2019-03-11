@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Authorization.scss';
+import cx from 'classnames';
 import Icon from '../../ui/Icon/Icon';
 import Link from '../../ui/Link/Link';
 import icons from '../../constants/icons';
@@ -7,19 +8,19 @@ import icons from '../../constants/icons';
 class Authorization extends Component {
     renderLogin() {
         return (
-            <div className="authorization__login">
-                <div className="authorization__enter">
+            <div className={cx('authorization__login')}>
+                <div className={cx('authorization__enter')}>
                     <Link
                         href="/login/"
-                        className="authorization__link authorization__enter-link"
+                        className={cx('authorization__link', 'authorization__enter-link')}
                         hoverColor="sandy"
                         title="Войти"
                     />
                 </div>
-                <div className="authorization__register">
+                <div className={cx('authorization__register')}>
                     <Link
                         href="/register/"
-                        className="authorization__link authorization__register-link"
+                        className={cx('authorization__link', 'authorization__register-link')}
                         hoverColor="sandy"
                         title="Регистрация"
                     />
@@ -30,10 +31,10 @@ class Authorization extends Component {
 
     renderLk() {
         return (
-            <div className="authorization__personal">
+            <div className={cx('authorization__personal')}>
                 <Link
                     href="/lk/"
-                    className="authorization__link authorization__lk-link"
+                    className={cx('authorization__link', 'authorization__lk-link')}
                     hoverColor="sandy"
                     title="Личный кабинет"
                 />
@@ -43,8 +44,8 @@ class Authorization extends Component {
 
     render() {
         return (
-            <div className="authorization">
-                <Icon className="authorization__icon" icon={icons.AUTHORISE} />
+            <div className={cx('authorization')}>
+                <Icon className={cx('authorization__icon')} icon={icons.AUTHORISE} />
                 {this.renderLogin()}
                 {this.renderLk()}
             </div>

@@ -3,6 +3,7 @@ import './Button.scss';
 import PropTypes from 'prop-types';
 import Link from '../../ui/Link/Link';
 import Icon from '../../ui/Icon/Icon';
+import cx from 'classnames';
 
 class Button extends PureComponent {
     static propTypes = {
@@ -43,21 +44,21 @@ class Button extends PureComponent {
 
         return (
             <div
-                className={
-                    `button 
-                    ${className} 
-                    button__color_${color} 
-                    button__hover-color_${hoverColor}
-                    button__size_${size}
-                    button__font-size_${fontSize}
-                    button__font-color_${fontColor}`
-                }
+                className={cx(
+                    'button', 
+                    className, 
+                    `button__color_${color}`, 
+                    `button__hover-color_${hoverColor}`,
+                    `button__size_${size}`,
+                    `button__font-size_${fontSize}`,
+                    `button__font-color_${fontColor}`
+                )}
                 onClick={onClick}
             >
-                {icon && <Icon icon={icon} className="button__icon" />}
+                {icon && <Icon icon={icon} className={cx('button__icon')} />}
                 {!href && title}
                 {href &&
-                    <Link href={href} title={title} className="button__link"/>
+                    <Link href={href} title={title} className={cx('button__link')} />
                 }
             </div>
         );
