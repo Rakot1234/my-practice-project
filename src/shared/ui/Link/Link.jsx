@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import './Link.scss';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 class Link extends PureComponent {
     static propTypes = {
@@ -26,10 +27,10 @@ class Link extends PureComponent {
         } = this.props;
 
         return (
-            <span className={`link`}>
+            <span className={cx('link')}>
                 <a
                     href={href} 
-                    className={`link__element ${className} link__element-${hoverColor}`}
+                    className={cx('link__element', className, `link__element-${hoverColor}`)}
                     onClick={onClick}
                 >
                     {title}

@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import './Location.scss';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import Icon from '../../ui/Icon/Icon';
 import icons from '../../constants/icons';
 
@@ -13,10 +14,10 @@ class Location extends PureComponent {
         const { city } = this.props;
 
         return (
-            <div className="location">
-                <Icon className="location__icon" icon={icons.REGION} />
-                <div className="location__city">{city}</div>
-                <Icon className="location__arrow" icon={icons.REGION_ARROW} />
+            <div className={cx('location')}>
+                <Icon className={cx('location__icon')} icon={icons.REGION} />
+                <div className={cx('location__city')}>{city}</div>
+                <Icon className={cx('location__arrow')} icon={icons.REGION_ARROW} />
             </div>
         );
     }

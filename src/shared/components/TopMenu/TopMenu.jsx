@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './TopMenu.scss';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import Link from '../../ui/Link/Link';
 
 class TopMenu extends Component {
@@ -16,14 +17,14 @@ class TopMenu extends Component {
         const { menu = [] } = this.props;
 
         return (
-            <ul className="top-menu">
+            <ul className={cx('top-menu')}>
                 {menu.map((element, index) => {
                     const { title, link } = element;
                     return (
-                        <li className="top-menu__element" key={index + element}>
+                        <li className={cx('top-menu__element')} key={index + element}>
                             <Link
                                 href={link}
-                                className="top-menu__link"
+                                className={cx('top-menu__link')}
                                 hoverColor="sandy"
                                 title={title}
                             />
