@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './ShopServices.scss';
 import cx from 'classnames';
-import icons from '../../constants/icons';
 import Icon from '../../ui/Icon/Icon';
+import icons from '../../constants/icons';
 
 class ShopServices extends Component {
     render() {

@@ -19,14 +19,14 @@ class BlockWrapper extends PureComponent {
 
     render() {
         const { children, className, bottomBorder, innerColor } = this.props;
+        const wrapperClasses = [
+                'block-wrapper', 
+                `block-wrapper_bottom-border_${bottomBorder}`,
+                `block-wrapper_inner-color_${innerColor}`
+        ];
 
         return (
-            <div className={cx(
-                    'block-wrapper', 
-                    `block-wrapper_bottom-border_${bottomBorder}`,
-                    `block-wrapper_inner-color_${innerColor}`
-                )}
-            >
+            <div className={cx(...wrapperClasses)}>
                 <div className={cx('block-wrapper__inner', className)}>
                     {children}
                 </div>

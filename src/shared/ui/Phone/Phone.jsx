@@ -34,7 +34,8 @@ class Phone extends PureComponent {
                     title={phone}
                     className={cx('phone__value')}
                 />
-                <div className={cx('phone__description', {'phone__description_with-event': onClickDescription})}
+                <div
+                    className={cx('phone__description', {'phone__description_with-event': onClickDescription})}
                     onClick={onClickDescription}
                 >
                     {description}

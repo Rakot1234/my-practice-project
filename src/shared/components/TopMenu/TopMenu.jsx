@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './TopMenu.scss';
 import PropTypes from 'prop-types';
-import Link from '../../ui/Link/Link';
 import cx from 'classnames';
+import Link from '../../ui/Link/Link';
 
 class TopMenu extends Component {
     static propTypes = {

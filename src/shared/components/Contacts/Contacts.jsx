@@ -4,8 +4,8 @@ import Phone from '../../ui/Phone/Phone';
 import Button from '../../ui/Button/Button';
 import Icon from '../../ui/Icon/Icon';
 import Link from '../../ui/Link/Link';
-import icons from '../../constants/icons';
 import BlockWrapper from '../../ui/BlockWrapper/BlockWrapper';
+import icons from '../../constants/icons';
 import logo from '../../../images/logo.png';
 import './Contacts.scss';
 

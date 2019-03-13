@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import './Button.scss';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import Link from '../../ui/Link/Link';
 import Icon from '../../ui/Icon/Icon';
-import cx from 'classnames';
 
 class Button extends PureComponent {
     static propTypes = {
@@ -41,18 +41,19 @@ class Button extends PureComponent {
             fontSize,
             fontColor
         } = this.props;
+        const wrapperClasses = [
+            'button', 
+            className, 
+            `button__color_${color}`, 
+            `button__hover-color_${hoverColor}`,
+            `button__size_${size}`,
+            `button__font-size_${fontSize}`,
+            `button__font-color_${fontColor}`
+        ];
 
         return (
             <div
-                className={cx(
-                    'button', 
-                    className, 
-                    `button__color_${color}`, 
-                    `button__hover-color_${hoverColor}`,
-                    `button__size_${size}`,
-                    `button__font-size_${fontSize}`,
-                    `button__font-color_${fontColor}`
-                )}
+                className={cx(...wrapperClasses)}
                 onClick={onClick}
             >
                 {icon && <Icon icon={icon} className={cx('button__icon')} />}

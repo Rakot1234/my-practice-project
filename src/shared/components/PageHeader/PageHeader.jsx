@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './PageHeader.scss';
 import cx from 'classnames';
-import { topMenu } from '../../constants/menu';
 import Authorization from '../../components/Authorization/Authorization';
 import Location from '../../components/Location/Location';
 import TopMenu from '../../components/TopMenu/TopMenu';
+import { topMenu } from '../../constants/menu';
 
 class PageHeader extends Component {
     constructor(props) {
