@@ -14,7 +14,7 @@ class MainMenu extends Component {
     };
 
     handleTitleClick = () => {
-        this.setState(({isHidden}) => ({isHidden: !isHidden}));
+        this.setState(({ isHidden }) => ({ isHidden: !isHidden }));
     };
 
     renderMenu() {

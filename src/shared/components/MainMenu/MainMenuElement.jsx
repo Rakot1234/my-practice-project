@@ -7,14 +7,6 @@ import Icon from '../../ui/Icon/Icon';
 import icons from '../../constants/icons';
 
 class MainMenuList extends PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            isChildShown: false
-        };
-    };
-
     static propTypes = {
         element: PropTypes.shape({
             id: PropTypes.number,
@@ -30,12 +22,20 @@ class MainMenuList extends PureComponent {
         }).isRequired
     };
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isChildShown: false
+        };
+    };
+
     handleMouseEnter = () => {
-        this.setState({isChildShown: true});
+        this.setState({ isChildShown: true });
     };
 
     handleMouseLeave = () => {
-        this.setState({isChildShown: false});
+        this.setState({ isChildShown: false });
     };
 
     renderMenuElement(element, level) {

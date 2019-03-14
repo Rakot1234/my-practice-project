@@ -9,20 +9,20 @@ class ItemsCarousel extends Component {
         className: PropTypes.string,
         title: PropTypes.string,
         children: PropTypes.node,
-        carouselParams: PropTypes.array.isRequired
+        carouselParams: PropTypes.object.isRequired
     };
 
     render() {
         const { title, className, carouselParams, children } = this.props;
 
         return(
-            <div className={cx('carousel', className)}>
+            <div className={cx('carousel__wrapper', className)}>
                 {title && 
                     <div className={cx('carousel__title')}>
                         {title}
                     </div>
                 }
-                <Carousel {...carouselParams} className={cx('carousel__carousel')}>
+                <Carousel {...carouselParams} className={cx('carousel')}>
                     {children}
                 </Carousel>
             </div>

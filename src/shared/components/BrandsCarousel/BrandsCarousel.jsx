@@ -15,7 +15,8 @@ class BrandsCarousel extends Component {
                         <img
                             src={image}
                             alt={alt}
-                            className={cx('brands-carousel__image')} />
+                            className={cx('brands-carousel__image')}
+                        />
                     </a>
                 );
             })
@@ -24,9 +25,9 @@ class BrandsCarousel extends Component {
 
     render() {
         return (
-            <div className={cx('brands-carousel')}>
+            <div className={cx('brands-carousel__wrapper')}>
                 <Carousel
-                    className={cx('brands-carousel__carousel')}
+                    className={cx('brands-carousel')}
                     carouselParams={CAROUSEL_PARAMS}
                 >
                     {this.renderBrands()}
