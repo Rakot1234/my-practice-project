@@ -5,7 +5,7 @@
         "infiniteLoop": true,
         "showStatus": false
     },
-    "carousel": [
+    "items": [
         {
             "id": 0,
             "alt": "Макита",

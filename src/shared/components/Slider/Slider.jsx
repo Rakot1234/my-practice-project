@@ -1,11 +1,41 @@
 import React, { Component } from 'react';
 import './Slider.scss';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Carousel } from 'react-responsive-carousel';
 import Button from '../../ui/Button/Button';
-import { CAROUSEL_PARAMS, CAROUSEL_SLIDES } from '../../constants/slider-params';
+import Preloader from '../../ui/Preloader/Preloader'
 
 class Slider extends Component {
+    static defaultProps = {
+        fetchSlider: PropTypes.func
+    };
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            sliderParams: {},
+            slides: [],
+            isFetching: true
+        };
+    };
+
+    componentDidMount() {
+        this.fetchSlider();
+    }
+
+    fetchSlider = async () => {
+        const { fetchSlider } = this.props;
+        const slider = await fetchSlider();
+
+        this.setState({
+            sliderParams: slider.sliderParams,
+            slides: slider.slides,
+            isFetching: false
+        });
+    }
+
     renderSlideContent(slide) {
         const { title, description, link, buttonTitle } = slide;
 
@@ -30,8 +60,10 @@ class Slider extends Component {
     }
 
     renderSlides() {
+        const { slides = [] } = this.state;
+
         return(
-            CAROUSEL_SLIDES.map(slide => {
+            slides.map(slide => {
                 const { id, title, image } = slide;
 
                 return(
@@ -45,10 +77,17 @@ class Slider extends Component {
     }
 
     render() {
+        const { sliderParams, isFetching } = this.state;
+
         return(
-            <Carousel {...CAROUSEL_PARAMS}>
-                {this.renderSlides()}
-            </Carousel>
+            <>
+                {!isFetching &&
+                    <Carousel {...sliderParams}>
+                        {this.renderSlides()}
+                    </Carousel>
+                }
+                {isFetching && <Preloader size="large"/>}
+            </>
         );
     }
 };

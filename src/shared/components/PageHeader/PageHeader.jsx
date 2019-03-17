@@ -1,28 +1,48 @@
 import React, { Component } from 'react';
 import './PageHeader.scss';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Authorization from '../../components/Authorization/Authorization';
 import Location from '../../components/Location/Location';
 import TopMenu from '../../components/TopMenu/TopMenu';
-import { topMenu } from '../../constants/menu';
 
 class PageHeader extends Component {
+    static propTypes = {
+        fetchMenu: PropTypes.func
+    };
+
     constructor(props) {
         super(props);
 
         this.state = {
             region: 'Красноярск',
+            isFetching: true,
+            topMenu: []
         };
     };
 
+    componentDidMount() {
+        this.fetchMenu();
+    }
+
+    fetchMenu = async () => {
+        const { fetchMenu } = this.props;
+        const menu = await fetchMenu();
+
+        this.setState({
+            topMenu: menu,
+            isFetching: false 
+        });
+    }
+
     render() {
-        const { region } = this.state;
+        const { region, topMenu, isFetching } = this.state;
 
         return (
             <div className={cx('header')}>
                 <div className={cx('header__left')}>
                     <Location city={region}/>
-                    <TopMenu menu={topMenu} />
+                    <TopMenu menu={topMenu} fetching={isFetching} />
                 </div>
                 <div className={cx('header__right')}>
                     <Authorization />
