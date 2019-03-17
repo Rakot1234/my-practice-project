@@ -1,8 +1,8 @@
-const __dirname = 'http://localhost:1500';
+const SERVER = 'http://localhost:1500';
 
 export default {
-    MAIN_MENU: `${__dirname}/main-menu/`,
-    TOP_MENU: `${__dirname}/top-menu/`,
-    SLIDER: `${__dirname}/slider-params/`,
-    BRANDS_CAROUSEL: `${__dirname}/brands-carousel/`
+    MAIN_MENU: `${SERVER}/main-menu/`,
+    TOP_MENU: `${SERVER}/top-menu/`,
+    SLIDER: `${SERVER}/slider-params/`,
+    BRANDS_CAROUSEL: `${SERVER}/brands-carousel/`
 };

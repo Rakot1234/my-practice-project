@@ -1,10 +1,17 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const __dirname = 'data';
+const promisify = require('util').promisify;
+const readFile = promisify(fs.readFile);
 
-const getFileJson = file => {
-    let bufferData = fs.readFileSync(file);
+const getFileJson = async file => {
+    let bufferData;
+
+    try {
+        bufferData = await readFile(file);
+    } catch (e) {
+        throw e;
+    }
 
     return JSON.parse(bufferData);
 };
@@ -13,22 +20,22 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-  });
-
-app.get('/main-menu/', (req, res) => {
-    res.json(getFileJson(`${__dirname}/main-menu.json`));
 });
 
-app.get('/top-menu/', (req, res) => {
-    res.json(getFileJson(`${__dirname}/top-menu.json`));
+app.get('/main-menu/', async (req, res) => {
+    res.json(await getFileJson(`${__dirname}/data/main-menu.json`));
 });
 
-app.get('/brands-carousel/', (req, res) => {
-    res.json(getFileJson(`${__dirname}/brands-carousel.json`));
+app.get('/top-menu/', async (req, res) => {
+    res.json(await getFileJson(`${__dirname}/data/top-menu.json`));
 });
 
-app.get('/slider-params/', (req, res) => {
-    res.json(getFileJson(`${__dirname}/slider-params.json`));
+app.get('/brands-carousel/', async (req, res) => {
+    res.json(await getFileJson(`${__dirname}/data/brands-carousel.json`));
+});
+
+app.get('/slider-params/', async (req, res) => {
+    res.json(await getFileJson(`${__dirname}/data/slider-params.json`));
 });
 
 app.listen(1500);

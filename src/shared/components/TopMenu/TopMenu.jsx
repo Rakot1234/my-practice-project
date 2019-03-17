@@ -40,8 +40,10 @@ class TopMenu extends Component {
 
         return (
             <ul className={cx('top-menu')}>
-                {isFetching && <Preloader size="small" />}
-                {!isFetching && this.renderMenu()}
+                {isFetching ?
+                    <Preloader size="small" /> :
+                    this.renderMenu()
+                }
             </ul>
         );
     }

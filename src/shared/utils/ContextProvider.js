@@ -7,18 +7,18 @@ const ProjectContext = React.createContext({});
 
 class ContextProvider extends Component {
     static propTypes = {
-        children: PropTypes.node
+        children: PropTypes.element
     };
 
     constructor(props) {
         super(props);
 
-        this.state = ({
+        this.state = {
             mainMenu: this.fetchMainMenu,
             topMenu: this.fetchTopMenu,
             brandsCarousel: this.fetchBrandsCarousel,
             sliderParams: this.fetchSliderParams
-        });
+        };
     }
 
     fetchMainMenu = () => {
