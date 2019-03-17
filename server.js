@@ -1,20 +1,18 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const promisify = require('util').promisify;
-const readFile = promisify(fs.readFile);
 
-const getFileJson = async file => {
-    let bufferData;
+const getFileJson = file => {
+    return new Promise((resolve, reject) => {
+      fs.readFile(file, (err, data) => {
+        if (err) {
+          return reject(err);
+        }
 
-    try {
-        bufferData = await readFile(file);
-    } catch (e) {
-        throw e;
-    }
-
-    return JSON.parse(bufferData);
-};
+        resolve(JSON.parse(data));
+      });
+    });
+  };
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
