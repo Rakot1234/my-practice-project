@@ -3,6 +3,7 @@ import './TopMenu.scss';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Link from '../../ui/Link/Link';
+import Preloader from '../../ui/Preloader/Preloader';
 
 class TopMenu extends Component {
     static propTypes = {
@@ -10,27 +11,39 @@ class TopMenu extends Component {
             PropTypes.objectOf(
                 PropTypes.string
             )
-        )
+        ),
+        isFetching: PropTypes.bool
     };
-
-    render() {
+    
+    renderMenu() {
         const { menu = [] } = this.props;
 
         return (
+            menu.map((element, index) => {
+                const { title, link } = element;
+                return (
+                    <li className={cx('top-menu__element')} key={index + element}>
+                        <Link
+                            href={link}
+                            className={cx('top-menu__link')}
+                            hoverColor="sandy"
+                            title={title}
+                        />
+                    </li>
+                );
+            })
+        );
+    }
+
+    render() {
+        const { isFetching } = this.props;
+
+        return (
             <ul className={cx('top-menu')}>
-                {menu.map((element, index) => {
-                    const { title, link } = element;
-                    return (
-                        <li className={cx('top-menu__element')} key={index + element}>
-                            <Link
-                                href={link}
-                                className={cx('top-menu__link')}
-                                hoverColor="sandy"
-                                title={title}
-                            />
-                        </li>
-                    );
-                })}
+                {isFetching ?
+                    <Preloader size="small" /> :
+                    this.renderMenu()
+                }
             </ul>
         );
     }
