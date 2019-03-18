@@ -1,0 +1,52 @@
+@import '../../../styles/variables.scss';
+
+$block: main-menu;
+
+@keyframes open {
+    from { max-height: 0 };
+    to { max-height: 2000px; }
+}
+
+@keyframes close {
+    from { max-height: 2000px };
+    to { max-height: 0; }
+}
+
+.#{$block} {
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px #{$lightGray};
+    color: #{$black};
+    font-size: 14px;
+    line-height: 15px;
+    @include Ubuntu;
+
+    &__title {
+        position: relative;
+        padding: 18px 36px 15px 23px;
+        background-color: #{$orange};
+        font-size: 16px;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    &__title-icon {
+        position: absolute;
+        margin: auto;
+        margin-top: 5px;
+        right: 21px;
+        top: 0;
+        bottom: 0;
+    }
+
+    &__list {
+        overflow: hidden;
+        
+        &_visible {
+            animation: open 1s;
+        }
+        &_hidden {
+            animation: close 1s;
+        }
+    }
+}

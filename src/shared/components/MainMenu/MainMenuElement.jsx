@@ -58,6 +58,7 @@ class MainMenuList extends PureComponent {
                 }
                 <Link
                     className={cx('main-menu-element__link')}
+                    wrapperClass={cx('main-menu-element__link-wrapper')}
                     href={link}
                     title={title}
                 />

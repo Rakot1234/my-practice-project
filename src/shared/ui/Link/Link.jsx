@@ -7,6 +7,7 @@ class Link extends PureComponent {
     static propTypes = {
         href: PropTypes.string.isRequired,
         className: PropTypes.string,
+        wrapperClass: PropTypes.string,
         hoverColor: PropTypes.oneOf(['yellow', 'sandy']),
         title: PropTypes.string.isRequired,
         onClick: PropTypes.func,
@@ -21,13 +22,14 @@ class Link extends PureComponent {
         const {
             href,
             className,
+            wrapperClass,
             hoverColor,
             onClick,
             title
         } = this.props;
 
         return (
-            <span className={cx('link')}>
+            <span className={cx('link', wrapperClass)}>
                 <a
                     href={href} 
                     className={cx('link__element', className, `link__element-${hoverColor}`)}

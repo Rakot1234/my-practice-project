@@ -1,0 +1,59 @@
+@import '../../../styles/variables.scss';
+
+$block: main-menu-element;
+
+.#{$block} {
+    position: relative;
+
+    &:not(:first-child) {
+        border-top: 1px solid #{$lightGray};
+    }
+
+    &__link-wrapper {
+        width: 100%;
+    }
+
+    &__link {
+        display: inline-block;
+        width: 100%;
+        padding: 14px 0 14px 42px;
+        box-sizing: border-box;
+    }
+
+    &_level_second {
+        .#{$block}__link {
+            padding-right: 42px;
+        }
+    }
+
+    &__icon,
+    &__arrow 
+    {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+    }
+
+    &__icon {
+        left: 10px;
+        margin-top: -1px;
+    }
+
+    &__arrow {
+        right: 21px;
+    }
+
+    &__list {
+        &_level_second {
+            position: absolute;
+            z-index: 10;
+            background-color: #{$white};
+            top: 0;
+            left: 100%;
+            box-shadow: 1px 2px 15px -6px #{$gray};
+            transition: opacity 0.4s;
+            overflow: visible;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+@import '../../../styles/variables.scss';
+
+$block: input;
+
+.#{$block} {
+    display: block;
+    height: 100%;
+
+    &__input {
+        &:focus {
+            outline: none;
+        }
+    }
+}
