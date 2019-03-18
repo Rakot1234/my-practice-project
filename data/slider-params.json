@@ -4,7 +4,7 @@
         "showThumbs": false,
         "autoPlay": false,
         "interval": 5000,
-        "transitionTime": 600
+        "transitionTime": 800
     },
     "slides": [
         {
@@ -12,24 +12,21 @@
             "title": "Мойки высокого давления",
             "description": "Производители:<br>BOSCH / MAKITA / ИНТЕРСКОЛ / STIHL<br>KARCHER / DENZEL / HUTER / OMAX",
             "link": "/washes/",
-            "buttonTitle": "Выбрать свою",
-            "image": "../src/images/slide.png"
+            "buttonTitle": "Выбрать свою"
         },
         {
             "id": 1,
             "title": "Мойки высокого давления",
             "description": "Производители:<br>BOSCH / MAKITA / ИНТЕРСКОЛ / STIHL<br>KARCHER / DENZEL / HUTER / OMAX",
             "link": "/washes/",
-            "buttonTitle": "Выбрать свою",
-            "image": "../src/images/slide.png"
+            "buttonTitle": "Выбрать свою"
         },
         {
             "id": 2,
             "title": "Мойки высокого давления",
             "description": "Производители:<br>BOSCH / MAKITA / ИНТЕРСКОЛ / STIHL<br>KARCHER / DENZEL / HUTER / OMAX",
             "link": "/washes/",
-            "buttonTitle": "Выбрать свою",
-            "image": "../src/images/slide.png"
+            "buttonTitle": "Выбрать свою"
         }
     ]
 }

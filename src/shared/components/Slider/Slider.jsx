@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Carousel } from 'react-responsive-carousel';
 import Button from '../../ui/Button/Button';
-import Preloader from '../../ui/Preloader/Preloader'
+import Preloader from '../../ui/Preloader/Preloader';
+import images from '../../constants/images';
 
 class Slider extends Component {
     static defaultProps = {
@@ -64,11 +65,11 @@ class Slider extends Component {
 
         return(
             slides.map(slide => {
-                const { id, title, image } = slide;
+                const { id, title } = slide;
 
                 return(
                     <div className={cx('slider__slide')} key={id}>
-                        <img src={image} className={cx('slider__image')} alt={title}/>
+                        <img src={images.SLIDE} className={cx('slider__image')} alt={title}/>
                         {this.renderSlideContent(slide)}
                     </div>
                 );
@@ -82,9 +83,11 @@ class Slider extends Component {
         return(
             <>
                 {!isFetching &&
-                    <Carousel {...sliderParams}>
-                        {this.renderSlides()}
-                    </Carousel>
+                    <div className={cx('slider')}>
+                        <Carousel {...sliderParams}>
+                            {this.renderSlides()}
+                        </Carousel>
+                    </div>
                 }
                 {isFetching && <Preloader size="large"/>}
             </>
