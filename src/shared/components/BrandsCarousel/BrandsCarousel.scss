@@ -1,0 +1,10 @@
+@import '../../../styles/variables.scss';
+
+$block: brands-carousel;
+
+.#{$block} {
+    &__link {
+        display: block;
+        text-align: center
+    }
+};

@@ -4,7 +4,7 @@ import PageHeader from '../../components/PageHeader/PageHeader';
 import Contacts from '../../components/Contacts/Contacts';
 import Search from '../../components/Search/Search';
 import MainMenu from '../../components/MainMenu/MainMenu';
-import Slider from '../../components/Slider/Slider';
+import Slider from '../../components/HeadSlider/HeadSlider';
 import BrandsCarousel from '../../components/BrandsCarousel/BrandsCarousel';
 import BlockWrapper from '../../ui/BlockWrapper/BlockWrapper';
 import { ContextConsumer } from '../../utils/ContextProvider';
@@ -16,7 +16,7 @@ class MainPage extends Component {
             <>
                 <PageHeader fetchMenu={api.topMenu}/>
                 <Contacts />
-                <BlockWrapper innerColor="white" className={cx('main-page__header-wrapper')}>
+                <BlockWrapper innerColor="white" className={cx('main-page__header-wrapper')} bottomBorder>
                     <div className={cx('main-page__header-left')}>
                         <MainMenu fetchMenu={api.mainMenu}/>
                     </div>

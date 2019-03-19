@@ -1,10 +1,11 @@
 @import '../../../styles/variables.scss';
 
-$block: slider;
+$block: head-slider;
 
 .#{$block} {
     display: flex;
     position: relative;
+    margin-bottom: 60px;
 
     & > div {
         width: 100%;
@@ -34,6 +35,10 @@ $block: slider;
 
     &__button {
         width: 173px;
+    }
+
+    .slider {
+        display: flex;
     }
 
     .slide {
