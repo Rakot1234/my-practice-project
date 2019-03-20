@@ -6,7 +6,7 @@ import MenuElement from './MainMenuElement';
 import Preloader from '../../ui/Preloader/Preloader';
 import Icon from '../../ui/Icon/Icon';
 import icons from '../../constants/icons';
-import { MENU_HIDE_TIMEOUT, MENU_SHOW_TIMEOUT } from './constants/settings';
+import { menuParams } from './constants/settings';
 
 class MainMenu extends Component {
     static propTypes = {
@@ -40,7 +40,7 @@ class MainMenu extends Component {
 
         setTimeout(() => {
             this.setState(({ isFullHeight }) => ({ isFullHeight: !isFullHeight }));
-        }, MENU_SHOW_TIMEOUT);
+        }, menuParams.MENU_SHOW_TIMEOUT);
     }
 
     handleCloseMenu = () => {
@@ -48,7 +48,7 @@ class MainMenu extends Component {
 
         setTimeout(() => {
             this.setState(({ isHidden }) => ({ isHidden: !isHidden }));
-        }, MENU_HIDE_TIMEOUT);
+        }, menuParams.MENU_HIDE_TIMEOUT);
     }
 
     fetchMenu = async () => {
