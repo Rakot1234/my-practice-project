@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import './Preloader.scss';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import spinner from '../../../images/spinner.gif';
+import images from '../../constants/images';
 
 class Preloader extends PureComponent {
     static propTypes = {
@@ -18,7 +18,7 @@ class Preloader extends PureComponent {
 
         return (
             <div className={cx('preloader', `preloader_size_${size}`)}>
-                <img src={spinner} className={cx('preloader__image')} alt="preloader"/>
+                <img src={images.SPINNER} className={cx('preloader__image')} alt="preloader"/>
             </div>
         );
     }

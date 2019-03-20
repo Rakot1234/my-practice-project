@@ -7,7 +7,11 @@ class SearchForm extends Component {
     render() {
         return (
             <form className={cx('search-form')} name="search">
-                <Input type="search" className={cx('search-form__input')} />
+                <Input
+                    type="search"
+                    className={cx('search-form__input')}
+                    placeholder="Поиск по сайту"
+                />
                 <Input type="submit" className={cx('search-form__submit')} />
             </form>
         );

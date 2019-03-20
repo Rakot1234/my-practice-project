@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import './Slider.scss';
+import './HeadSlider.scss';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Carousel } from 'react-responsive-carousel';
 import Button from '../../ui/Button/Button';
-import Preloader from '../../ui/Preloader/Preloader'
+import Preloader from '../../ui/Preloader/Preloader';
+import images from '../../constants/images';
 
 class Slider extends Component {
     static defaultProps = {
@@ -40,16 +41,16 @@ class Slider extends Component {
         const { title, description, link, buttonTitle } = slide;
 
         return (
-            <div className={cx('slider__content')}>
-                <div className={cx('slider__title')}>
+            <div className={cx('head-slider__content')}>
+                <div className={cx('head-slider__title')}>
                     {title}
                 </div>
                 <div
-                    className={cx('slider__description')}
+                    className={cx('head-slider__description')}
                     dangerouslySetInnerHTML={{ __html: description }}
                 />
                 <Button
-                    className={cx('slider__button')}
+                    className={cx('head-slider__button')}
                     href={link}
                     title={buttonTitle}
                     fontColor="black"
@@ -64,11 +65,11 @@ class Slider extends Component {
 
         return(
             slides.map(slide => {
-                const { id, title, image } = slide;
+                const { id, title } = slide;
 
                 return(
-                    <div className={cx('slider__slide')} key={id}>
-                        <img src={image} className={cx('slider__image')} alt={title}/>
+                    <div className={cx('head-slider__slide')} key={id}>
+                        <img src={images.SLIDE} className={cx('head-slider__image')} alt={title}/>
                         {this.renderSlideContent(slide)}
                     </div>
                 );
@@ -82,9 +83,11 @@ class Slider extends Component {
         return(
             <>
                 {!isFetching &&
-                    <Carousel {...sliderParams}>
-                        {this.renderSlides()}
-                    </Carousel>
+                    <div className={cx('head-slider')}>
+                        <Carousel {...sliderParams}>
+                            {this.renderSlides()}
+                        </Carousel>
+                    </div>
                 }
                 {isFetching && <Preloader size="large"/>}
             </>

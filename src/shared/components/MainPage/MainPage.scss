@@ -1,6 +1,20 @@
-.main-page {
-    color: red;
-    &__word {
-        color: blue;
+@import '../../../styles/variables.scss';
+
+$block: main-page;
+
+.#{$block} {
+    &__header-wrapper {
+        display: flex;
+        flex: 1 1 auto;
+        padding-top: 0;
     }
-};
+
+    &__header-left {
+        width: 270px;
+        margin-right: 30px;
+    }
+
+    &__header-right {
+        width: calc(100% - 300px);
+    }
+}

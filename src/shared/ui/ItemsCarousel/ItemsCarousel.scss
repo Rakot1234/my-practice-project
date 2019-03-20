@@ -1,0 +1,73 @@
+@import '../../../styles/variables.scss';
+
+$block: items-carousel;
+
+.#{$block} {
+    position: relative;
+    overflow: hidden;
+
+    &__wrapper {
+        position: relative;
+        margin: 0 73px;
+    }
+
+    .slider {
+        display: flex;
+        align-items: center;
+    }
+
+    .slide {
+        min-width: 148px;
+        margin-right: 48px;
+    }
+
+    &__arrow {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        border: none;
+        cursor: pointer;
+        background: url('./i/carousel-arrow.png') no-repeat center;
+        background-color: #{$white};
+        transition: opacity 0.3s;
+
+        &:hover {
+            transform: rotate(180deg);
+            background: url('./i/carousel-arrow-hovered.png') no-repeat center;
+        }
+
+        &-prev {
+            left: -73px;
+        }
+    
+        &-next {
+            right: -73px;
+            transform: rotate(180deg);
+    
+            &:hover {
+                transform: rotate(0deg);
+            }
+        }
+
+        &-disabled {
+            cursor: default;
+            opacity: 0.4;
+
+            &.#{$block}__arrow:hover {
+                background: url('./i/carousel-arrow.png') no-repeat center;
+                transform: rotate(0deg);
+            }
+
+            &.#{$block}__arrow-next:hover {
+                transform: rotate(180deg);
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+};

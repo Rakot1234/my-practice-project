@@ -48,6 +48,10 @@ $block: button;
     &__hover-color {
         &_black:hover {
             background-color: #{$black};
+
+            .#{$block}__link {
+                color: #{$white};
+            }
         }
         &_sandy:hover {
             background-color: #{$sandy};

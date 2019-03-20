@@ -1,0 +1,87 @@
+@import '../../../styles/variables.scss';
+
+$block: head-slider;
+
+.#{$block} {
+    display: flex;
+    position: relative;
+    margin-bottom: 60px;
+
+    & > div {
+        width: 100%;
+    }
+
+    &__content {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+    }
+
+    &__title {
+        @include Ubuntu;
+        font-size: 60px;
+        line-height: 60px;
+        font-weight: 500;
+        color: #{$orange};
+        margin-bottom: 34px;
+    }
+
+    &__description {
+        font-size: 16px;
+        line-height: 28px;
+        color: #{$white};
+        margin-bottom: 46px;
+    }
+
+    &__button {
+        width: 173px;
+    }
+
+    .slider {
+        display: flex;
+    }
+
+    .slide {
+        position: relative;
+    }
+
+    .carousel {
+        overflow: hidden;
+
+        .control-arrow {
+            position: absolute;
+            background-image: url('./i/slider-arrow.png');
+            background-position: center right; 
+            background-repeat: no-repeat;
+            background-color: #{$white};
+            height: 77px;
+            width: 38px;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            z-index: 3;
+            border: none;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            cursor: pointer;
+            transition: opacity 0.8s;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    
+        .control-next {
+            right: 0;  
+        }
+    
+        .control-prev {
+            left: 0;
+            transform: rotate(180deg);
+        }
+
+        .control-disabled {
+            opacity: 0.5;
+        }
+    }
+};

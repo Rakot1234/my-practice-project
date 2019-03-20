@@ -1,0 +1,33 @@
+@import '../../../styles/variables.scss';
+
+$block: shop-services;
+
+.#{$block} {
+    display: flex;
+    flex: 1 1 auto;
+    max-width: 265px;
+
+    &__element {
+        display: flex;
+        flex: 0 1 auto;
+        align-items: center;
+
+        &:not(:last-child) {
+            border-right: 1px solid #{$lightGray};
+        }
+
+        &:not(:first-child) {
+            .#{$block}__icon {
+                padding-left: 15px;
+            }
+        }
+    }
+
+    &__icon {
+        margin-right: 8px;
+    }
+
+    &__number {
+        padding-right: 15px;
+    }
+}

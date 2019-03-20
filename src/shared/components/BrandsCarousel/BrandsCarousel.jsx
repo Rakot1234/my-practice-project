@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Carousel from '../../ui/ItemsCarousel/ItemsCarousel';
 import Preloader from '../../ui/Preloader/Preloader';
+import { carouselImages } from '../../constants/images';
 
 class BrandsCarousel extends Component {
     static propTypes = {
@@ -25,7 +26,7 @@ class BrandsCarousel extends Component {
     }
 
     fetchCarousel = async () => {
-        const { fetchCarousel } = this.props; 
+        const { fetchCarousel } = this.props;
         const carousel = await fetchCarousel();
 
         this.setState({
@@ -37,6 +38,7 @@ class BrandsCarousel extends Component {
 
     renderBrands() {
         const { items = [] } = this.state;
+
         return (
             items.map((element) => {
                 const { id, alt, image, link } = element;
@@ -44,7 +46,7 @@ class BrandsCarousel extends Component {
                 return (
                     <a href={link} className={cx('brands-carousel__link')} key={id}>
                         <img
-                            src={image}
+                            src={carouselImages[image]}
                             alt={alt}
                             className={cx('brands-carousel__image')}
                         />
@@ -60,10 +62,12 @@ class BrandsCarousel extends Component {
         return (
             <div className={cx('brands-carousel__wrapper')}>
                 {isFetching && <Preloader size="small" />}
-                {!isFetching && 
+                {!isFetching &&
                     <Carousel
                         className={cx('brands-carousel')}
                         carouselParams={carouselParams}
+                        isCustomControls
+                        slidesToStop={3}
                     >
                         {this.renderBrands()}
                     </Carousel>

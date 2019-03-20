@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import MenuElement from './MainMenuElement';
 import Preloader from '../../ui/Preloader/Preloader';
+import Icon from '../../ui/Icon/Icon';
+import icons from '../../constants/icons';
+import { menuParams } from './constants/settings';
 
 class MainMenu extends Component {
     static propTypes = {
@@ -14,7 +17,8 @@ class MainMenu extends Component {
         super(props);
 
         this.state = {
-            isHidden: true,
+            isHidden: false,
+            isFullHeight: true,
             title: '',
             items: [],
             isFetching: true
@@ -26,8 +30,26 @@ class MainMenu extends Component {
     }
 
     handleTitleClick = () => {
-        this.setState(({ isHidden }) => ({ isHidden: !isHidden }));
+        const { isFullHeight } = this.state;
+
+        isFullHeight ? this.handleCloseMenu() : this.handleOpenMenu();
     };
+
+    handleOpenMenu = () => {
+        this.setState(({ isHidden }) => ({ isHidden: !isHidden }));
+
+        setTimeout(() => {
+            this.setState(({ isFullHeight }) => ({ isFullHeight: !isFullHeight }));
+        }, menuParams.MENU_SHOW_TIMEOUT);
+    }
+
+    handleCloseMenu = () => {
+        this.setState(({ isFullHeight }) => ({ isFullHeight: !isFullHeight }));
+
+        setTimeout(() => {
+            this.setState(({ isHidden }) => ({ isHidden: !isHidden }));
+        }, menuParams.MENU_HIDE_TIMEOUT);
+    }
 
     fetchMenu = async () => {
         const { fetchMenu } = this.props;
@@ -41,15 +63,21 @@ class MainMenu extends Component {
     }
 
     renderMenu() {
-        const { items = [], isHidden, title } = this.state;
+        const { items = [], isHidden, isFullHeight, title } = this.state;
 
         return (
             <>
                 <div className={cx('main-menu__title')} onClick={this.handleTitleClick}>
                     {title}
+                    <Icon className={cx('main-menu__title-icon')} icon={icons.MENU_BURGER} />
                 </div>
-                {!isHidden && 
-                    <ul className={cx('main-menu__list')}>
+                {!isHidden &&
+                    <ul
+                        className={cx(
+                            'main-menu__list',
+                            { 'main-menu__list_visible': isFullHeight },
+                            { 'main-menu__list_hidden': !isFullHeight }
+                        )}>
                         {items.map(element => <MenuElement element={element} key={element.id} />)}
                     </ul>
                 }

@@ -6,7 +6,7 @@ import Icon from '../../ui/Icon/Icon';
 import Link from '../../ui/Link/Link';
 import BlockWrapper from '../../ui/BlockWrapper/BlockWrapper';
 import icons from '../../constants/icons';
-import logo from '../../../images/logo.png';
+import images from '../../constants/images';
 import './Contacts.scss';
 
 class Contacts extends Component {
@@ -18,7 +18,7 @@ class Contacts extends Component {
         return (
             <div className={cx('contacts__logo')}>
                 <a href="/" className={cx('contacts__logo-link')}>
-                   <img className={cx('contacts__logo-image')} src={logo} alt="" />
+                   <img className={cx('contacts__logo-image')} src={images.SITE_LOGO} alt="" />
                 </a>
             </div>
         );

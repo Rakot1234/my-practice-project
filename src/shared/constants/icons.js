@@ -10,7 +10,7 @@ import REGION_ARROW from '../../icons/region-arrow.png';
 import SEARCH from '../../icons/search.png';
 import SKYPE from '../../icons/skype.png';
 import WAITING from '../../icons/waiting.png';
-import SLIDER_ARROW from '../../icons/slider-arrow.png';
+import MENU_BURGER from '../../icons/menu-burger.png';
 
 export default {
     AUTHORISE,
@@ -25,5 +25,5 @@ export default {
     SEARCH,
     SKYPE,
     WAITING,
-    SLIDER_ARROW
+    MENU_BURGER
 };
