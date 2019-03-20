@@ -1,0 +1,30 @@
+@import '../../../styles/variables.scss';
+
+$block: popup;
+
+.#{$block} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    &__close {
+        position: absolute;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+        color: #{$gray};
+        top: 5px;
+        right: 5px;
+    }
+
+    &__content {
+        position: relative;
+        display: inline-block;
+        background-color: #{$white};
+        padding: 30px;
+    }
+};
