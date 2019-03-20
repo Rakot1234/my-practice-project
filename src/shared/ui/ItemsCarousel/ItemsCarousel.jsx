@@ -31,9 +31,9 @@ class ItemsCarousel extends Component {
     handleNextClick = () => {
         const { children, slidesToStop } = this.props;
         const { currentSlide } = this.state;
-        const isLast =  children.length - 1 - currentSlide === slidesToStop ;
+        const isLast = children.length - 1 - currentSlide === slidesToStop;
 
-        if(isLast) {
+        if (isLast) {
             return;
         }
 
@@ -57,13 +57,13 @@ class ItemsCarousel extends Component {
     renderControls() {
         const { children, slidesToStop } = this.props;
         const { currentSlide } = this.state;
-        const isLast =  children.length - 1 - currentSlide === slidesToStop ;
+        const isLast = children.length - 1 - currentSlide === slidesToStop;
 
         return (
             <div className={cx('items-carousel__conrols')}>
                 <div
                     className={cx(
-                        'items-carousel__arrow', 
+                        'items-carousel__arrow',
                         'items-carousel__arrow-next',
                         { 'items-carousel__arrow-disabled': isLast }
                     )}
@@ -92,12 +92,12 @@ class ItemsCarousel extends Component {
         } = this.props;
         const { currentSlide } = this.state;
 
-        return(
+        return (
             <div className={cx(
-                    'items-carousel__wrapper',
-                    className,
-                    `items-carousel__wrapper_view-${view}`
-                )}
+                'items-carousel__wrapper',
+                className,
+                `items-carousel__wrapper_view-${view}`
+            )}
             >
                 {title && this.renderTitle()}
                 {isCustomControls && this.renderControls()}

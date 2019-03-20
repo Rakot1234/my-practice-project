@@ -5,11 +5,14 @@ import MAKITA_LOGO from '../../images/makita-logo.png';
 import SLIDE from '../../images/slide.png';
 import SPINNER from '../../images/spinner.gif';
 
+export const carouselImages = {
+    makita: MAKITA_LOGO,
+    karcher: KARCHER_LOGO,
+    bosch: BOSH_LOGO
+};
+
 export default {
-    BOSH_LOGO,
-    KARCHER_LOGO,
     SITE_LOGO,
-    MAKITA_LOGO,
     SLIDE,
     SPINNER
 };

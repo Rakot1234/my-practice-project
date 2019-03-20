@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Carousel from '../../ui/ItemsCarousel/ItemsCarousel';
 import Preloader from '../../ui/Preloader/Preloader';
-import { convertImage } from '../../utils/imageConvert';
+import { carouselImages } from '../../constants/images';
 
 class BrandsCarousel extends Component {
     static propTypes = {
@@ -26,7 +26,7 @@ class BrandsCarousel extends Component {
     }
 
     fetchCarousel = async () => {
-        const { fetchCarousel } = this.props; 
+        const { fetchCarousel } = this.props;
         const carousel = await fetchCarousel();
 
         this.setState({
@@ -46,7 +46,7 @@ class BrandsCarousel extends Component {
                 return (
                     <a href={link} className={cx('brands-carousel__link')} key={id}>
                         <img
-                            src={convertImage(image)}
+                            src={carouselImages[image]}
                             alt={alt}
                             className={cx('brands-carousel__image')}
                         />
@@ -62,7 +62,7 @@ class BrandsCarousel extends Component {
         return (
             <div className={cx('brands-carousel__wrapper')}>
                 {isFetching && <Preloader size="small" />}
-                {!isFetching && 
+                {!isFetching &&
                     <Carousel
                         className={cx('brands-carousel')}
                         carouselParams={carouselParams}
