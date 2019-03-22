@@ -8,7 +8,9 @@ class Input extends Component {
         className: PropTypes.string,
         placeholder: PropTypes.string,
         title: PropTypes.string,
+        name: PropTypes.string,
         isRequired: PropTypes.bool,
+        value: PropTypes.string,
         type: PropTypes.oneOf([
             'checkbox',
             'email',
@@ -18,15 +20,26 @@ class Input extends Component {
             'text',
             'tel'
         ]),
+        onChange: PropTypes.func
     };
 
     static defaultProps = {
         placeholder: '',
-        type: 'text'
+        type: 'text',
+        value: ''
     };
 
     render() {
-        const { placeholder, className, type, isRequired, title } = this.props;
+        const {
+            placeholder,
+            className,
+            type,
+            isRequired,
+            title,
+            name,
+            value,
+            onChange
+        } = this.props;
 
         return (
             <label className={cx('input')}>
@@ -36,6 +49,9 @@ class Input extends Component {
                     className={cx('input__input', className)}
                     placeholder={placeholder}
                     required={isRequired}
+                    name={name}
+                    value={value}
+                    onChange={onChange}
                 />
             </label>
         );

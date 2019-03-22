@@ -6,6 +6,7 @@ import Search from '../../components/Search/Search'
 import MainMenu from '../../components/MainMenu/MainMenu'
 import Slider from '../../components/HeadSlider/HeadSlider'
 import BrandsCarousel from '../../components/BrandsCarousel/BrandsCarousel'
+import CallbackForm from '../../components/CallbackForm/CallbackForm'
 import BlockWrapper from '../../ui/BlockWrapper/BlockWrapper'
 import Popup from '../../ui/Popup/Popup'
 import { ContextConsumer } from '../../utils/ContextProvider'
@@ -58,7 +59,7 @@ class MainPage extends Component {
 							{this.renderPageHeader(api)}
 							{isPopupOpened &&
 								<Popup handleClose={this.handlePopupShow}>
-									контент
+									<CallbackForm />
 								</Popup>
 							}
 						</>
