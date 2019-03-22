@@ -9,7 +9,7 @@ import BrandsCarousel from '../../components/BrandsCarousel/BrandsCarousel'
 import CallbackForm from '../../components/CallbackForm/CallbackForm'
 import BlockWrapper from '../../ui/BlockWrapper/BlockWrapper'
 import Popup from '../../ui/Popup/Popup'
-import { ContextConsumer } from '../../utils/ContextProvider'
+import { ContextConsumer } from '../../utils/context-provider'
 import './MainPage.scss'
 
 class MainPage extends Component {

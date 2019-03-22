@@ -1,7 +1,64 @@
 @import '../../../styles/variables.scss';
 
-$block: callback-from;
+$block: callback-form;
 
 .#{$block} {
+    &__wrapper {
+        width: 400px;
+    }
 
+    &__title {
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    &__input {
+        font-size: 14px;
+        padding: 5px 10px;
+        line-height: 24px;
+        width: 50%
+    }
+
+    &__questions {
+        margin-bottom: 20px;
+    }
+
+    &__input-wrapper {
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__submit {
+        font-size: 14px;
+        font-weight: 500;
+        color: #{$white};
+        background-color: #{$orange};
+        border: none;
+        border-radius: 50px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: all 0.4s;
+
+        &:hover {
+            background-color: #{$sandy};
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: default;
+
+            &:hover {
+                background-color: #{$orange};
+            }
+        }
+    }
+
+    &__success {
+        font-size: 15px;
+        text-align: center;
+        font-weight: 600;
+    }
 };

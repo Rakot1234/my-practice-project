@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import './Popup.scss'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Portal from '../../utils/Portal'
+import Portal from '../../utils/portal'
 import { pageOverflow } from '../../utils/misc-functions'
 
 class Popup extends PureComponent {
@@ -24,6 +24,10 @@ class Popup extends PureComponent {
         pageOverflow('hidden');
         this.handleContentPosition();
         window.addEventListener('resize', this.handleContentPosition);
+    }
+
+    componentDidUpdate() {
+        this.handleContentPosition();
     }
 
     componentWillUnmount() {

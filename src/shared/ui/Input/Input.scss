@@ -3,8 +3,31 @@
 $block: input;
 
 .#{$block} {
-    display: block;
+    display: flex;
+    align-items: center;
     height: 100%;
+
+    &_justify {
+        &_start {
+            justify-content: flex-start;
+        }
+
+        &_center {
+            justify-content: center;
+        }
+
+        &_end {
+            justify-content: flex-end;
+        }
+
+        &_space-around {
+            justify-content: space-around;
+        }
+
+        &_space-between {
+            justify-content: space-between;
+        }
+    }
 
     &__input {
         &:focus {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Input.scss';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import InputMask from 'react-input-mask';
 
 class Input extends Component {
     static propTypes = {
@@ -9,8 +10,17 @@ class Input extends Component {
         placeholder: PropTypes.string,
         title: PropTypes.string,
         name: PropTypes.string,
+        mask: PropTypes.string,
         isRequired: PropTypes.bool,
+        isDisabled: PropTypes.bool,
         value: PropTypes.string,
+        itemsJustify: PropTypes.oneOf([
+            'space-around',
+            'space-between',
+            'start',
+            'end',
+            'center'
+        ]),
         type: PropTypes.oneOf([
             'checkbox',
             'email',
@@ -24,9 +34,11 @@ class Input extends Component {
     };
 
     static defaultProps = {
+        isDisabled: false,
         placeholder: '',
         type: 'text',
-        value: ''
+        value: '',
+        itemsJustify: 'start'
     };
 
     render() {
@@ -35,16 +47,19 @@ class Input extends Component {
             className,
             type,
             isRequired,
+            isDisabled,
             title,
             name,
             value,
-            onChange
+            onChange,
+            mask,
+            itemsJustify
         } = this.props;
 
         return (
-            <label className={cx('input')}>
+            <label className={cx('input', `input_justify_${itemsJustify}`)}>
                 {title && <span className={cx('input__title')}>{title}</span>}
-                <input
+                <InputMask
                     type={type}
                     className={cx('input__input', className)}
                     placeholder={placeholder}
@@ -52,6 +67,8 @@ class Input extends Component {
                     name={name}
                     value={value}
                     onChange={onChange}
+                    disabled={isDisabled}
+                    mask={mask}
                 />
             </label>
         );

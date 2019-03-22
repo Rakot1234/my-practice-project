@@ -4,95 +4,145 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { withFormik } from 'formik';
 import Input from '../../ui/Input/Input';
+import { callbackForm } from '../../utils/validationShemas';
+import { PHONE_MASK } from '../../constants/site-data';
 
 class CallbackForm extends Component {
-    static defaultProps = {
+    static propsTypes = {
+        isValid: PropTypes.bool,
         values: PropTypes.object,
         errors: PropTypes.object,
+        touched: PropTypes.object,
         handleBlur: PropTypes.func,
-        handleSubmit: PropTypes.func
+        handleSubmit: PropTypes.func,
+        handleChange: PropTypes.func
     };
 
-    render() {
-        const { handleSubmit, errors } = this.props;
+    static defaultProps = {
+        status: {
+            isSuccess: false
+        }
+    };
+
+    renderSuccess() {
+        return <div className={cx('callback-form__success')}>
+            Спасибо за обращение, в ближайшее время мы свяжемся с вами !
+        </div>;
+    }
+
+    renderNameInput() {
+        const {
+            handleChange,
+            errors: { name },
+            values,
+            touched
+        } = this.props;
 
         return (
-            <form name="callback" className={cx('callback-from')} onSubmit={handleSubmit}>
-                <div className={cx('callback__title')}>Обратная связь</div>
-                <div className={cx('callback__questions')}>
-                    <Input
-                        type="text"
-                        title="ФИО"
-                        className={cx('callback__name')}
-                        name="name"
-                    />
-                    {errors.name &&
-                        <div className={cx('callback__error')}>
-                            {errors.name}
-                        </div>
-                    }
-                    <Input
-                        type="tel"
-                        title="Телефон для связи"
-                        className={cx('callback__phone')}
-                        name="phone"
-                    />
-                    {errors.phone &&
-                        <div className={cx('callback__error')}>
-                            {errors.phone}
-                        </div>
-                    }
+            <div className={cx('callback-form__input-wrapper')}>
+                <Input
+                    type="text"
+                    title="ФИО"
+                    className={cx('callback-form__input')}
+                    name="name"
+                    onChange={handleChange}
+                    value={values.name}
+                    itemsJustify="space-between"
+                />
+                {name && touched.name &&
+                    <div className={cx('callback-form__error')}>
+                        {name}
+                    </div>
+                }
+            </div>
+        );
+    }
+
+    renderPhoneInput() {
+        const {
+            handleChange,
+            errors: { phone },
+            values,
+            touched
+        } = this.props;
+
+        return (
+            <div className={cx('callback-form__input-wrapper')}>
+            <Input
+                type="tel"
+                title="Телефон для связи"
+                className={cx('callback-form__input')}
+                name="phone"
+                onChange={handleChange}
+                value={values.phone}
+                mask={PHONE_MASK}
+                placeholder="+7 (___)-___-__-__"
+                itemsJustify="space-between"
+            />
+            {phone && touched.phone &&
+                <div className={cx('callback-form__error')}>
+                    {phone}
                 </div>
-                <div className={cx('callback__submit-wrapper')}>
-                    <Input type="submit" title="Отправить" className={cx('callback__submit')} />
+            }
+            </div>
+        );
+    }
+
+    renderSubmit() {
+        const { isValid } = this.props;
+
+        return (
+            <div className={cx('callback-form__submit-wrapper')}>
+                <Input
+                    type="submit"
+                    value="Отправить"
+                    className={cx('callback-form__submit')}
+                    isDisabled={!isValid}
+                    itemsJustify="center"
+                />
+            </div>
+        );
+    }
+
+    renderForm() {
+        const { handleSubmit } = this.props;
+
+        return (
+            <form name="callback" className={cx('callback-form')} onSubmit={handleSubmit}>
+                <div className={cx('callback-form__title')}>Обратная связь</div>
+                <div className={cx('callback-form__questions')}>
+                    {this.renderNameInput()}
+                    {this.renderPhoneInput()}
                 </div>
+                {this.renderSubmit()}
             </form>
+        );
+    }
+
+    render() {
+        const { isSuccess } = this.props.status;
+
+        return (
+            <div className={cx('callback-form__wrapper')}>
+                {isSuccess && this.renderSuccess()}
+                {!isSuccess && this.renderForm()}
+            </div>
         );
     }
 };
 
 export default withFormik({
     enableReinitialize: true,
-    
     mapPropsToValues: ({ name, phone }) => ({
         name: name || '',
         phone: phone || ''
     }),
-
-    validate: values => {
-        const errors = {};
-        const { name, phone } = values;
-
-        switch(true) {
-            case !name:
-                errors.name = 'Укажите имя';
-                break;
-            case name.length < 2:
-                errors.name = 'Имя указано неверно';
-                break;
-            default:
-                return;
-        }
-
-        switch(true) {
-            case !phone:
-                errors.phone = 'Укажите телефон';
-                break;
-            case phone.length < 11:
-                errors.phone = 'Телефон указано неверно';
-                break;
-            default:
-                return;
-        }
-
-        return errors;
-    },
-    
-    handleSubmit: (values, { setSubmitting }) => {
-        console.log(1);
+    validationSchema: callbackForm,
+    handleSubmit: (values, { setSubmitting, setStatus }) => {
         setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            console.log(JSON.stringify(values, null, 2));
             setSubmitting(false);
+            setStatus({ isSuccess: true });
         }, 1000);
     }
 })(CallbackForm);

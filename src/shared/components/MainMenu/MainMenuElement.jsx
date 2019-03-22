@@ -5,7 +5,7 @@ import cx from 'classnames'
 import Link from '../../ui/Link/Link'
 import Icon from '../../ui/Icon/Icon'
 import icons from '../../constants/icons'
-import Portal from '../../utils/Portal'
+import Portal from '../../utils/portal'
 
 class MainMenuList extends PureComponent {
 	static propTypes = {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import dataRequest from './api';
-import routes from '../../shared/constants/routes';
+import routes from '../constants/routes';
 
 const ProjectContext = React.createContext({});
 
