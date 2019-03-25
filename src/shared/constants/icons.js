@@ -11,6 +11,8 @@ import SEARCH from '../../icons/search.png';
 import SKYPE from '../../icons/skype.png';
 import WAITING from '../../icons/waiting.png';
 import MENU_BURGER from '../../icons/menu-burger.png';
+import PLUS_AMOUNT from '../../icons/plus-amount.png';
+import MINUS_AMOUNT from '../../icons/minus-amount.png';
 
 export default {
     AUTHORISE,
@@ -25,5 +27,7 @@ export default {
     SEARCH,
     SKYPE,
     WAITING,
-    MENU_BURGER
+    MENU_BURGER,
+    PLUS_AMOUNT,
+    MINUS_AMOUNT
 };

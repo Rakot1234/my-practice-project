@@ -7,6 +7,7 @@ import MainMenu from '../../components/MainMenu/MainMenu'
 import Slider from '../../components/HeadSlider/HeadSlider'
 import BrandsCarousel from '../../components/BrandsCarousel/BrandsCarousel'
 import CallbackForm from '../../components/CallbackForm/CallbackForm'
+import GoodsCarousel from '../../components/GoodsCarousel/GoodsCarousel'
 import BlockWrapper from '../../ui/BlockWrapper/BlockWrapper'
 import Popup from '../../ui/Popup/Popup'
 import { ContextConsumer } from '../../utils/context-provider'
@@ -57,6 +58,7 @@ class MainPage extends Component {
 					return (
 						<>
 							{this.renderPageHeader(api)}
+							<GoodsCarousel fetchGoodsCarousel={api.specialsCarousel} />
 							{isPopupOpened &&
 								<Popup handleClose={this.handlePopupShow}>
 									<CallbackForm />

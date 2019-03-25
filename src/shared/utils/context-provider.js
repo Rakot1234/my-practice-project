@@ -17,7 +17,8 @@ class ContextProvider extends Component {
             mainMenu: this.fetchMainMenu,
             topMenu: this.fetchTopMenu,
             brandsCarousel: this.fetchBrandsCarousel,
-            sliderParams: this.fetchSliderParams
+            sliderParams: this.fetchSliderParams,
+            specialsCarousel: this.fetchSpecialsCarousel
         };
     }
 
@@ -43,6 +44,12 @@ class ContextProvider extends Component {
         const { SLIDER } = routes;
 
         return dataRequest(SLIDER);       
+    }
+
+    fetchSpecialsCarousel = () => {
+        const { SPECIALS_CAROUSEL } = routes;
+
+        return dataRequest(SPECIALS_CAROUSEL);       
     }
 
     render() {

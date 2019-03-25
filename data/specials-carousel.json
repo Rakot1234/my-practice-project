@@ -1,0 +1,92 @@
+{
+    "carouselParams": { 
+        "showIndicators": false,
+        "showThumbs": false,
+        "showStatus": false,
+        "showArrows": false,
+        "selectedItem": 0,
+        "width": "299px"
+    },
+    "items": [
+        {
+            "id": 0,
+            "item_code": "060137B102",
+            "image": "boschMachine",
+            "rating": 4,
+            "title": "Шлифмашинка эксц. 400Вт, 12000 об/м, d-150мм, 2.4кг, GEX 125-150 AVE BOSCH",
+            "discount": 15,
+            "price": "25000",
+            "amount": 5
+        },
+        {
+            "id": 1,
+            "item_code": "060137B202",
+            "image": "makiteMachine",
+            "rating": 5,
+            "title": "Электролобзик 720Вт, 800-2800об/м, ход-26мм, рез-135мм, 2.5кг, маятник., кейс пл MAKITA",
+            "discount": 10,
+            "price": "20000",
+            "amount": 7
+        },
+        {
+            "id": 2,
+            "item_code": "070137B202",
+            "image": "makitaProfMachine",
+            "rating": 3,
+            "title": "Электропила циркулярная 1.2кВт, 160мм, глубина-55мм, 5200об/м, 3.5кг, GKS 55 Professional  BOSCH",
+            "discount": 8,
+            "price": "15000",
+            "amount": 10
+        },
+        {
+            "id": 3,
+            "item_code": "064137B202",
+            "image": "hitachiMachine",
+            "rating": 2,
+            "title": "Фрезер  1,15кВт, 25000об/мин, ход-60мм, цанга-8мм, вес 3.6кг, HITACHI",
+            "discount": 12,
+            "price": "20000",
+            "amount": 0
+        },
+        {
+            "id": 4,
+            "item_code": "060189B202",
+            "image": "boschMachine",
+            "rating": 1,
+            "title": "Шлифмашинка эксц. 400Вт, 12000 об/м, d-150мм, 2.4кг, GEX 125-150 AVE  BOSCH",
+            "discount": 15,
+            "price": "7000",
+            "amount": 2
+        },
+        {
+            "id": 5,
+            "item_code": "06C137B202",
+            "image": "makiteMachine",
+            "rating": 5,
+            "title": "Электролобзик 720Вт, 800-2800об/м, ход-26мм, рез-135мм, 2.5кг, маятник., кейс пл MAKITA",
+            "discount": 10,
+            "price": "7500",
+            "amount": 4
+        },
+        {
+            "id": 6,
+            "item_code": "290137B202",
+            "image": "makitaProfMachine",
+            "rating": 3,
+            "title": "Электропила циркулярная 1.2кВт, 160мм, глубина-55мм, 5200об/м, 3.5кг, GKS 55 Professional  BOSCH",
+            "discount": 7,
+            "price": "4000",
+            "amount": 6
+        },
+        {
+            "id": 7,
+            "item_code": "069237D202",
+            "image": "hitachiMachine",
+            "rating": 2,
+            "title": "Фрезер  1,15кВт, 25000об/мин, ход-60мм, цанга-8мм, вес 3.6кг, HITACHI",
+            "discount": 5,
+            "price": "12000",
+            "amount": 8
+        }
+    ]
+}

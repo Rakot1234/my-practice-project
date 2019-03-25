@@ -17,6 +17,7 @@ $block: button;
     &__link:hover {
         text-decoration: none;
     }
+
     &__icon {
         margin-right: 13px;
     }
@@ -26,9 +27,11 @@ $block: button;
         &_small {
             min-height: 32px;
         }
+
         &_medium {
             min-height: 35px;
         }
+
         &_large {
             min-height: 44px;
         }
@@ -39,8 +42,13 @@ $block: button;
         &_yellow {
             background-color: #{$orange};
         }
+
         &_red {
             background-color: #{$red};
+        }
+
+        &_gray {
+            background-color: #{$mediumGray};
         }
     }
 
@@ -53,6 +61,7 @@ $block: button;
                 color: #{$white};
             }
         }
+
         &_sandy:hover {
             background-color: #{$sandy};
         }
@@ -63,6 +72,7 @@ $block: button;
         &_medium .#{$block}__link {
             font-size: 14px;
         }
+
         &_large .#{$block}__link {
             font-size: 16px;
             @include Ubuntu;
@@ -73,14 +83,25 @@ $block: button;
     &__font-color {
         &_white {
             color: #{$white};
+
             .#{$block}__link {
                 color: #{$white};
             }
         }
+
         &_black {
             color: #{$black};
+
             .#{$block}__link {
                 color: #{$black};
+            }
+
+            &:hover {
+                color: #{$white};
+                
+                .#{$block}__link {
+                    color: #{$white};
+                }
             }
         }
     }

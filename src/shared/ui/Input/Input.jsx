@@ -67,6 +67,7 @@ class Input extends Component {
                     name={name}
                     value={value}
                     onChange={onChange}
+                    readOnly={!onChange}
                     disabled={isDisabled}
                     mask={mask}
                 />

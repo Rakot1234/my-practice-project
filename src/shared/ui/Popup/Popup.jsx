@@ -26,10 +26,6 @@ class Popup extends PureComponent {
         window.addEventListener('resize', this.handleContentPosition);
     }
 
-    componentDidUpdate() {
-        this.handleContentPosition();
-    }
-
     componentWillUnmount() {
         pageOverflow('visible');
         window.removeEventListener('resize', this.handleContentPosition);

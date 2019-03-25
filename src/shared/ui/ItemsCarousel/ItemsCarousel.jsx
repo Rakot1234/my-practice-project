@@ -96,7 +96,7 @@ class ItemsCarousel extends Component {
             <div className={cx(
                 'items-carousel__wrapper',
                 className,
-                `items-carousel__wrapper_view-${view}`
+                `items-carousel__wrapper_view_${view}`
             )}
             >
                 {title && this.renderTitle()}

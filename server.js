@@ -36,6 +36,10 @@ app.get('/slider-params/', async (req, res) => {
     res.json(await getFileJson(`${__dirname}/data/slider-params.json`));
 });
 
+app.get('/specials-carousel/', async (req, res) => {
+  res.json(await getFileJson(`${__dirname}/data/specials-carousel.json`));
+});
+
 app.listen(1500);
 
 console.log('Сервер стартовал!');

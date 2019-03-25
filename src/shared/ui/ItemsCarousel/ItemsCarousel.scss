@@ -70,4 +70,28 @@ $block: items-carousel;
             outline: none;
         }
     }
+
+    &__wrapper_view_goods {
+        margin: 0 55px;
+        padding: 50px 0 40px;
+
+        .#{$block} {
+            padding-left: 1px;
+
+            &__title {
+                font-size: 32px;
+                @include Ubuntu;
+                margin-bottom: 47px;
+            }
+        }
+
+        .slide {
+            min-width: 268px;
+            margin-right: 30px;
+        }
+
+        .slider {
+            align-items: stretch;
+        }
+    }
 };

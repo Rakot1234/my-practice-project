@@ -12,7 +12,7 @@ class Button extends PureComponent {
         href: PropTypes.string,
         icon: PropTypes.string,
         size: PropTypes.oneOf(['small', 'medium', 'large']),
-        color: PropTypes.oneOf(['yellow', 'red']),
+        color: PropTypes.oneOf(['yellow', 'red', 'gray']),
         hoverColor: PropTypes.oneOf(['black', 'sandy']),
         fontSize: PropTypes.oneOf(['medium', 'large']),
         fontColor: PropTypes.oneOf(['white', 'black']),
