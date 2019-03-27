@@ -8,14 +8,44 @@ $block: button;
     justify-content: center;
     position: relative;
     box-sizing: border-box;
-    width: 100%;
     padding: 0 15px;
     cursor: pointer;
     transition: all 0.3s;
     border-radius: 50px;
+    border: none;
+    width: 100%;
 
-    &__link:hover {
-        text-decoration: none;
+    &:focus {
+        outline: none;
+    }
+
+    &:disabled {
+        cursor: default;
+    }
+
+    &__link {
+        display: block;
+    }
+
+    &__wrapper {
+        width: 100%;
+
+        &_disabled {
+            cursor: default;
+            opacity: 0.5;
+        }
+    }
+
+    &__link {
+        width: 100%;
+    }
+
+    &__title {
+        font-weight: inherit;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 
     &__icon {
@@ -23,7 +53,7 @@ $block: button;
     }
 
     //size mods
-    &__size {
+    &_size {
         &_small {
             min-height: 32px;
         }
@@ -38,7 +68,7 @@ $block: button;
     }
 
     //color mods
-    &__color {
+    &_color {
         &_yellow {
             background-color: #{$orange};
         }
@@ -53,11 +83,11 @@ $block: button;
     }
 
     //hover color mods
-    &__hover-color {
+    &_hover-color {
         &_black:hover {
             background-color: #{$black};
 
-            .#{$block}__link {
+            .#{$block}__title {
                 color: #{$white};
             }
         }
@@ -68,23 +98,23 @@ $block: button;
     }
 
     //button font size
-    &__font-size {
-        &_medium .#{$block}__link {
+    &_font-size {
+        &_medium .#{$block}__title {
             font-size: 14px;
         }
 
-        &_large .#{$block}__link {
+        &_large .#{$block}__title {
             font-size: 16px;
             @include Ubuntu;
         }
     }
 
     //button font color
-    &__font-color {
+    &_font-color {
         &_white {
             color: #{$white};
 
-            .#{$block}__link {
+            .#{$block}__title {
                 color: #{$white};
             }
         }
@@ -92,16 +122,44 @@ $block: button;
         &_black {
             color: #{$black};
 
-            .#{$block}__link {
+            .#{$block}__title {
                 color: #{$black};
             }
 
             &:hover {
                 color: #{$white};
                 
-                .#{$block}__link {
+                .#{$block}__title {
                     color: #{$white};
                 }
+            }
+        }
+    }
+
+    //font-weight mods
+
+    &_font-weight {
+        &_normal {
+            .#{$block}__title {
+                font-weight: normal;
+            }
+        }
+
+        &_500 {
+            .#{$block}__title {
+                font-weight: 500;
+            }
+        }
+
+        &_600 {
+            .#{$block}__title {
+                font-weight: 600;
+            }
+        }
+
+        &_bold {
+            .#{$block}__title {
+                font-weight: bold;
             }
         }
     }

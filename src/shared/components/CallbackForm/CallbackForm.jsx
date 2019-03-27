@@ -4,13 +4,16 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { withFormik } from 'formik';
 import Input from '../../ui/Input/Input';
+import Button from '../../ui/Button/Button';
 import { callbackForm } from '../../utils/validationShemas';
 import { PHONE_MASK } from '../../constants/site-data';
 
 class CallbackForm extends Component {
     static propsTypes = {
         isValid: PropTypes.bool,
-        values: PropTypes.object,
+        values: PropTypes.objectOf(
+            PropTypes.string
+        ),
         errors: PropTypes.object,
         touched: PropTypes.object,
         handleBlur: PropTypes.func,
@@ -25,9 +28,11 @@ class CallbackForm extends Component {
     };
 
     renderSuccess() {
-        return <div className={cx('callback-form__success')}>
-            Спасибо за обращение, в ближайшее время мы свяжемся с вами !
-        </div>;
+        return (
+            <div className={cx('callback-form__success')}>
+                Спасибо за обращение, в ближайшее время мы свяжемся с вами !
+            </div>
+        );
     }
 
     renderNameInput() {
@@ -93,12 +98,14 @@ class CallbackForm extends Component {
 
         return (
             <div className={cx('callback-form__submit-wrapper')}>
-                <Input
+                <Button
+                    title="Отправить"
                     type="submit"
-                    value="Отправить"
                     className={cx('callback-form__submit')}
                     isDisabled={!isValid}
-                    itemsJustify="center"
+                    fontColor="white"
+                    size="large"
+                    fontWeight="500"
                 />
             </div>
         );
@@ -108,7 +115,7 @@ class CallbackForm extends Component {
         const { handleSubmit } = this.props;
 
         return (
-            <form name="callback" className={cx('callback-form')} onSubmit={handleSubmit}>
+            <form className={cx('callback-form')} onSubmit={handleSubmit}>
                 <div className={cx('callback-form__title')}>Обратная связь</div>
                 <div className={cx('callback-form__questions')}>
                     {this.renderNameInput()}
@@ -124,8 +131,10 @@ class CallbackForm extends Component {
 
         return (
             <div className={cx('callback-form__wrapper')}>
-                {isSuccess && this.renderSuccess()}
-                {!isSuccess && this.renderForm()}
+                {isSuccess ?
+                    this.renderSuccess() :
+                    this.renderForm()
+                }
             </div>
         );
     }
@@ -140,7 +149,6 @@ export default withFormik({
     validationSchema: callbackForm,
     handleSubmit: (values, { setSubmitting, setStatus }) => {
         setTimeout(() => {
-            console.log(JSON.stringify(values, null, 2));
             setSubmitting(false);
             setStatus({ isSuccess: true });
         }, 1000);

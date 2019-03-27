@@ -30,11 +30,11 @@ class MainPage extends Component {
 		return (
 			<>
 				<PageHeader fetchMenu={api.topMenu} />
-				<Contacts descriptionClick={this.handlePopupShow} />
+				<Contacts onDescriptionClick={this.handlePopupShow} />
 				<BlockWrapper
 					innerColor="white"
 					className={cx('main-page__header-wrapper')}
-					bottomBorder
+					bottomBorder={true}
 				>
 					<div className={cx('main-page__header-left')}>
 						<MainMenu fetchMenu={api.mainMenu} />
@@ -54,8 +54,7 @@ class MainPage extends Component {
 
 		return (
 			<ContextConsumer>
-				{api => {
-					return (
+				{api => (
 						<>
 							{this.renderPageHeader(api)}
 							<GoodsCarousel fetchGoodsCarousel={api.specialsCarousel} />
@@ -66,7 +65,7 @@ class MainPage extends Component {
 							}
 						</>
 					)
-				}}
+				}
 			</ContextConsumer>
 		)
 	}

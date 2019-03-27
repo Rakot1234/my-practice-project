@@ -12,7 +12,7 @@ import './Contacts.scss'
 
 class Contacts extends Component {
 	static propTypes = {
-		descriptionClick: PropTypes.func,
+		onDescriptionClick: PropTypes.func,
 	}
 
 	renderLogo() {
@@ -76,7 +76,7 @@ class Contacts extends Component {
 							phone="+7 (391) 2 88 88 75"
 							description="Заказать обратный звонок"
 							className={cx('contacts__phone')}
-							onClickDescription={this.props.descriptionClick}
+							onClickDescription={this.props.onDescriptionClick}
 						/>
 						{this.renderSocials()}
 						<Button

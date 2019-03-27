@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import './Button.scss';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Link from '../../ui/Link/Link';
 import Icon from '../../ui/Icon/Icon';
 
 class Button extends PureComponent {
@@ -11,55 +10,73 @@ class Button extends PureComponent {
         className: PropTypes.string,
         href: PropTypes.string,
         icon: PropTypes.string,
+        isDisabled: PropTypes.bool,
+        type: PropTypes.oneOf(['button', 'reset', 'submit']),
         size: PropTypes.oneOf(['small', 'medium', 'large']),
         color: PropTypes.oneOf(['yellow', 'red', 'gray']),
         hoverColor: PropTypes.oneOf(['black', 'sandy']),
         fontSize: PropTypes.oneOf(['medium', 'large']),
         fontColor: PropTypes.oneOf(['white', 'black']),
+        fontWeight: PropTypes.oneOf(['normal', '500', '600', 'bold']),
         onClick: PropTypes.func
     };
 
     static defaultProps = {
+        type: 'button',
         size: 'medium',
         color: 'yellow',
         hoverColor: 'black',
         fontSize: 'medium',
         fontColor: 'white',
+        fontWeight: 'normal',
         className: ''
     };
 
-    render() {
+    renderButton() {
         const {
             title,
-            className,
-            href,
             icon,
+            type,
             size,
             color,
             hoverColor,
             onClick,
             fontSize,
-            fontColor
+            fontColor,
+            fontWeight,
+            isDisabled
         } = this.props;
         const wrapperClasses = [
-            'button', 
-            className, 
-            `button__color_${color}`, 
-            `button__hover-color_${hoverColor}`,
-            `button__size_${size}`,
-            `button__font-size_${fontSize}`,
-            `button__font-color_${fontColor}`
+            'button',
+            `button_color_${color}`, 
+            `button_hover-color_${hoverColor}`,
+            `button_size_${size}`,
+            `button_font-size_${fontSize}`,
+            `button_font-color_${fontColor}`,
+            `button_font-weight_${fontWeight}`
         ];
 
         return (
-            <div
+            <button
                 className={cx(...wrapperClasses)}
                 onClick={onClick}
+                type={type}
+                disabled={isDisabled}
             >
                 {icon && <Icon icon={icon} className={cx('button__icon')} />}
-                {!href && title}
-                {href &&
-                    <Link href={href} title={title} className={cx('button__link')} />
+                <span className={cx('button__title')}>{title}</span>
+            </button>
+        );
+    }
+
+    render() {
+        const { href, className, isDisabled } = this.props;
+
+        return (
+            <div className={cx('button__wrapper', { 'button__wrapper_disabled': isDisabled }, className)}>
+                {href ?
+                    <a href={href} className={cx('button__link')}>{this.renderButton()}</a> :
+                    this.renderButton()
                 }
             </div>
         );

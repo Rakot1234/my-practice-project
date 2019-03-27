@@ -50,6 +50,8 @@ class MainMenuList extends PureComponent {
 		this.setState({ isChildShown: false })
 	}
 
+	createElementRef = parent => { this.parentElement = parent }
+
 	renderMenuElement(element, level) {
 		const { isChildShown, top, right } = this.state
 		const { id, title, link, children } = element
@@ -64,9 +66,7 @@ class MainMenuList extends PureComponent {
 				key={id}
 				onMouseEnter={this.handleMouseEnter}
 				onMouseLeave={this.handleMouseLeave}
-				ref={parent => {
-					this.parentElement = parent
-				}}
+				ref={this.createElementRef}
 			>
 				{!level && (
 					<>
