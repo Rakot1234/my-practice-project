@@ -1,0 +1,35 @@
+@import '../../../styles/variables.scss';
+
+$block: shop-advantage;
+
+.#{$block} {
+    width: 180px;
+    text-align: center;
+
+    &:not(:last-child) {
+        margin-right: 50px;
+    }
+
+    &__icon-wrapper {
+        display: flex;
+        flex: 1 1 auto;
+        justify-content: center;
+        align-items: center;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background-color: #{$orange};
+        transition: all 0.4s;
+        margin: 0 auto;
+        margin-bottom: 25px;
+
+        &:hover {
+            background-color: #{$black};
+        }
+    }
+
+    &__title {
+        font-size: 16px;
+        
+    }
+};

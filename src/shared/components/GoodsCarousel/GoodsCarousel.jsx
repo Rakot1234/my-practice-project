@@ -53,6 +53,7 @@ class GoodsCarousel extends PureComponent {
                         slidesToStop={3}
                         carouselParams={carouselParams}
                         view="goods"
+                        dotsNotShown={3}
                     >
                         {this.renderTiles()}
                     </ItemsCarousel>

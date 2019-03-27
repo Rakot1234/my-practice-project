@@ -1,0 +1,17 @@
+@import '../../../styles/variables.scss';
+
+$block: two-columened-block;
+
+.#{$block} {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+
+    &__left {
+        width: 44.8718%;
+    }
+
+    &__right {
+        width: 51%;
+    }
+};

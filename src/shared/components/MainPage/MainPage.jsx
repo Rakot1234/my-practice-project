@@ -8,9 +8,15 @@ import Slider from '../../components/HeadSlider/HeadSlider'
 import BrandsCarousel from '../../components/BrandsCarousel/BrandsCarousel'
 import CallbackForm from '../../components/CallbackForm/CallbackForm'
 import GoodsCarousel from '../../components/GoodsCarousel/GoodsCarousel'
+import ShopAdvantages from '../../components/ShopAdvantages/ShopAdvantages'
+import MainNews from '../../components/MainNewsList/MainNewsList'
+import MainReviews from '../../components/MainReviewsList/MainReviewsList'
 import BlockWrapper from '../../ui/BlockWrapper/BlockWrapper'
+import TwoColumns from '../../ui/TwoColumenedBlock/TwoColumenedBlock'
 import Popup from '../../ui/Popup/Popup'
 import { ContextConsumer } from '../../utils/context-provider'
+import texts from './constants/main-texts'
+import images from '../../constants/images'
 import './MainPage.scss'
 
 class MainPage extends Component {
@@ -22,9 +28,29 @@ class MainPage extends Component {
 		}
 	}
 
-	handlePopupShow = () => {
-		this.setState(({ isPopupOpened }) => ({ isPopupOpened: !isPopupOpened }))
-    }
+	handlePopupShow = () => this.setState(({ isPopupOpened }) => ({ isPopupOpened: !isPopupOpened }))
+
+	renderMainAbout() {
+		const { ABOUT_TITLE, ABOUT_TEXT } = texts;
+
+		return (
+			<div className={cx('main-page__about')}>
+				<div className={cx('main-page__about-title')}>{ABOUT_TITLE}</div>
+				<div className={cx('main-page__about-text')}>{ABOUT_TEXT}</div>
+			</div>
+		);
+	}
+
+	renderMainPartners() {
+		return (
+			<div className={cx('main__partners')}>
+				<div className={cx('main-page__partners-title')}>{texts.PARTNERS_TITLE}</div>
+				<div classname={cx('main-page__partners-image-wrapper')}>
+					<img src={images.PARTNER} className={cx('main-page__partners-image')} alt="" />
+				</div>
+			</div>
+		);
+	}
 
 	renderPageHeader(api) {
 		return (
@@ -49,6 +75,28 @@ class MainPage extends Component {
 		)
 	}
 
+	renderPageBody(api) {
+		return (
+			<>
+				<BlockWrapper innerColor="white" className={cx('main-page__body-wrapper')}>
+					<GoodsCarousel fetchGoodsCarousel={api.specialsCarousel} />
+				</BlockWrapper>
+				<BlockWrapper innerColor="gray" className={cx('main-page__body-wrapper')}>
+					<ShopAdvantages />
+				</BlockWrapper>
+				<BlockWrapper innerColor="white" className={cx('main-page__body-wrapper')}>
+					<GoodsCarousel fetchGoodsCarousel={api.hitsCarousel} />
+				</BlockWrapper>
+				<BlockWrapper innerColor="gray" className={cx('main-page__body-wrapper')}>
+					<TwoColumns left={this.renderMainAbout()} right={<MainNews />}/>
+				</BlockWrapper>
+				<BlockWrapper innerColor="white" className={cx('main-page__body-wrapper')}>
+					<TwoColumns left={this.renderMainPartners()} right={<MainReviews />}/>
+				</BlockWrapper>
+			</>
+		);
+	}
+
 	render() {
 		const { isPopupOpened } = this.state
 
@@ -57,7 +105,7 @@ class MainPage extends Component {
 				{api => (
 						<>
 							{this.renderPageHeader(api)}
-							<GoodsCarousel fetchGoodsCarousel={api.specialsCarousel} />
+							{this.renderPageBody(api)}
 							{isPopupOpened &&
 								<Popup handleClose={this.handlePopupShow}>
 									<CallbackForm />

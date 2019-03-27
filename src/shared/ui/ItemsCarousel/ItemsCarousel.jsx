@@ -11,6 +11,7 @@ class ItemsCarousel extends Component {
         children: PropTypes.node,
         isCustomControls: PropTypes.bool,
         slidesToStop: PropTypes.number,
+        dotsNotShown: PropTypes.number,
         carouselParams: PropTypes.object.isRequired,
         view: PropTypes.oneOf(['brands', 'goods'])
     };
@@ -88,7 +89,8 @@ class ItemsCarousel extends Component {
             carouselParams,
             children,
             view,
-            isCustomControls
+            isCustomControls,
+            dotsNotShown
         } = this.props;
         const { currentSlide } = this.state;
 
@@ -105,7 +107,7 @@ class ItemsCarousel extends Component {
                     {...carouselParams}
                     selectedItem={currentSlide}
                     onChange={this.handleSlideChange}
-                    className={cx('items-carousel')}
+                    className={cx('items-carousel', `items-carousel_no-dots_${dotsNotShown}`)}
                 >
                     {children}
                 </Carousel>

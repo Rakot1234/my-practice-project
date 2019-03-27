@@ -1,0 +1,29 @@
+@import '../../../styles/variables.scss';
+
+$block: main-news-list;
+
+.#{$block} {
+    &__title-row {
+        display: flex;
+        flex: 1 1 auto;
+        align-items: center;
+        margin-bottom: 48px;
+    }
+
+    &__title {
+        font-size: 32px;
+        margin-right: 26px;
+    }
+
+    &__all-link {
+        display: block;
+        color: #{$black};
+        background-color: #{$white};
+        border-radius: 13.5px;
+        padding: 8px 19px 7px 15px;
+
+        &:hover {
+            color: #{$lightBlack};
+        }
+    }
+};

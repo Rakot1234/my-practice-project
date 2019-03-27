@@ -15,7 +15,7 @@ class ProductTile extends Component {
         image: PropTypes.string,
         rating: PropTypes.number,
         title: PropTypes.string,
-        discount: PropTypes.number,
+        discount: PropTypes.string,
         price: PropTypes.string,
         amount: PropTypes.number
     };

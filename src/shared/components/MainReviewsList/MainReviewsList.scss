@@ -1,0 +1,11 @@
+@import '../../../styles/variables.scss';
+
+$block: main-reviews-list;
+
+.#{$block} {
+    &__title {
+        font-size: 32px;
+        margin-bottom: 40px;
+        @include Ubuntu;
+    }
+}

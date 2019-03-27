@@ -1,0 +1,19 @@
+@import '../../../styles/variables.scss';
+
+$block: shop-advantages;
+
+.#{$block} {
+    &__title {
+        padding-bottom: 60px;
+        font-size: 32px;
+        text-align: center;
+        @include Ubuntu;
+    }
+
+    &__list {
+        display: flex;
+        flex: 1 1 auto;
+        justify-content: center;
+        align-items: flex-start;
+    }
+};
