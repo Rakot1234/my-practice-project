@@ -14,6 +14,7 @@ import MainReviews from '../../components/MainReviewsList/MainReviewsList'
 import BlockWrapper from '../../ui/BlockWrapper/BlockWrapper'
 import TwoColumns from '../../ui/TwoColumenedBlock/TwoColumenedBlock'
 import Popup from '../../ui/Popup/Popup'
+import YandexMap from '../../ui/YandexMap/YandexMap';
 import { ContextConsumer } from '../../utils/context-provider'
 import texts from './constants/main-texts'
 import images from '../../constants/images'
@@ -45,7 +46,7 @@ class MainPage extends Component {
 		return (
 			<div className={cx('main__partners')}>
 				<div className={cx('main-page__partners-title')}>{texts.PARTNERS_TITLE}</div>
-				<div classname={cx('main-page__partners-image-wrapper')}>
+				<div className={cx('main-page__partners-image-wrapper')}>
 					<img src={images.PARTNER} className={cx('main-page__partners-image')} alt="" />
 				</div>
 			</div>
@@ -90,13 +91,25 @@ class MainPage extends Component {
 				<BlockWrapper innerColor="gray" className={cx('main-page__body-wrapper')}>
 					<TwoColumns left={this.renderMainAbout()} right={<MainNews />}/>
 				</BlockWrapper>
-				<BlockWrapper innerColor="white" className={cx('main-page__body-wrapper')}>
+				<BlockWrapper
+					innerColor="white"
+					className={cx('main-page__body-wrapper')}
+					bottomBorder={true}
+				>
 					<TwoColumns left={this.renderMainPartners()} right={<MainReviews />}/>
 				</BlockWrapper>
 			</>
 		);
 	}
 
+	renderYandexMap() {
+		return (
+			<div className={cx('main-page__map-wrapper')}>
+				<YandexMap />
+			</div>
+		);
+	}
+	
 	render() {
 		const { isPopupOpened } = this.state
 
@@ -106,6 +119,7 @@ class MainPage extends Component {
 						<>
 							{this.renderPageHeader(api)}
 							{this.renderPageBody(api)}
+							{this.renderYandexMap()}
 							{isPopupOpened &&
 								<Popup handleClose={this.handlePopupShow}>
 									<CallbackForm />

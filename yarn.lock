@@ -8479,6 +8479,11 @@ react-dev-utils@^7.0.3:
     strip-ansi "5.0.0"
     text-table "0.2.0"
 
+react-display-name@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/react-display-name/-/react-display-name-0.2.4.tgz#e2a670b81d79a2204335510c01246f4c92ff12cf"
+  integrity sha512-zvU6iouW+SWwHTyThwxGICjJYCMZFk/6r/+jmOdC7ntQoPlS/Pqb81MkxaMf2bHTSq9TN3K3zX2/ayMW/jCtyA==
+
 react-dom@^16.8.3:
   version "16.8.3"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.3.tgz#ae236029e66210783ac81999d3015dfc475b9c32"
@@ -8582,6 +8587,15 @@ react-scripts@2.1.5:
     workbox-webpack-plugin "3.6.3"
   optionalDependencies:
     fsevents "1.2.4"
+
+react-yandex-maps@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-yandex-maps/-/react-yandex-maps-3.0.2.tgz#a0200b1f797fb2d946f2c4576e829584279c1191"
+  integrity sha512-LOknN+30yWcWmlOCzKqUWGvWQhZKMBw8t6MyijvfzzlFvgyOwW9JokQOm+qBHiejUBppeNsPuInD9qYRL2bIEg==
+  dependencies:
+    create-react-context "^0.2.2"
+    prop-types "^15.6.2"
+    react-display-name "^0.2.4"
 
 react@^16.8.3:
   version "16.8.3"

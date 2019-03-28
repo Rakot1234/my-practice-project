@@ -21,7 +21,7 @@ class MainReviewsList extends PureComponent {
     render() {
         return (
             <div className={cx('main-reviews-list')}>
-                <div classname={cx('main-reviews-list__title')}>{texts.TITLE}</div>
+                <div className={cx('main-reviews-list__title')}>{texts.TITLE}</div>
                 {this.renderReviews()}
             </div>
         );

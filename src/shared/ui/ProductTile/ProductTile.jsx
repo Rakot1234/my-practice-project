@@ -15,7 +15,7 @@ class ProductTile extends Component {
         image: PropTypes.string,
         rating: PropTypes.number,
         title: PropTypes.string,
-        discount: PropTypes.string,
+        discount: PropTypes.number,
         price: PropTypes.string,
         amount: PropTypes.number
     };
@@ -64,7 +64,7 @@ class ProductTile extends Component {
                         </div>
                     </div>
                 </div>
-                {discount &&
+                {!!discount &&
                     <div className={cx('product-tile__discount')}>
                         {`${texts.DISCOUNT} ${discount}%`}
                     </div>
@@ -75,7 +75,7 @@ class ProductTile extends Component {
 
     renderProductInfo() {
         const { title, price, discount } = this.props;
-        const discountPrice = discount ? Number(price) * ( (100 - Number(discount)) / 100) : price;
+        const discountPrice = !!discount ? Number(price) * ( (100 - Number(discount)) / 100) : price;
 
         return (
             <>
@@ -84,7 +84,7 @@ class ProductTile extends Component {
                     <div className={cx('product-tile__price')}>
                         {`${discountPrice} ₽`}
                     </div>
-                    {discount && 
+                    {!!discount && 
                         <div className={cx('product-tile__old-price')}>
                             {`${price} ₽`}
                         </div>

@@ -14,7 +14,7 @@
             "image": "boschMachine",
             "rating": 4,
             "title": "Шлифмашинка эксц. 400Вт, 12000 об/м, d-150мм, 2.4кг, GEX 125-150 AVE BOSCH",
-            "discount": "",
+            "discount": 0,
             "price": "25000",
             "amount": 5
         },
@@ -24,7 +24,7 @@
             "image": "makiteMachine",
             "rating": 5,
             "title": "Электролобзик 720Вт, 800-2800об/м, ход-26мм, рез-135мм, 2.5кг, маятник., кейс пл MAKITA",
-            "discount": "",
+            "discount": 0,
             "price": "20000",
             "amount": 7
         },
@@ -34,7 +34,7 @@
             "image": "makitaProfMachine",
             "rating": 3,
             "title": "Электропила циркулярная 1.2кВт, 160мм, глубина-55мм, 5200об/м, 3.5кг, GKS 55 Professional  BOSCH",
-            "discount": "",
+            "discount": 0,
             "price": "15000",
             "amount": 10
         },
@@ -44,7 +44,7 @@
             "image": "hitachiMachine",
             "rating": 2,
             "title": "Фрезер  1,15кВт, 25000об/мин, ход-60мм, цанга-8мм, вес 3.6кг, HITACHI",
-            "discount": "",
+            "discount": 0,
             "price": "20000",
             "amount": 0
         },
@@ -54,7 +54,7 @@
             "image": "boschMachine",
             "rating": 1,
             "title": "Шлифмашинка эксц. 400Вт, 12000 об/м, d-150мм, 2.4кг, GEX 125-150 AVE  BOSCH",
-            "discount": "",
+            "discount": 0,
             "price": "7000",
             "amount": 2
         },
@@ -64,7 +64,7 @@
             "image": "makiteMachine",
             "rating": 5,
             "title": "Электролобзик 720Вт, 800-2800об/м, ход-26мм, рез-135мм, 2.5кг, маятник., кейс пл MAKITA",
-            "discount": "",
+            "discount": 0,
             "price": "7500",
             "amount": 4
         },
@@ -74,7 +74,7 @@
             "image": "makitaProfMachine",
             "rating": 3,
             "title": "Электропила циркулярная 1.2кВт, 160мм, глубина-55мм, 5200об/м, 3.5кг, GKS 55 Professional  BOSCH",
-            "discount": "",
+            "discount": 0,
             "price": "4000",
             "amount": 6
         },
@@ -84,7 +84,7 @@
             "image": "hitachiMachine",
             "rating": 2,
             "title": "Фрезер  1,15кВт, 25000об/мин, ход-60мм, цанга-8мм, вес 3.6кг, HITACHI",
-            "discount": "",
+            "discount": 0,
             "price": "12000",
             "amount": 8
         }
