@@ -4,5 +4,7 @@ export default {
     MAIN_MENU: `${SERVER}/main-menu/`,
     TOP_MENU: `${SERVER}/top-menu/`,
     SLIDER: `${SERVER}/slider-params/`,
-    BRANDS_CAROUSEL: `${SERVER}/brands-carousel/`
+    BRANDS_CAROUSEL: `${SERVER}/brands-carousel/`,
+    SPECIALS_CAROUSEL: `${SERVER}/specials-carousel/`,
+    HITS_CAROUSEL: `${SERVER}/hits-carousel/`,
 };

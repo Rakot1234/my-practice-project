@@ -1,0 +1,63 @@
+@import '../../../styles/variables.scss';
+
+$block: callback-form;
+
+.#{$block} {
+    &__wrapper {
+        width: 400px;
+    }
+
+    &__title {
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    &__input {
+        font-size: 14px;
+        padding: 5px 10px;
+        line-height: 24px;
+        width: 50%
+    }
+
+    &__questions {
+        margin-bottom: 20px;
+    }
+
+    &__input-wrapper {
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__submit {
+        color: #{$white};
+        background-color: #{$orange};
+        border: none;
+        border-radius: 50px;
+        transition: all 0.4s;
+        box-sizing: border-box;
+        width: 180px;
+        margin: 0 auto;
+
+        &:hover {
+            background-color: #{$sandy};
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: default;
+
+            &:hover {
+                background-color: #{$orange};
+            }
+        }
+    }
+
+    &__success {
+        font-size: 15px;
+        text-align: center;
+        font-weight: 600;
+    }
+};

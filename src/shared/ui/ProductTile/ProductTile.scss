@@ -1,0 +1,157 @@
+@import '../../../styles/variables.scss';
+
+$block: product-tile;
+
+.#{$block} {
+    box-shadow: 0 0 0 1px #{$lightGray};
+    padding: 12px 15px 15px;
+    box-sizing: border-box;
+    height: 100%;
+
+    &__image-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        margin-bottom: 5px;
+    }
+
+    &__icons-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    &__icons {
+        display: flex;
+    }
+
+    &__image {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    &__code {
+        font-size: 12px;
+        color: #{$gray};
+    }
+
+    &__equality-icon {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        background: url('./i/tile-equality.png') no-repeat center;
+        margin-right: 10px;
+
+        &:hover {
+            background: url('./i/tile-equality-active.png') no-repeat center;
+        }
+    }
+
+    &__waiting-icon {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        background: url('./i/tile-waiting.png') no-repeat center;
+
+        &:hover {
+            background: url('./i/tile-waiting-active.png') no-repeat center;
+        }
+    }
+
+    &__rating-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 17px;
+    }
+
+    &__discount {
+        position: relative;
+        background-color: #{$red};
+        font-size: 13px;
+        @include Ubuntu;
+        font-weight: bold;
+        padding: 7px 8px 6px 11px;
+        color: #{$white};
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        left: 16px;
+    }
+
+    &__title {
+        margin-bottom: 15px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    &__price-row {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 17px;
+    }
+
+    &__price {
+        font-size: 18px;
+        @include Ubuntu;
+        font-weight: 500;
+        margin-right: 35px;
+    }
+
+    &__old-price {
+        font-size: 12px;
+        @include Ubuntu;
+        color: #{$gray};
+        text-decoration: line-through;
+    }
+
+    &__amount {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        width: 94px;
+        min-width: 94px;
+        height: 35px;
+        font-size: 16px;
+        @include Ubuntu;
+        box-shadow: 0 0 0 1px #{$slightGray};
+        border-radius: 50px;
+        margin-right: 10px;
+    }
+
+    &__amount-icon {
+        cursor: pointer;
+    }
+
+    &__amount-minus {
+        margin-left: 14px;
+    }
+
+    &__amount-plus {
+        margin-right: 14px;
+    }
+
+    &__buy-wrapper {
+        display: flex;
+    }
+
+    &__star {
+        position: relative;
+        width: 13px;
+        height: 12px;
+        padding-right: 3px;
+        box-sizing: content-box;
+        background: url('./i/rating-star.png') no-repeat center;
+        cursor: pointer;
+
+        & > & {
+            left: 16px;
+        }
+
+        &:hover {
+            background: url('./i/rating-star-active.png') no-repeat center;
+        }
+    }
+};

@@ -17,4 +17,20 @@ $block: main-page;
     &__header-right {
         width: calc(100% - 300px);
     }
+
+    &__about-title {
+        font-size: 32px;
+        margin-bottom: 48px;
+        @include Ubuntu;
+    }
+
+    &__about-text {
+        line-height: 24px;
+    }
+
+    &__partners-title {
+        font-size: 32px;
+        margin-bottom: 40px;
+        @include Ubuntu;
+    }
 }

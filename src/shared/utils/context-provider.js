@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import dataRequest from './api';
-import routes from '../../shared/constants/routes';
+import routes from '../constants/routes';
 
 const ProjectContext = React.createContext({});
 
@@ -17,33 +17,23 @@ class ContextProvider extends Component {
             mainMenu: this.fetchMainMenu,
             topMenu: this.fetchTopMenu,
             brandsCarousel: this.fetchBrandsCarousel,
-            sliderParams: this.fetchSliderParams
+            sliderParams: this.fetchSliderParams,
+            specialsCarousel: this.fetchSpecialsCarousel,
+            hitsCarousel: this.fetchHitsCarousel
         };
     }
 
-    fetchMainMenu = () => {
-        const { MAIN_MENU } = routes;
+    fetchMainMenu = () => dataRequest(routes.MAIN_MENU);
 
-        return dataRequest(MAIN_MENU);
-    }
+    fetchTopMenu = () => dataRequest(routes.TOP_MENU);
 
-    fetchTopMenu = () => {
-        const { TOP_MENU } = routes;
+    fetchBrandsCarousel = () => dataRequest(routes.BRANDS_CAROUSEL);
 
-        return dataRequest(TOP_MENU);
-    }
+    fetchSliderParams = () => dataRequest(routes.SLIDER);
 
-    fetchBrandsCarousel = () => {
-        const { BRANDS_CAROUSEL } = routes;
+    fetchSpecialsCarousel = () => dataRequest(routes.SPECIALS_CAROUSEL);
 
-        return dataRequest(BRANDS_CAROUSEL);
-    }
-
-    fetchSliderParams = () => {
-        const { SLIDER } = routes;
-
-        return dataRequest(SLIDER);       
-    }
+    fetchHitsCarousel = () => dataRequest(routes.HITS_CAROUSEL);
 
     render() {
         return (

@@ -1,0 +1,31 @@
+@import '../../../styles/variables.scss';
+
+$block: main-news;
+
+.#{$block} {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: flex-start;
+
+    &__image-wrapper {
+        margin-right: 36px;
+
+        &:not(:last-child) {
+            margin-bottom: 28px;
+        }
+    }
+
+    &__data {
+        display: inline-block;
+        font-size: 12px;
+        padding: 6px 13px 5px 10px;
+        background-color: #{$mediumGray};
+        border-radius: 13.5px;
+        margin-bottom: 12px;
+    }
+
+    &__description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+};

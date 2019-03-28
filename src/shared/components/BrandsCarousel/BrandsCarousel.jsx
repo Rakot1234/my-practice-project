@@ -40,7 +40,7 @@ class BrandsCarousel extends Component {
         const { items = [] } = this.state;
 
         return (
-            items.map((element) => {
+            items.map(element => {
                 const { id, alt, image, link } = element;
 
                 return (
@@ -68,6 +68,7 @@ class BrandsCarousel extends Component {
                         carouselParams={carouselParams}
                         isCustomControls
                         slidesToStop={3}
+                        view="brands"
                     >
                         {this.renderBrands()}
                     </Carousel>
