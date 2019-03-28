@@ -70,14 +70,44 @@ class Button extends PureComponent {
     }
 
     render() {
-        const { href, className, isDisabled } = this.props;
+        const {
+            title,
+            icon,
+            type,
+            size,
+            color,
+            hoverColor,
+            onClick,
+            fontSize,
+            fontColor,
+            fontWeight,
+            isDisabled,
+            className,
+            href
+        } = this.props;
+        const wrapperClasses = [
+            'button',
+            `button_color_${color}`, 
+            `button_hover-color_${hoverColor}`,
+            `button_size_${size}`,
+            `button_font-size_${fontSize}`,
+            `button_font-color_${fontColor}`,
+            `button_font-weight_${fontWeight}`
+        ];
+        const ElementType = href ? 'a' : 'button';
 
         return (
             <div className={cx('button__wrapper', { 'button__wrapper_disabled': isDisabled }, className)}>
-                {href ?
-                    <a href={href} className={cx('button__link')}>{this.renderButton()}</a> :
-                    this.renderButton()
-                }
+                <ElementType
+                    className={cx(...wrapperClasses)}
+                    onClick={onClick}
+                    type={type}
+                    disabled={isDisabled}
+                    href={href}
+                >
+                    {icon && <Icon icon={icon} className={cx('button__icon')} />}
+                    <span className={cx('button__title')}>{title}</span>
+                </ElementType>
             </div>
         );
     }
