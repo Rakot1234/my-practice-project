@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> Renders button component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Button
+    className=""
+    color="yellow"
+    fontColor="white"
+    fontSize="medium"
+    fontWeight="normal"
+    hoverColor="black"
+    size="medium"
+    title="Кнопка"
+    type="button"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <button
+        className="button button_color_yellow button_hover-color_black button_size_medium button_font-size_medium button_font-color_white button_font-weight_normal"
+        type="button"
+      >
+        <span
+          className="button__title"
+        >
+          Кнопка
+        </span>
+      </button>,
+      "className": "button__wrapper",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          undefined,
+          <span
+            className="button__title"
+          >
+            Кнопка
+          </span>,
+        ],
+        "className": "button button_color_yellow button_hover-color_black button_size_medium button_font-size_medium button_font-color_white button_font-weight_normal",
+        "disabled": undefined,
+        "href": undefined,
+        "onClick": undefined,
+        "type": "button",
+      },
+      "ref": null,
+      "rendered": Array [
+        undefined,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Кнопка",
+            "className": "button__title",
+          },
+          "ref": null,
+          "rendered": "Кнопка",
+          "type": "span",
+        },
+      ],
+      "type": "button",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <button
+          className="button button_color_yellow button_hover-color_black button_size_medium button_font-size_medium button_font-color_white button_font-weight_normal"
+          type="button"
+        >
+          <span
+            className="button__title"
+          >
+            Кнопка
+          </span>
+        </button>,
+        "className": "button__wrapper",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            undefined,
+            <span
+              className="button__title"
+            >
+              Кнопка
+            </span>,
+          ],
+          "className": "button button_color_yellow button_hover-color_black button_size_medium button_font-size_medium button_font-color_white button_font-weight_normal",
+          "disabled": undefined,
+          "href": undefined,
+          "onClick": undefined,
+          "type": "button",
+        },
+        "ref": null,
+        "rendered": Array [
+          undefined,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Кнопка",
+              "className": "button__title",
+            },
+            "ref": null,
+            "rendered": "Кнопка",
+            "type": "span",
+          },
+        ],
+        "type": "button",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;
