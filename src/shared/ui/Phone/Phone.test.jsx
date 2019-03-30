@@ -12,6 +12,6 @@ describe('<Phone />', () => {
         const onClick = jest.fn();
         const wrapper = shallow(<Phone phone="8-111-11-11" onClickDescription={onClick} />);
         wrapper.find('.phone__description').simulate('click');
-        expect(onClick.mock.calls).toHaveLength(1);
+        expect(onClick).toHaveBeenCalled();
     });
 });

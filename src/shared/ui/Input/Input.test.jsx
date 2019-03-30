@@ -12,6 +12,6 @@ describe('<Input />', () => {
         const onChange = jest.fn();
         const wrapper = shallow(<Input onChange={onChange} />);
         wrapper.find('.input__input').simulate('change');
-        expect(onChange.mock.calls).toHaveLength(1);
+        expect(onChange).toHaveBeenCalled();
     });
 });

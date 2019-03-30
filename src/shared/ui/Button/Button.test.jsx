@@ -12,7 +12,7 @@ describe('<Button />', () => {
         const buttonClick = jest.fn();
         const wrapper = shallow(<Button title="Кнопка" onClick={buttonClick} />);
         wrapper.find('.button').simulate('click');
-        expect(buttonClick.mock.calls).toHaveLength(1);
+        expect(buttonClick).toHaveBeenCalled();
     });
 
     it('Renders as link', () => {

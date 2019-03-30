@@ -17,6 +17,6 @@ describe('<Link />', () => {
         const onClick = jest.fn();
         const wrapper = shallow(<Link {...props} onClick={onClick} />);
         wrapper.find('.link__element').simulate('click');
-        expect(onClick.mock.calls).toHaveLength(1);
+        expect(onClick).toHaveBeenCalled();
     })
 });
