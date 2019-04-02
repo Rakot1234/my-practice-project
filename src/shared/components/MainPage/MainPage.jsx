@@ -14,7 +14,7 @@ import MainReviews from '../../components/MainReviewsList/MainReviewsList'
 import BlockWrapper from '../../ui/BlockWrapper/BlockWrapper'
 import TwoColumns from '../../ui/TwoColumenedBlock/TwoColumenedBlock'
 import Popup from '../../ui/Popup/Popup'
-import YandexMap from '../../ui/YandexMap/YandexMap';
+import MainMap from '../../components/MainMap/MainMap'
 import { ContextConsumer } from '../../utils/context-provider'
 import texts from './constants/main-texts'
 import images from '../../constants/images'
@@ -101,14 +101,6 @@ class MainPage extends Component {
 			</>
 		);
 	}
-
-	renderYandexMap() {
-		return (
-			<div className={cx('main-page__map-wrapper')}>
-				<YandexMap />
-			</div>
-		);
-	}
 	
 	render() {
 		const { isPopupOpened } = this.state
@@ -119,7 +111,7 @@ class MainPage extends Component {
 						<>
 							{this.renderPageHeader(api)}
 							{this.renderPageBody(api)}
-							{this.renderYandexMap()}
+							<MainMap fetchMap={api.mainYmap} />
 							{isPopupOpened &&
 								<Popup handleClose={this.handlePopupShow}>
 									<CallbackForm />

@@ -7,4 +7,5 @@ export default {
     BRANDS_CAROUSEL: `${SERVER}/brands-carousel/`,
     SPECIALS_CAROUSEL: `${SERVER}/specials-carousel/`,
     HITS_CAROUSEL: `${SERVER}/hits-carousel/`,
+    MAIN_YMAP: `${SERVER}/ymap-list/`,
 };

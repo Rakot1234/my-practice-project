@@ -44,6 +44,10 @@ app.get('/hits-carousel/', async (req, res) => {
   res.json(await getFileJson(`${__dirname}/data/hits-carousel.json`));
 });
 
+app.get('/ymap-list/', async (req, res) => {
+  res.json(await getFileJson(`${__dirname}/data/ymap-list.json`));
+});
+
 app.listen(1500);
 
 console.log('Сервер стартовал!');
