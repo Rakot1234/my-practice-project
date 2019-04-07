@@ -80,6 +80,10 @@ $block: button;
         &_gray {
             background-color: #{$mediumGray};
         }
+
+        &_black {
+            background-color: #{$black};
+        }
     }
 
     //hover color mods

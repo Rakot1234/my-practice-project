@@ -48,6 +48,10 @@ app.get('/ymap-list/', async (req, res) => {
   res.json(await getFileJson(`${__dirname}/data/ymap-list.json`));
 });
 
+app.get('/footer-menu/', async (req, res) => {
+  res.json(await getFileJson(`${__dirname}/data/footer-menu.json`));
+});
+
 app.listen(1500);
 
 console.log('Сервер стартовал!');

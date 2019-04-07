@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ItemsCarousel from '../../ui/ItemsCarousel/ItemsCarousel';
 import ProductTile from '../../ui/ProductTile/ProductTile';
+import { ContextConsumer } from '../../utils/context-provider';
 
 class GoodsCarousel extends PureComponent {
     static propTypes = {
@@ -35,30 +36,34 @@ class GoodsCarousel extends PureComponent {
         });
     }
 
-    renderTiles() {
+    renderTiles(storage) {
         const { carouselItems } = this.state;
 
-        return carouselItems.map(tile => ( <ProductTile { ...tile} key={tile.id} />));
+        return carouselItems.map(tile => (<ProductTile { ...tile} key={tile.id} storage={storage}/>));
     }
 
     render() {
         const { carouselParams, isFetching } = this.state;
 
         return (
-            <div className={cx('goods-carousel__wrapper')}>
-                {!isFetching &&
-                    <ItemsCarousel
-                        title="Спецпредложения"
-                        isCustomControls
-                        slidesToStop={3}
-                        carouselParams={carouselParams}
-                        view="goods"
-                        dotsNotShown={3}
-                    >
-                        {this.renderTiles()}
-                    </ItemsCarousel>
-                }
-            </div>
+            <ContextConsumer>
+                {storage => (
+                    <div className={cx('goods-carousel__wrapper')}>
+                        {!isFetching &&
+                            <ItemsCarousel
+                                title="Спецпредложения"
+                                isCustomControls
+                                slidesToStop={3}
+                                carouselParams={carouselParams}
+                                view="goods"
+                                dotsNotShown={3}
+                            >
+                                {this.renderTiles(storage)}
+                            </ItemsCarousel>
+                        }
+                    </div>
+                )}
+            </ContextConsumer>
         );
     }
 };

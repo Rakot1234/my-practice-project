@@ -20,7 +20,11 @@ class ContextProvider extends Component {
             sliderParams: this.fetchSliderParams,
             specialsCarousel: this.fetchSpecialsCarousel,
             hitsCarousel: this.fetchHitsCarousel,
-            mainYmap: this.fetchMainYmap
+            mainYmap: this.fetchMainYmap,
+            footerMenu: this.fetchFooterMenu,
+            waitingList: {},
+            compareList: {},
+            cart: {}
         };
     }
 
@@ -37,6 +41,8 @@ class ContextProvider extends Component {
     fetchHitsCarousel = () => dataRequest(routes.HITS_CAROUSEL);
 
     fetchMainYmap = () => dataRequest(routes.MAIN_YMAP);
+
+    fetchFooterMenu = () => dataRequest(routes.FOOTER_MENU);
 
     render() {
         return (

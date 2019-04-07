@@ -4,7 +4,6 @@ exports[`<Phone /> Render phone field 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Phone
-    className=" "
     phone="8-111-11-11"
     view="header"
   />,
@@ -33,7 +32,7 @@ ShallowWrapper {
           className="phone__description"
         />,
       ],
-      "className": "phone   phone__view-header",
+      "className": "phone phone_view_header",
     },
     "ref": null,
     "rendered": Array [
@@ -84,7 +83,7 @@ ShallowWrapper {
             className="phone__description"
           />,
         ],
-        "className": "phone   phone__view-header",
+        "className": "phone phone_view_header",
       },
       "ref": null,
       "rendered": Array [
@@ -131,6 +130,7 @@ ShallowWrapper {
           "getChildContext": Object {
             "calledByRenderer": false,
           },
+          "getDerivedStateFromError": true,
           "getDerivedStateFromProps": Object {
             "hasShouldComponentUpdateBug": false,
           },

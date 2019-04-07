@@ -153,4 +153,39 @@ $block: items-carousel;
             display: none;
         }
     }
+
+    &__wrapper_view_ymaps {
+        margin: 0;
+
+        .#{$block} {
+            padding: 40px 5px;
+
+            &__arrow {
+                bottom: initial;
+                top: -50px;
+
+                &-prev {
+                    left: initial;
+                    right: 5vw;
+                }
+                
+                &-next {
+                    right: 0.3vw;
+                }
+            }
+        }
+
+        .slide {
+            min-width: 369px;
+            margin-right: 27px;
+        }
+
+        .slider {
+            align-items: stretch;
+        }
+
+        .control-arrow {
+            display: none;
+        }
+    }
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import './TwoColumenedBlock';
 import TwoColumenedBlock from './TwoColumenedBlock';
 
 describe('<TwoColumenedBlock />', () => {

@@ -7,3 +7,11 @@ export const pageOverflow = display => {
 export const removeLetters = string => (
     string.replace(/\D/g, '')
 );
+
+export const scrollTo = (scrollX, scrollY) => {
+    window.scrollTo({
+        left: scrollX,
+        top: scrollY,
+        behavior: "smooth"
+    })
+};

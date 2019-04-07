@@ -8,7 +8,7 @@ class BlockWrapper extends PureComponent {
         className: PropTypes.string,
         bottomBorder: PropTypes.bool,
         children: PropTypes.node,
-        innerColor: PropTypes.oneOf(['transparent', 'white', 'gray']),
+        innerColor: PropTypes.oneOf(['transparent', 'white', 'gray', 'black']),
     };
 
     static defaultProps = {

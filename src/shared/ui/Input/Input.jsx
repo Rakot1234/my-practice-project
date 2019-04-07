@@ -57,11 +57,11 @@ class Input extends Component {
         } = this.props;
 
         return (
-            <label className={cx('input', `input_justify_${itemsJustify}`)}>
+            <label className={cx('input__label', `input__label_justify_${itemsJustify}`)}>
                 {title && <span className={cx('input__title')}>{title}</span>}
                 <InputMask
                     type={type}
-                    className={cx('input__input', className)}
+                    className={cx('input', className)}
                     placeholder={placeholder}
                     required={isRequired}
                     name={name}

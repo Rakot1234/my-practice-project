@@ -15,6 +15,7 @@ import BlockWrapper from '../../ui/BlockWrapper/BlockWrapper'
 import TwoColumns from '../../ui/TwoColumenedBlock/TwoColumenedBlock'
 import Popup from '../../ui/Popup/Popup'
 import MainMap from '../../components/MainMap/MainMap'
+import Footer from '../../components/PageFooter/PageFooter'
 import { ContextConsumer } from '../../utils/context-provider'
 import texts from './constants/main-texts'
 import images from '../../constants/images'
@@ -112,6 +113,7 @@ class MainPage extends Component {
 							{this.renderPageHeader(api)}
 							{this.renderPageBody(api)}
 							<MainMap fetchMap={api.mainYmap} />
+							<Footer fetchMenu={api.footerMenu} onCallbackClick={this.handlePopupShow}/>
 							{isPopupOpened &&
 								<Popup handleClose={this.handlePopupShow}>
 									<CallbackForm />

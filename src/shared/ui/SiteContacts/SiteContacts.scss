@@ -1,0 +1,61 @@
+@import '../../../styles/variables.scss';
+
+$block: site-contacts;
+
+.#{$block} {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    margin-right: 58px;
+
+    &__socials-wrapper {
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-bottom: 13px;
+        }
+    }
+
+    &__socials-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 13px;
+    }
+
+    &__socials-link {
+        color: #{$black};
+    }
+    
+    &__phone {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    // view mods
+
+    &_view_footer {
+        flex-direction: column;
+        flex: 0 1 auto;
+
+        .#{$block} {
+            &__phone {
+                &:first-child {
+                    margin-bottom: 10px;
+                }
+            }
+            &__socials {
+                margin-top: 10px;
+            }
+
+            &__socials-link {
+                color: #{$orange};
+
+                &:hover {
+                    color: #{$sandy};
+                }
+            }
+        }
+    }
+};

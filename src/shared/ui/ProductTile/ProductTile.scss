@@ -47,6 +47,11 @@ $block: product-tile;
         &:hover {
             background: url('./i/tile-equality-active.png') no-repeat center;
         }
+
+        &_active {
+            cursor: default;
+            background: url('./i/tile-equality-active.png') no-repeat center;
+        }
     }
 
     &__waiting-icon {
@@ -57,6 +62,22 @@ $block: product-tile;
 
         &:hover {
             background: url('./i/tile-waiting-active.png') no-repeat center;
+        }
+
+        &_active {
+            cursor: default;
+            background: url('./i/tile-waiting-active.png') no-repeat center;
+        }
+    }
+
+    &__waiting {
+        &_disabled &-icon {
+            cursor: default;
+            opacity: 0.3;
+
+            &:hover {
+                background: url('./i/tile-waiting.png') no-repeat center;
+            }
         }
     }
 
@@ -123,6 +144,12 @@ $block: product-tile;
 
     &__amount-icon {
         cursor: pointer;
+        transition: opacity 0.5s;
+
+        &_disabled {
+            cursor: default;
+            opacity: 0.2;
+        }
     }
 
     &__amount-minus {
@@ -137,6 +164,12 @@ $block: product-tile;
         display: flex;
     }
 
+    &__rating {
+        display: flex;
+        flex: 1 1 auto;
+        justify-content: flex-start;
+    }
+
     &__star {
         position: relative;
         width: 13px;
@@ -144,14 +177,10 @@ $block: product-tile;
         padding-right: 3px;
         box-sizing: content-box;
         background: url('./i/rating-star.png') no-repeat center;
-        cursor: pointer;
 
-        & > & {
-            left: 16px;
-        }
-
-        &:hover {
+        &_active {
             background: url('./i/rating-star-active.png') no-repeat center;
         }
+
     }
 };

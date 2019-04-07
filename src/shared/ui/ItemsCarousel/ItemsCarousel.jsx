@@ -13,7 +13,8 @@ class ItemsCarousel extends Component {
         slidesToStop: PropTypes.number,
         dotsNotShown: PropTypes.number,
         carouselParams: PropTypes.object.isRequired,
-        view: PropTypes.oneOf(['brands', 'goods'])
+        view: PropTypes.oneOf(['brands', 'goods', 'ymaps']),
+        clickItem: PropTypes.func
     };
 
     static defaultProps = {
@@ -49,6 +50,12 @@ class ItemsCarousel extends Component {
         const { currentSlide } = this.state;
 
         currentSlide !== index && this.setState({ currentSlide: index });
+    }
+
+    handleClickTile = (e, i, b) => {
+        const { clickItem } = this.props;
+        
+        clickItem && clickItem();
     }
 
     renderTitle() {
@@ -108,6 +115,7 @@ class ItemsCarousel extends Component {
                     selectedItem={currentSlide}
                     onChange={this.handleSlideChange}
                     className={cx('items-carousel', `items-carousel_no-dots_${dotsNotShown}`)}
+                    onClickItem={this.handleClickTile}
                 >
                     {children}
                 </Carousel>

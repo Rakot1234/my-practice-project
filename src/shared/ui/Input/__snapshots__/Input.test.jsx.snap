@@ -27,7 +27,7 @@ ShallowWrapper {
       "children": Array [
         undefined,
         <InputElement
-          className="input__input"
+          className="input"
           disabled={false}
           placeholder=""
           readOnly={true}
@@ -35,7 +35,7 @@ ShallowWrapper {
           value=""
         />,
       ],
-      "className": "input input_justify_start",
+      "className": "input__label input__label_justify_start",
     },
     "ref": null,
     "rendered": Array [
@@ -45,7 +45,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "className": "input__input",
+          "className": "input",
           "disabled": false,
           "mask": undefined,
           "name": undefined,
@@ -72,7 +72,7 @@ ShallowWrapper {
         "children": Array [
           undefined,
           <InputElement
-            className="input__input"
+            className="input"
             disabled={false}
             placeholder=""
             readOnly={true}
@@ -80,7 +80,7 @@ ShallowWrapper {
             value=""
           />,
         ],
-        "className": "input input_justify_start",
+        "className": "input__label input__label_justify_start",
       },
       "ref": null,
       "rendered": Array [
@@ -90,7 +90,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "className": "input__input",
+            "className": "input",
             "disabled": false,
             "mask": undefined,
             "name": undefined,
@@ -121,6 +121,7 @@ ShallowWrapper {
           "getChildContext": Object {
             "calledByRenderer": false,
           },
+          "getDerivedStateFromError": true,
           "getDerivedStateFromProps": Object {
             "hasShouldComponentUpdateBug": false,
           },

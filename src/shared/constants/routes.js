@@ -8,4 +8,5 @@ export default {
     SPECIALS_CAROUSEL: `${SERVER}/specials-carousel/`,
     HITS_CAROUSEL: `${SERVER}/hits-carousel/`,
     MAIN_YMAP: `${SERVER}/ymap-list/`,
+    FOOTER_MENU: `${SERVER}/footer-menu/`
 };

@@ -10,7 +10,7 @@
     "items": [
         {
             "id": 0,
-            "item_code": "060137B102",
+            "itemCode": "020137B102",
             "image": "boschMachine",
             "rating": 4,
             "title": "Шлифмашинка эксц. 400Вт, 12000 об/м, d-150мм, 2.4кг, GEX 125-150 AVE BOSCH",
@@ -20,7 +20,7 @@
         },
         {
             "id": 1,
-            "item_code": "060137B202",
+            "itemCode": "078137B202",
             "image": "makiteMachine",
             "rating": 5,
             "title": "Электролобзик 720Вт, 800-2800об/м, ход-26мм, рез-135мм, 2.5кг, маятник., кейс пл MAKITA",
@@ -30,7 +30,7 @@
         },
         {
             "id": 2,
-            "item_code": "070137B202",
+            "itemCode": "070317C202",
             "image": "makitaProfMachine",
             "rating": 3,
             "title": "Электропила циркулярная 1.2кВт, 160мм, глубина-55мм, 5200об/м, 3.5кг, GKS 55 Professional  BOSCH",
@@ -40,7 +40,7 @@
         },
         {
             "id": 3,
-            "item_code": "064137B202",
+            "itemCode": "064137D244",
             "image": "hitachiMachine",
             "rating": 2,
             "title": "Фрезер  1,15кВт, 25000об/мин, ход-60мм, цанга-8мм, вес 3.6кг, HITACHI",
@@ -50,7 +50,7 @@
         },
         {
             "id": 4,
-            "item_code": "060189B202",
+            "itemCode": "990189B202",
             "image": "boschMachine",
             "rating": 1,
             "title": "Шлифмашинка эксц. 400Вт, 12000 об/м, d-150мм, 2.4кг, GEX 125-150 AVE  BOSCH",
@@ -60,7 +60,7 @@
         },
         {
             "id": 5,
-            "item_code": "06C137B202",
+            "itemCode": "88C137B202",
             "image": "makiteMachine",
             "rating": 5,
             "title": "Электролобзик 720Вт, 800-2800об/м, ход-26мм, рез-135мм, 2.5кг, маятник., кейс пл MAKITA",
@@ -70,7 +70,7 @@
         },
         {
             "id": 6,
-            "item_code": "290137B202",
+            "itemCode": "110137I202",
             "image": "makitaProfMachine",
             "rating": 3,
             "title": "Электропила циркулярная 1.2кВт, 160мм, глубина-55мм, 5200об/м, 3.5кг, GKS 55 Professional  BOSCH",
@@ -80,7 +80,7 @@
         },
         {
             "id": 7,
-            "item_code": "069237D202",
+            "itemCode": "899237M202",
             "image": "hitachiMachine",
             "rating": 2,
             "title": "Фрезер  1,15кВт, 25000об/мин, ход-60мм, цанга-8мм, вес 3.6кг, HITACHI",

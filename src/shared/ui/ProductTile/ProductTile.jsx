@@ -6,63 +6,156 @@ import Icon from '../Icon/Icon';
 import Button from '../Button/Button';
 import icons from '../../constants/icons';
 import { goodsImages } from '../../constants/images';
-import texts, { activeBuyButton, passiveBuyButton } from './constants/constants';
+import texts, { activeBuyButton, passiveBuyButton, STARS } from './constants/constants';
 
 class ProductTile extends Component {
     static propTypes = {
         id: PropTypes.number,
-        item_code: PropTypes.string,
+        itemCode: PropTypes.string,
         image: PropTypes.string,
         rating: PropTypes.number,
         title: PropTypes.string,
         discount: PropTypes.number,
         price: PropTypes.string,
-        amount: PropTypes.number
+        amount: PropTypes.number,
+        storage: PropTypes.object
     };
 
     constructor(props) {
         super(props);
 
         this.state = {
-            buyAmount: 1
+            buyAmount: 1,
+            isInCompare: false,
+            isInWaiting: false,
+            isInCart: false
         }
     }
 
-    renderIconsRow() {
-        const { item_code } = this.props;
+    handlePlusClick = () => {
+        const { amount } = this.props;
 
+        this.setState(({ buyAmount }) => {
+            if (buyAmount === amount) {
+                return;
+            }
+
+            return { buyAmount: buyAmount + 1 };
+        });
+    }
+
+    handleMinusClick = () => {
+        this.setState(({ buyAmount }) => {
+            if (buyAmount === 1) {
+                return;
+            }
+
+            return { buyAmount: buyAmount - 1 };
+        });
+    }
+
+    handleEqualityAdd = () => {
+        const { storage, ...item } = this.props;
+        const { isInCompare } = this.state;
+
+        if (isInCompare) {
+            return;
+        }
+
+        this.setState(
+            { isInCompare: true },
+            () => storage.compareList[item.itemCode] = item
+        );
+    }
+
+    handleWaitingAdd = () => {
+        const { storage, ...item } = this.props;
+        const { amount, itemCode } = item;
+        const { isInWaiting } = this.state;
+
+        if (!!amount || isInWaiting) {
+            return;
+        }
+
+        this.setState(
+            { isInWaiting: true },
+            () => storage.waitingList[itemCode] = item
+        );
+    }
+
+    handleCartAdd = () => {
+        const { storage, ...item } = this.props;
+        const { amount, itemCode } = item;
+        const { isInCart, buyAmount } = this.state;
+        const itemData = { ...item, amount: buyAmount }
+
+        if (!!amount && isInCart) {
+            return;
+        }
+
+        this.setState(
+            { isInCart: true },
+            () => storage.cart[itemCode] = itemData
+        )
+    }
+
+    renderCompareIcon() {
+        return (
+            <div className={cx('product-tile__equality')}>
+                <div
+                    className={cx(
+                        'product-tile__equality-icon',
+                        { 'product-tile__equality-icon_active': this.state.isInCompare }
+                    )}
+                    onClick={this.handleEqualityAdd}
+                />
+            </div>
+        );
+    }
+
+    renderWaitingIcon() {
+        return (
+            <div className={cx('product-tile__waiting', { 'product-tile__waiting_disabled': !!this.props.amount })}>
+                <div
+                    className={cx(
+                        'product-tile__waiting-icon',
+                        { 'product-tile__waiting-icon_active': this.state.isInWaiting }
+                    )}
+                    onClick={this.handleWaitingAdd}
+                />
+            </div>
+        );
+    }
+
+    renderIconsRow() {
         return (
             <div className={cx('product-tile__icons-row')}>
                 <div className={cx('product-tile__code')}>
-                    {`${texts.CODE} ${item_code}`}
+                    {`${texts.CODE} ${this.props.itemCode}`}
                 </div>
                 <div className={cx('product-tile__icons')}>
-                    <div className={cx('product-tile__equality')}>
-                        <div className={cx('product-tile__equality-icon')} />
-                    </div>
-                    <div className={cx('product-tile__waiting')}>
-                        <div className={cx('product-tile__waiting-icon')} />
-                    </div>
+                    {this.renderCompareIcon()}
+                    {this.renderWaitingIcon()}
                 </div>
             </div>
         );
     }
 
     renderRatingRow() {
-        const { discount } = this.props;
+        const { discount, rating } = this.props;
 
         return (
             <div className={cx('product-tile__rating-row')}>
                 <div className={cx('product-tile__rating')}>
-                    <div className={cx('product-tile__star')}>
-                        <div className={cx('product-tile__star')}>
-                            <div className={cx('product-tile__star')}>
-                                <div className={cx('product-tile__star')}>
-                                    <div className={cx('product-tile__star')} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {STARS.map((star, index) => {
+                        const { id } = star;
+                        const isActive = index + 1 <= rating;
+
+                        return <div
+                            className={cx('product-tile__star', { 'product-tile__star_active': isActive })}
+                            key={index + id}
+                        />;
+                    })}
                 </div>
                 {!!discount &&
                     <div className={cx('product-tile__discount')}>
@@ -75,7 +168,9 @@ class ProductTile extends Component {
 
     renderProductInfo() {
         const { title, price, discount } = this.props;
-        const discountPrice = !!discount ? Number(price) * ( (100 - Number(discount)) / 100) : price;
+        const discountPrice = !!discount ?
+            Number(price) * ((100 - Number(discount)) / 100) :
+            price;
 
         return (
             <>
@@ -98,19 +193,33 @@ class ProductTile extends Component {
         const { buyAmount } = this.state;
         const { amount } = this.props;
         const buyButton = !!amount ? activeBuyButton : passiveBuyButton;
+        const buttonAction = !!amount ? this.handleCartAdd : this.handleWaitingAdd;
+        const isPlusActive = buyAmount === amount;
+        const isMinusActive = buyAmount === 1;
+
 
         return (
             <div className={cx('product-tile__buy-wrapper')}>
                 {!!amount && 
                     <div className={cx('product-tile__amount')}>
                         <Icon
-                            className={cx('product-tile__amount-icon', 'product-tile__amount-minus')}
+                            className={cx(
+                                'product-tile__amount-icon',
+                                'product-tile__amount-minus',
+                                { 'product-tile__amount-icon_disabled': isMinusActive }
+                            )}
                             icon={icons.MINUS_AMOUNT}
+                            onClick={this.handleMinusClick}
                         />
                         {buyAmount}
                         <Icon
-                            className={cx('product-tile__amount-icon', 'product-tile__amount-plus')}
+                            className={cx(
+                                'product-tile__amount-icon',
+                                'product-tile__amount-plus',
+                                { 'product-tile__amount-icon_disabled': isPlusActive }
+                            )}
                             icon={icons.PLUS_AMOUNT}
+                            onClick={this.handlePlusClick}
                         />
                     </div>
                 }
@@ -119,6 +228,24 @@ class ProductTile extends Component {
                     size="medium"
                     hoverColor="black"
                     { ...buyButton }
+                    onClick={buttonAction}
+                />
+            </div>
+        );
+    }
+
+    renderInCartButton() {
+        return (
+            <div className={cx('product-tile__buy-wrapper')}>
+                <Button
+                    className={cx('product-tile__buy')}
+                    size="medium"
+                    hoverColor="black"
+                    color="black"
+                    fontColor="white"
+                    title="В корзине"
+                    isDisabled={true}
+                    onClick={this.handleCartAdd}
                 />
             </div>
         );
@@ -126,6 +253,7 @@ class ProductTile extends Component {
 
     render() {
         const { image, title } = this.props;
+        const { isInCart } = this.state;
 
         return (
             <div className={cx('product-tile')}>
@@ -135,7 +263,7 @@ class ProductTile extends Component {
                 </div>
                 {this.renderRatingRow()}
                 {this.renderProductInfo()}
-                {this.renderBuyBlock()}
+                {isInCart ? this.renderInCartButton() : this.renderBuyBlock()}
             </div>
         );
     }

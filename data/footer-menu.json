@@ -1,0 +1,65 @@
+[
+    {
+        "id": 0,
+        "header": "О компании",
+        "menu": [
+            {
+                "id": 3,
+                "title": "О нас",
+                "href": "/about/"
+            },
+            {
+                "id": 4,
+                "title": "Контакты",
+                "href": "/contacts/"
+            },
+            {
+                "id": 5,
+                "title": "Сервисный центр",
+                "href": "/service-center/"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "header": "Информация",
+        "menu": [
+            {
+                "id": 6,
+                "title": "Гарантия",
+                "href": "/warranty/"
+            },
+            {
+                "id": 7,
+                "title": "Статьи",
+                "href": "/articles/"
+            },
+            {
+                "id": 8,
+                "title": "Обзоры",
+                "href": "/reviews/"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "header": "Помощь",
+        "menu": [
+            {
+                "id": 9,
+                "title": "Способы оплаты",
+                "href": "/payment/"
+            },
+            {
+                "id": 10,
+                "title": "Способы доставка",
+                "href": "/delivery/"
+            },
+            {
+                "id": 11,
+                "title": "Обмен и возврат товара",
+                "href": "/exchange/"
+            }
+        ]
+    }
+]

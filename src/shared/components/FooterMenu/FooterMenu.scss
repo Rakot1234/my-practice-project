@@ -1,0 +1,28 @@
+@import '../../../styles/variables.scss';
+
+$block: footer-menu;
+
+.#{$block} {
+    margin-bottom: 45px;
+
+    &:not(:last-child) {
+        margin-right: 90px;
+    }
+
+    &__title {
+        color: #{$orange};
+        margin-bottom: 25px;
+        font-size: 18px;
+        @include Ubuntu;
+    }
+
+    &__element {
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__link {
+        color: #{$white};
+    }
+};

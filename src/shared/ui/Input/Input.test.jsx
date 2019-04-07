@@ -8,10 +8,10 @@ describe('<Input />', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('Shoud be changed', () => {
+    it('Should be changed', () => {
         const onChange = jest.fn();
         const wrapper = shallow(<Input onChange={onChange} />);
-        wrapper.find('.input__input').simulate('change');
+        wrapper.find('.input').simulate('change');
         expect(onChange).toHaveBeenCalled();
     });
 });
