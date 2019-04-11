@@ -3,23 +3,13 @@ import './ShopServices.scss';
 import cx from 'classnames';
 import Icon from '../../ui/Icon/Icon';
 import icons from '../../constants/icons';
-import { ContextConsumer } from '../../utils/context-provider';
+import { ApiConsumer } from '../../utils/context-provider';
+import { cartGoods } from '../../utils/misc-functions';
 
 class ShopServices extends Component {
     renderCart(cart) {
         const cartItems = Object.keys(cart).length;
-        let cartText;
-
-        switch (true) {
-            case cartItems === 1:
-                cartText = 'товар';
-                break;
-            case cartItems === 2 || cartItems === 3 || cartItems === 4:
-                cartText = 'товара';
-                break;
-            default:
-                cartText = 'товаров';
-        }
+        const cartText = cartGoods(cartItems);
 
         return (
             <div className={cx('shop-services__element')}>
@@ -30,7 +20,7 @@ class ShopServices extends Component {
     }
     render() {
         return (
-            <ContextConsumer>
+            <ApiConsumer>
                 {({ compareList, waitingList, cart }) => (
                     <div className={cx('shop-services')}>
                         <div className={cx('shop-services__element')}>
@@ -44,7 +34,7 @@ class ShopServices extends Component {
                         {this.renderCart(cart)}
                     </div>
                 )}
-            </ContextConsumer>
+            </ApiConsumer>
         );
     }
 }

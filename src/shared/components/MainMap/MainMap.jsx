@@ -12,7 +12,7 @@ import { scrollTo } from '../../utils/misc-functions';
 
 class MainMap extends Component {
     static propTypes = {
-        fetchMap: PropTypes.func
+        handleFetchMap: PropTypes.func
     };
 
     constructor(props) {
@@ -27,17 +27,15 @@ class MainMap extends Component {
         };
     };
 
-    getTabs = tabs => { this.tabs = tabs }
-
-    getMap = map => { this.map = map }
+    getMapRef = map => { this.map = map }
 
     componentDidMount() {
-        this.fetchMap();
+        this.handleFetchMap();
     }
 
-    fetchMap = async () => {
-        const { fetchMap } = this.props;
-        const mapData = await fetchMap();
+    handleFetchMap = async () => {
+        const { handleFetchMap } = this.props;
+        const mapData = await handleFetchMap();
 
         this.setState({
             isFetching: false,
@@ -49,7 +47,8 @@ class MainMap extends Component {
     handleTabTitleClick = i => this.setState({ selectedIndex: i })
 
     handleMapCenter = ymapCenter => {
-        this.setState({ ymapCenter }, scrollTo(0, this.map.offsetTop))
+        this.setState({ ymapCenter },
+        () => scrollTo(0, this.map.offsetTop))
     }
 
     renderTabs() {
@@ -98,7 +97,7 @@ class MainMap extends Component {
                                 view="ymaps"
                             >
                                 {element.salons.map((shop, index) => {
-                                    return <Tile {...shop} key={index + shop.title} buttonClick={this.handleMapCenter}/>
+                                    return <Tile {...shop} key={index + shop.title} onButtonClick={this.handleMapCenter}/>
                                 })}
                             </Carousel>
                         </TabPanel>
@@ -110,21 +109,20 @@ class MainMap extends Component {
 
     renderMap() {
         const { ymapCenter, shops } = this.state;
-        const spots = shops.reduce((array, region) => {
-            region.salons.map(shop => array.push(shop.spot));
-            return array;
+        const spots = shops.reduce((spotsList, region) => {
+            return spotsList.concat(region.salons.map(shop => shop.spot));
         }, []);
 
         return (
             <div className={cx('main-map')}>
                 <BlockWrapper
-                	innerColor="white"
-					className={cx('main-page__header-wrapper')}
-					bottomBorder={true}
-				>
+                    innerColor="white"
+                    className={cx('main-page__header-wrapper')}
+                    bottomBorder={true}
+                >
                     {this.renderTabs()}
                 </BlockWrapper>
-                <div className={cx('main-map__map-wrapper')} ref={this.getMap}>
+                <div className={cx('main-map__map-wrapper')} ref={this.getMapRef}>
                     <Map placemarks={spots} mapCenter={ymapCenter} />
                 </div>
             </div>
@@ -134,11 +132,7 @@ class MainMap extends Component {
     render() {
         const { isFetching } = this.state;
 
-        return (
-            isFetching ? 
-                <Preloader size="large" /> :
-                this.renderMap()
-        );
+        return isFetching ? <Preloader size="large" /> : this.renderMap();
     }
 }
 

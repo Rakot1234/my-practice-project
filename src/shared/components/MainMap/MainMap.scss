@@ -25,7 +25,8 @@ $block: main-map;
     &__tab-title {
         font-size: 16px;
         color: #{$orange};
-        border-bottom: 1px dotted;
+        border-bottom-width: 1px;
+        border-bottom-style: dotted;
         cursor: pointer;
         transition: all 0.2s;
 

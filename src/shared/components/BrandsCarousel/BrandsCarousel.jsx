@@ -8,7 +8,7 @@ import { carouselImages } from '../../constants/images';
 
 class BrandsCarousel extends Component {
     static propTypes = {
-        fetchCarousel: PropTypes.func
+        handleFetchCarousel: PropTypes.func
     };
 
     constructor(props) {
@@ -22,12 +22,12 @@ class BrandsCarousel extends Component {
     }
 
     componentDidMount() {
-        this.fetchCarousel();
+        this.handleFetchCarousel();
     }
 
-    fetchCarousel = async () => {
-        const { fetchCarousel } = this.props;
-        const carousel = await fetchCarousel();
+    handleFetchCarousel = async () => {
+        const { handleFetchCarousel } = this.props;
+        const carousel = await handleFetchCarousel();
 
         this.setState({
             items: carousel.items,

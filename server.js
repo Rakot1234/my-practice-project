@@ -20,35 +20,35 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get('/main-menu/', async (req, res) => {
+app.get('/api/main-menu/', async (req, res) => {
     res.json(await getFileJson(`${__dirname}/data/main-menu.json`));
 });
 
-app.get('/top-menu/', async (req, res) => {
+app.get('/api/top-menu/', async (req, res) => {
     res.json(await getFileJson(`${__dirname}/data/top-menu.json`));
 });
 
-app.get('/brands-carousel/', async (req, res) => {
+app.get('/api/brands-carousel/', async (req, res) => {
     res.json(await getFileJson(`${__dirname}/data/brands-carousel.json`));
 });
 
-app.get('/slider-params/', async (req, res) => {
+app.get('/api/slider-params/', async (req, res) => {
     res.json(await getFileJson(`${__dirname}/data/slider-params.json`));
 });
 
-app.get('/specials-carousel/', async (req, res) => {
+app.get('/api/specials-carousel/', async (req, res) => {
   res.json(await getFileJson(`${__dirname}/data/specials-carousel.json`));
 });
 
-app.get('/hits-carousel/', async (req, res) => {
+app.get('/api/hits-carousel/', async (req, res) => {
   res.json(await getFileJson(`${__dirname}/data/hits-carousel.json`));
 });
 
-app.get('/ymap-list/', async (req, res) => {
+app.get('/api/ymap-list/', async (req, res) => {
   res.json(await getFileJson(`${__dirname}/data/ymap-list.json`));
 });
 
-app.get('/footer-menu/', async (req, res) => {
+app.get('/api/footer-menu/', async (req, res) => {
   res.json(await getFileJson(`${__dirname}/data/footer-menu.json`));
 });
 

@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ItemsCarousel from '../../ui/ItemsCarousel/ItemsCarousel';
 import ProductTile from '../../ui/ProductTile/ProductTile';
-import { ContextConsumer } from '../../utils/context-provider';
+import { ApiConsumer } from '../../utils/context-provider';
 
 class GoodsCarousel extends PureComponent {
     static propTypes = {
-        fetchGoodsCarousel: PropTypes.func
+        handleFetchGoodsCarousel: PropTypes.func
     }
 
     constructor(props) {
@@ -22,12 +22,12 @@ class GoodsCarousel extends PureComponent {
     }
 
     componentDidMount() {
-        this.fetchCarousel();
+        this.handleFetchCarousel();
     }
 
-    fetchCarousel = async () => {
-        const { fetchGoodsCarousel } = this.props;
-        const carouselData = await fetchGoodsCarousel();
+    handleFetchCarousel = async () => {
+        const { handleFetchGoodsCarousel } = this.props;
+        const carouselData = await handleFetchGoodsCarousel();
 
         this.setState({
             carouselParams: carouselData.carouselParams,
@@ -46,7 +46,7 @@ class GoodsCarousel extends PureComponent {
         const { carouselParams, isFetching } = this.state;
 
         return (
-            <ContextConsumer>
+            <ApiConsumer>
                 {storage => (
                     <div className={cx('goods-carousel__wrapper')}>
                         {!isFetching &&
@@ -63,7 +63,7 @@ class GoodsCarousel extends PureComponent {
                         }
                     </div>
                 )}
-            </ContextConsumer>
+            </ApiConsumer>
         );
     }
 };

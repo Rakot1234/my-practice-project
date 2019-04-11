@@ -11,28 +11,28 @@ import { PAYMENT, SOCIALS } from './data';
 
 class PageFooter extends Component {
     static propsTypes = {
-        fetchMenu: PropTypes.func,
-        onCallbackClick: PropTypes.func
+        handleFetchMenu: PropTypes.func,
+        onDescriptionClick: PropTypes.func
     }
 
     constructor(props) {
         super(props);
 
         this.state = {
-            menu: [],
+            menusList: [],
             isFetching: true
         }
     }
 
     componentDidMount() {
-        this.fetchMenu();
+        this.handleFetchMenu();
     }
 
-    fetchMenu = async () => {
-        const menu = await this.props.fetchMenu();
+    handleFetchMenu = async () => {
+        const menusList = await this.props.handleFetchMenu();
 
         this.setState({
-            menu,
+            menusList,
             isFetching: false
         });
     }
@@ -54,12 +54,12 @@ class PageFooter extends Component {
     }
 
     renderMenu() {
-        const { menu } = this.state;
+        const { menusList } = this.state;
 
         return (
             <div className={cx('page-footer__menu')}>
                 <div className={cx('page-footer__menu-wrapper')}>
-                    {menu.map((menu, index) => {
+                    {menusList.map((menu, index) => {
                         const { id, ...menuProps } = menu;
 
                         return <FooterMenu {...menuProps} key={index + id} />;
@@ -93,7 +93,7 @@ class PageFooter extends Component {
 
     render() {
         const { isFetching } = this.state;
-        const { onCallbackClick } = this.props;
+        const { onDescriptionClick } = this.props;
 
         return (
             <div className={cx('page-footer')}>
@@ -101,7 +101,7 @@ class PageFooter extends Component {
                     <div className={cx('page-footer__wrapper')}>
                         {isFetching ? <Preloader /> : this.renderMenu()}
                         {this.renderSocials()}
-                        <Contacts onDescriptionClick={onCallbackClick} view="footer" />
+                        <Contacts onDescriptionClick={onDescriptionClick} view="footer" />
                     </div>
                 </BlockWrapper>
             </div>

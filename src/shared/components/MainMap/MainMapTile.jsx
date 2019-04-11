@@ -14,13 +14,13 @@ class MainMapTile extends Component {
         email: PropTypes.string,
         working: PropTypes.string,
         spot: PropTypes.array,
-        buttonClick: PropTypes.func
+        onButtonClick: PropTypes.func
     };
 
     handleButtonClick = () => {
-        const { buttonClick, spot } = this.props;
+        const { onButtonClick, spot } = this.props;
         
-        buttonClick && buttonClick(spot);
+        onButtonClick && onButtonClick(spot);
     }
 
     renderTileBody(shop) {

@@ -9,8 +9,8 @@ import icons from '../../constants/icons';
 
 class SiteContacts extends PureComponent {
     static propTypes = {
-        onDescriptionClick: PropTypes.func,
-        view: PropTypes.oneOf(['header', 'footer'])
+		view: PropTypes.oneOf(['header', 'footer']),
+		onDescriptionClick: PropTypes.func
     }
 
     static defaultProps = {
@@ -47,22 +47,22 @@ class SiteContacts extends PureComponent {
     }
     
     render() {
-        const { view } = this.props;
+        const { view, onDescriptionClick } = this.props;
 
         return (
             <div className={cx('site-contacts', `site-contacts_view_${view}`)}>
                 <Phone
 					phone="8 800 77 00 155"
 					description="Звонок по России бесплатный"
-                    className={cx('site-contacts__phone')}
-                    view={view}
+					className={cx('site-contacts__phone')}
+					view={view}
 				/>
 				<Phone
 					phone="+7 (391) 2 88 88 75"
 					description="Заказать обратный звонок"
 					className={cx('site-contacts__phone')}
-                    onClickDescription={this.props.onDescriptionClick}
-                    view={view}
+					onClickDescription={onDescriptionClick}
+					view={view}
 				/>
 				{this.renderSocials()}
             </div>

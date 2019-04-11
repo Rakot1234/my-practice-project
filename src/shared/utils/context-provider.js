@@ -5,7 +5,7 @@ import routes from '../constants/routes';
 
 const ProjectContext = React.createContext({});
 
-class ContextProvider extends Component {
+class ApiProvider extends Component {
     static propTypes = {
         children: PropTypes.element
     };
@@ -22,15 +22,11 @@ class ContextProvider extends Component {
             hitsCarousel: this.fetchHitsCarousel,
             mainYmap: this.fetchMainYmap,
             footerMenu: this.fetchFooterMenu,
+            storageAdd: this.handleStorageAdd,
+            storageRemove: this.handleStorageRemove,
             waitingList: {},
-            waitingAdd: this.handleWaitingAdd,
-            waitingRemove: this.handleWaitingRemove,
             compareList: {},
-            compareAdd: this.handleCompareAdd,
-            compareRemove: this.handleCompareRemove,
-            cart: {},
-            cartAdd: this.handleCartAdd,
-            cartRemove: this.handleCartRemove
+            cart: {}
         };
     }
 
@@ -50,51 +46,19 @@ class ContextProvider extends Component {
 
     fetchFooterMenu = () => dataRequest(routes.FOOTER_MENU);
 
-    handleWaitingAdd = (key, item) => {
-        this.setState(({ waitingList }) => {
-            waitingList[key] = item;
+    handleStorageAdd = (storage, key, item) => {
+        this.setState(({ [storage]: storageList }) => {
+            const updatedList = {...storageList, [key]: item };
 
-            return { waitingList };
+            return { [storage]: updatedList };
         });
     };
 
-    handleWaitingRemove = key => {
-        this.setState(({ waitingList }) => {
-            delete waitingList[key];
+    handleStorageRemove = (storage, key) => {
+        this.setState(({ [storage]: storageList }) => {
+            const {[key]: value, ...updatedList} = storageList;
 
-            return { waitingList };
-        }); 
-    }
-
-    handleCompareAdd = (key, item) => {
-        this.setState(({ compareList }) => {
-            compareList[key] = item;
-
-            return { compareList };
-        });
-    };
-
-    handleCompareRemove = key => {
-        this.setState(({ compareList }) => {
-            delete compareList[key];
-
-            return { compareList };
-        }); 
-    }
-
-    handleCartAdd = (key, item) => {
-        this.setState(({ cart }) => {
-            cart[key] = item;
-
-            return { cart };
-        });
-    };
-
-    handleCartRemove = key => {
-        this.setState(({ cart }) => {
-            delete cart[key];
-
-            return { cart };
+            return { [storage]: updatedList };
         }); 
     }
 
@@ -107,5 +71,5 @@ class ContextProvider extends Component {
     }
 };
 
-export const ContextConsumer = ProjectContext.Consumer;
-export default ContextProvider;
+export const ApiConsumer = ProjectContext.Consumer;
+export default ApiProvider;

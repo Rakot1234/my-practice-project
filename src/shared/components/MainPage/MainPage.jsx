@@ -9,14 +9,14 @@ import BrandsCarousel from '../../components/BrandsCarousel/BrandsCarousel'
 import CallbackForm from '../../components/CallbackForm/CallbackForm'
 import GoodsCarousel from '../../components/GoodsCarousel/GoodsCarousel'
 import ShopAdvantages from '../../components/ShopAdvantages/ShopAdvantages'
-import MainNews from '../../components/MainNewsList/MainNewsList'
-import MainReviews from '../../components/MainReviewsList/MainReviewsList'
+import MainNewsList from '../../components/MainNewsList/MainNewsList'
+import MainReviewsList from '../../components/MainReviewsList/MainReviewsList'
 import BlockWrapper from '../../ui/BlockWrapper/BlockWrapper'
-import TwoColumns from '../../ui/TwoColumenedBlock/TwoColumenedBlock'
+import TwoColumenedBlock from '../../ui/TwoColumenedBlock/TwoColumenedBlock'
 import Popup from '../../ui/Popup/Popup'
 import MainMap from '../../components/MainMap/MainMap'
-import Footer from '../../components/PageFooter/PageFooter'
-import { ContextConsumer } from '../../utils/context-provider'
+import PageFooter from '../../components/PageFooter/PageFooter'
+import { ApiConsumer } from '../../utils/context-provider'
 import texts from './constants/main-texts'
 import images from '../../constants/images'
 import './MainPage.scss'
@@ -57,7 +57,7 @@ class MainPage extends Component {
 	renderPageHeader(api) {
 		return (
 			<>
-				<PageHeader fetchMenu={api.topMenu} />
+				<PageHeader handleFetchMenu={api.topMenu} />
 				<Contacts onDescriptionClick={this.handlePopupShow} />
 				<BlockWrapper
 					innerColor="white"
@@ -65,12 +65,12 @@ class MainPage extends Component {
 					bottomBorder={true}
 				>
 					<div className={cx('main-page__header-left')}>
-						<MainMenu fetchMenu={api.mainMenu} />
+						<MainMenu handleFetchMenu={api.mainMenu} />
 					</div>
 					<div className={cx('main-page__header-right')}>
 						<Search />
-						<Slider fetchSlider={api.sliderParams} />
-						<BrandsCarousel fetchCarousel={api.brandsCarousel} />
+						<Slider handleFetchSlider={api.sliderParams} />
+						<BrandsCarousel handleFetchCarousel={api.brandsCarousel} />
 					</div>
 				</BlockWrapper>
 			</>
@@ -81,23 +81,23 @@ class MainPage extends Component {
 		return (
 			<>
 				<BlockWrapper innerColor="white" className={cx('main-page__body-wrapper')}>
-					<GoodsCarousel fetchGoodsCarousel={api.specialsCarousel} />
+					<GoodsCarousel handleFetchGoodsCarousel={api.specialsCarousel} />
 				</BlockWrapper>
 				<BlockWrapper innerColor="gray" className={cx('main-page__body-wrapper')}>
 					<ShopAdvantages />
 				</BlockWrapper>
 				<BlockWrapper innerColor="white" className={cx('main-page__body-wrapper')}>
-					<GoodsCarousel fetchGoodsCarousel={api.hitsCarousel} />
+					<GoodsCarousel handleFetchGoodsCarousel={api.hitsCarousel} />
 				</BlockWrapper>
 				<BlockWrapper innerColor="gray" className={cx('main-page__body-wrapper')}>
-					<TwoColumns left={this.renderMainAbout()} right={<MainNews />}/>
+					<TwoColumenedBlock left={this.renderMainAbout()} right={<MainNewsList />}/>
 				</BlockWrapper>
 				<BlockWrapper
 					innerColor="white"
 					className={cx('main-page__body-wrapper')}
 					bottomBorder={true}
 				>
-					<TwoColumns left={this.renderMainPartners()} right={<MainReviews />}/>
+					<TwoColumenedBlock left={this.renderMainPartners()} right={<MainReviewsList />}/>
 				</BlockWrapper>
 			</>
 		);
@@ -107,13 +107,13 @@ class MainPage extends Component {
 		const { isPopupOpened } = this.state
 
 		return (
-			<ContextConsumer>
+			<ApiConsumer>
 				{api => (
 						<>
 							{this.renderPageHeader(api)}
 							{this.renderPageBody(api)}
-							<MainMap fetchMap={api.mainYmap} />
-							<Footer fetchMenu={api.footerMenu} onCallbackClick={this.handlePopupShow}/>
+							<MainMap handleFetchMap={api.mainYmap} />
+							<PageFooter handleFetchMenu={api.footerMenu} onDescriptionClick={this.handlePopupShow}/>
 							{isPopupOpened &&
 								<Popup handleClose={this.handlePopupShow}>
 									<CallbackForm />
@@ -122,7 +122,7 @@ class MainPage extends Component {
 						</>
 					)
 				}
-			</ContextConsumer>
+			</ApiConsumer>
 		)
 	}
 }

@@ -7,6 +7,7 @@ import Button from '../Button/Button';
 import icons from '../../constants/icons';
 import { goodsImages } from '../../constants/images';
 import texts, { activeBuyButton, passiveBuyButton, STARS } from './constants/constants';
+import STORAGES from '../../constants/storages';
 
 class ProductTile extends Component {
     static propTypes = {
@@ -35,42 +36,38 @@ class ProductTile extends Component {
     handlePlusClick = () => {
         const { amount } = this.props;
 
-        this.setState(({ buyAmount }) => {
-            if (buyAmount === amount) {
-                return;
-            }
-
-            return { buyAmount: buyAmount + 1 };
-        });
+        this.setState(({ buyAmount }) => ({
+            buyAmount: buyAmount === amount ?
+                       buyAmount :
+                       buyAmount + 1
+        }));
     }
 
     handleMinusClick = () => {
-        this.setState(({ buyAmount }) => {
-            if (buyAmount === 1) {
-                return;
-            }
-
-            return { buyAmount: buyAmount - 1 };
-        });
+        this.setState(({ buyAmount }) => ({
+            buyAmount: buyAmount === 1 ?
+                       buyAmount :
+                       buyAmount - 1
+        }));
     }
 
     handleEqualityAdd = () => {
-        const { storage: { compareRemove, compareAdd }, ...item } = this.props;
+        const { storage: { storageRemove, storageAdd }, ...item } = this.props;
         const { isInCompare } = this.state;
 
         isInCompare && this.setState(
             ({ isInCompare }) => ({ isInCompare: !isInCompare }),
-            () => compareRemove(item.itemCode)
+            () => storageRemove(STORAGES.COMPARE, item.itemCode)
         );
 
         !isInCompare && this.setState(
             ({ isInCompare }) => ({ isInCompare: !isInCompare }),
-            () => compareAdd(item.itemCode, item)
+            () => storageAdd(STORAGES.COMPARE, item.itemCode, item)
         );
     }
 
     handleWaitingAdd = () => {
-        const { storage: { waitingRemove, waitingAdd } , ...item } = this.props;
+        const { storage: { storageRemove, storageAdd } , ...item } = this.props;
         const { amount, itemCode } = item;
         const { isInWaiting } = this.state;
 
@@ -80,17 +77,17 @@ class ProductTile extends Component {
 
         isInWaiting && this.setState(
             ({ isInWaiting }) => ({ isInWaiting: !isInWaiting }),
-            () => waitingRemove(itemCode)
+            () => storageRemove(STORAGES.WAITING, itemCode)
         );
 
         !isInWaiting && this.setState(
             ({ isInWaiting }) => ({ isInWaiting: !isInWaiting }),
-            () => waitingAdd(item.itemCode, item)
+            () => storageAdd(STORAGES.WAITING, item.itemCode, item)
         );
     }
 
     handleCartAdd = () => {
-        const { storage: { cartRemove, cartAdd }, ...item } = this.props;
+        const { storage: { storageRemove, storageAdd }, ...item } = this.props;
         const { amount, itemCode } = item;
         const { isInCart, buyAmount } = this.state;
         const itemData = { ...item, amount: buyAmount }
@@ -101,12 +98,12 @@ class ProductTile extends Component {
 
         isInCart && this.setState(
             ({ isInCart }) => ({ isInCart: !isInCart }),
-            () => cartRemove(itemCode)
+            () => storageRemove(STORAGES.CART, itemCode)
         );
 
         !isInCart && this.setState(
             ({ isInCart }) => ({ isInCart: !isInCart }),
-            () => cartAdd(itemCode, itemData)
+            () => storageAdd(STORAGES.CART, itemCode, itemData)
         )
     }
 
@@ -162,10 +159,12 @@ class ProductTile extends Component {
                         const { id } = star;
                         const isActive = index + 1 <= rating;
 
-                        return <div
-                            className={cx('product-tile__star', { 'product-tile__star_active': isActive })}
-                            key={index + id}
-                        />;
+                        return (
+                            <div
+                                className={cx('product-tile__star', { 'product-tile__star_active': isActive })}
+                                key={index + id}
+                            />
+                        );
                     })}
                 </div>
                 {!!discount &&

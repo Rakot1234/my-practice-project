@@ -15,3 +15,16 @@ export const scrollTo = (scrollX, scrollY) => {
         behavior: "smooth"
     })
 };
+
+export const cartGoods = amount => {
+    switch (amount) {
+        case 1:
+          return 'товар';
+        case 2:
+        case 3:
+        case 4:
+          return 'товара';
+        default:
+          return 'товаров';
+    }
+};

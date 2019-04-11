@@ -14,7 +14,7 @@ class ItemsCarousel extends Component {
         dotsNotShown: PropTypes.number,
         carouselParams: PropTypes.object.isRequired,
         view: PropTypes.oneOf(['brands', 'goods', 'ymaps']),
-        clickItem: PropTypes.func
+        onClickItem: PropTypes.func
     };
 
     static defaultProps = {
@@ -52,10 +52,10 @@ class ItemsCarousel extends Component {
         currentSlide !== index && this.setState({ currentSlide: index });
     }
 
-    handleClickTile = (e, i, b) => {
-        const { clickItem } = this.props;
+    handleClickTile = () => {
+        const { onClickItem } = this.props;
         
-        clickItem && clickItem();
+        onClickItem && onClickItem();
     }
 
     renderTitle() {

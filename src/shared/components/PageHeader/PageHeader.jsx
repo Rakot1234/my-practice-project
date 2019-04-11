@@ -8,7 +8,7 @@ import TopMenu from '../../components/TopMenu/TopMenu';
 
 class PageHeader extends Component {
     static propTypes = {
-        fetchMenu: PropTypes.func
+        handleFetchMenu: PropTypes.func
     };
 
     constructor(props) {
@@ -22,12 +22,12 @@ class PageHeader extends Component {
     };
 
     componentDidMount() {
-        this.fetchMenu();
+        this.handleFetchMenu();
     }
 
-    fetchMenu = async () => {
-        const { fetchMenu } = this.props;
-        const menu = await fetchMenu();
+    handleFetchMenu = async () => {
+        const { handleFetchMenu } = this.props;
+        const menu = await handleFetchMenu();
 
         this.setState({
             topMenu: menu,
