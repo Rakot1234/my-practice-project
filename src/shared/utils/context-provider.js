@@ -5,7 +5,7 @@ import routes from '../constants/routes';
 
 const ProjectContext = React.createContext({});
 
-class ContextProvider extends Component {
+class ApiProvider extends Component {
     static propTypes = {
         children: PropTypes.element
     };
@@ -19,7 +19,14 @@ class ContextProvider extends Component {
             brandsCarousel: this.fetchBrandsCarousel,
             sliderParams: this.fetchSliderParams,
             specialsCarousel: this.fetchSpecialsCarousel,
-            hitsCarousel: this.fetchHitsCarousel
+            hitsCarousel: this.fetchHitsCarousel,
+            mainYmap: this.fetchMainYmap,
+            footerMenu: this.fetchFooterMenu,
+            storageAdd: this.handleStorageAdd,
+            storageRemove: this.handleStorageRemove,
+            waitingList: {},
+            compareList: {},
+            cart: {}
         };
     }
 
@@ -35,6 +42,26 @@ class ContextProvider extends Component {
 
     fetchHitsCarousel = () => dataRequest(routes.HITS_CAROUSEL);
 
+    fetchMainYmap = () => dataRequest(routes.MAIN_YMAP);
+
+    fetchFooterMenu = () => dataRequest(routes.FOOTER_MENU);
+
+    handleStorageAdd = (storage, key, item) => {
+        this.setState(({ [storage]: storageList }) => {
+            const updatedList = {...storageList, [key]: item };
+
+            return { [storage]: updatedList };
+        });
+    };
+
+    handleStorageRemove = (storage, key) => {
+        this.setState(({ [storage]: storageList }) => {
+            const {[key]: value, ...updatedList} = storageList;
+
+            return { [storage]: updatedList };
+        }); 
+    }
+
     render() {
         return (
             <ProjectContext.Provider value={this.state}>
@@ -44,5 +71,5 @@ class ContextProvider extends Component {
     }
 };
 
-export const ContextConsumer = ProjectContext.Consumer;
-export default ContextProvider;
+export const ApiConsumer = ProjectContext.Consumer;
+export default ApiProvider;

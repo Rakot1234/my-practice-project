@@ -1,0 +1,69 @@
+@import '../../../styles/variables.scss';
+
+$block: main-map-tile;
+
+.#{$block} {
+    &__tile {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        justify-content: space-between;
+        padding: 24px;
+        box-shadow: inset 0 0 0 1px #{$mediumGray};
+        width: 369px;
+        box-sizing: border-box;
+        height: 100%;
+        
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
+
+        &:hover {
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.22);
+        }
+    }
+
+    &__title {
+        color: #{$orange};
+        font-size: 20px;
+        margin-bottom: 22px;
+    }
+
+    &__adress,
+    &__email
+    {
+        margin-bottom: 15px;
+    }
+
+    &__working {
+        margin-bottom: 20px;
+    }
+
+    &__phone-link,
+    &__email-link 
+    {
+        margin-left: 5px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__phone-link {
+        color: #{$black};
+
+        &:hover {
+            color: #{$orange};
+        }
+    }
+
+    &__email-link {
+        &:hover {
+            color: #{$black};
+        }
+    }
+
+    &__button {
+        width: 176px;
+    }
+}

@@ -10,7 +10,7 @@ import { menuParams } from './constants/settings';
 
 class MainMenu extends Component {
     static propTypes = {
-        fetchMenu: PropTypes.func
+        handleFetchMenu: PropTypes.func
     };
 
     constructor(props) {
@@ -26,7 +26,7 @@ class MainMenu extends Component {
     };
 
     componentDidMount() {
-        this.fetchMenu();
+        this.handleFetchMenu();
     }
 
     handleTitleClick = () => {
@@ -51,9 +51,9 @@ class MainMenu extends Component {
         }, menuParams.MENU_HIDE_TIMEOUT);
     }
 
-    fetchMenu = async () => {
-        const { fetchMenu } = this.props;
-        const menu = await fetchMenu();
+    handleFetchMenu = async () => {
+        const { handleFetchMenu } = this.props;
+        const menu = await handleFetchMenu();
 
         this.setState({
             title: menu.menuTitle,

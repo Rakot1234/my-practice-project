@@ -1,0 +1,57 @@
+@import '../../../styles/variables.scss';
+
+$block: main-map;
+
+.#{$block} {
+    &__map-wrapper {
+        width: 100%;
+        height: 450px;
+    }
+
+    &__tabs-header {
+        display: flex;
+        flex: 1 1 auto;
+        justify-content: flex-start;
+        align-items: stretch;
+        margin-top: 50px;
+    }
+
+    &__title {
+        font-size: 32px;
+        @include Ubuntu;
+        margin-right: 25px;
+    }
+
+    &__tab-title {
+        font-size: 16px;
+        color: #{$orange};
+        border-bottom-width: 1px;
+        border-bottom-style: dotted;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:not(:last-child) {
+            margin-right: 25px;
+        }
+
+        &.react-tabs__tab--selected {
+            border-bottom: none;
+            color: #{$black};
+            background-color: #{$mediumGray};
+            padding: 8px 18px;
+            border-radius: 50px;
+        }
+    }
+
+    &__tabs-titles {
+        display: flex;
+        flex: 1 1 auto;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 45px;
+    }
+
+    &__tabs {
+        width: 100%;
+    }
+};

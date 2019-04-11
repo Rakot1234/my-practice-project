@@ -31,6 +31,8 @@ class Popup extends PureComponent {
         window.removeEventListener('resize', this.handleContentPosition);
     }
 
+    getWrapperRef = wrapper => { this.wrapper = wrapper }
+
     handleContentPosition = () => {
         const { clientWidth, clientHeight } = this.content;
         const topPosition = (window.innerHeight - clientHeight) / 2;
@@ -55,7 +57,7 @@ class Popup extends PureComponent {
 				<div
                     className={cx('popup')}
                     onClick={this.handleWrapperClick}
-                    ref={wrapper => { this.wrapper = wrapper }}
+                    ref={this.getWrapperRef}
                 >
 					<div
                         className={cx('popup__content')}

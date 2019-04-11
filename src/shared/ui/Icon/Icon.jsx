@@ -6,7 +6,8 @@ import cx from 'classnames';
 class Icon extends PureComponent {
     static propTypes = {
         icon: PropTypes.string.isRequired,
-        className: PropTypes.string
+        className: PropTypes.string,
+        onClick: PropTypes.func
     };
 
     static defaultProps = {
@@ -14,7 +15,7 @@ class Icon extends PureComponent {
     }
 
     render() {
-        const { icon, className } = this.props;
+        const { icon, className, onClick } = this.props;
 
         return (
             <div className={cx('icon', className)}>
@@ -22,6 +23,7 @@ class Icon extends PureComponent {
                     src={icon}
                     alt=""
                     className={cx('icon__image')}
+                    onClick={onClick}
                 />
             </div>
         );

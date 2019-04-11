@@ -13,7 +13,7 @@ class Button extends PureComponent {
         isDisabled: PropTypes.bool,
         type: PropTypes.oneOf(['button', 'reset', 'submit']),
         size: PropTypes.oneOf(['small', 'medium', 'large']),
-        color: PropTypes.oneOf(['yellow', 'red', 'gray']),
+        color: PropTypes.oneOf(['yellow', 'red', 'gray', 'black']),
         hoverColor: PropTypes.oneOf(['black', 'sandy']),
         fontSize: PropTypes.oneOf(['medium', 'large']),
         fontColor: PropTypes.oneOf(['white', 'black']),

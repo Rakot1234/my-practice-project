@@ -9,7 +9,7 @@ import images from '../../constants/images';
 
 class Slider extends Component {
     static defaultProps = {
-        fetchSlider: PropTypes.func
+        handleFetchSlider: PropTypes.func
     };
 
     constructor(props) {
@@ -23,12 +23,12 @@ class Slider extends Component {
     };
 
     componentDidMount() {
-        this.fetchSlider();
+        this.handleFetchSlider();
     }
 
-    fetchSlider = async () => {
-        const { fetchSlider } = this.props;
-        const slider = await fetchSlider();
+    handleFetchSlider = async () => {
+        const { handleFetchSlider } = this.props;
+        const slider = await handleFetchSlider();
 
         this.setState({
             sliderParams: slider.sliderParams,

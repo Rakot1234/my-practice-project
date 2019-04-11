@@ -22,5 +22,8 @@ $block: block-wrapper;
         &_gray {
             background-color: #{$darkGray};
         }
+        &_black {
+            background-color: #{$lightBlack};
+        }
     }
 };

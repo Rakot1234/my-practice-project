@@ -14,7 +14,6 @@ class Phone extends PureComponent {
     };
 
     static defaultProps = {
-        className: ' ',
         view: 'header'
     };
 
@@ -28,7 +27,7 @@ class Phone extends PureComponent {
         } = this.props;
 
         return (
-            <div className={cx('phone', className, `phone__view-${view}`)}>
+            <div className={cx('phone', className, `phone_view_${view}`)}>
                 <Link
                     href={`tel:${phone.replace(/[^\d]/g, '')}`}
                     title={phone}

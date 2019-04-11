@@ -3,7 +3,7 @@
 $block: popup;
 
 .#{$block} {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -26,5 +26,6 @@ $block: popup;
         display: inline-block;
         background-color: #{$white};
         padding: 30px;
+        transition: all 0.1s;
     }
 };
