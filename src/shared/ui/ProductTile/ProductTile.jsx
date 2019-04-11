@@ -55,47 +55,58 @@ class ProductTile extends Component {
     }
 
     handleEqualityAdd = () => {
-        const { storage, ...item } = this.props;
+        const { storage: { compareRemove, compareAdd }, ...item } = this.props;
         const { isInCompare } = this.state;
 
-        if (isInCompare) {
-            return;
-        }
+        isInCompare && this.setState(
+            ({ isInCompare }) => ({ isInCompare: !isInCompare }),
+            () => compareRemove(item.itemCode)
+        );
 
-        this.setState(
-            { isInCompare: true },
-            () => storage.compareList[item.itemCode] = item
+        !isInCompare && this.setState(
+            ({ isInCompare }) => ({ isInCompare: !isInCompare }),
+            () => compareAdd(item.itemCode, item)
         );
     }
 
     handleWaitingAdd = () => {
-        const { storage, ...item } = this.props;
+        const { storage: { waitingRemove, waitingAdd } , ...item } = this.props;
         const { amount, itemCode } = item;
         const { isInWaiting } = this.state;
 
-        if (!!amount || isInWaiting) {
+        if (!!amount) {
             return;
         }
 
-        this.setState(
-            { isInWaiting: true },
-            () => storage.waitingList[itemCode] = item
+        isInWaiting && this.setState(
+            ({ isInWaiting }) => ({ isInWaiting: !isInWaiting }),
+            () => waitingRemove(itemCode)
+        );
+
+        !isInWaiting && this.setState(
+            ({ isInWaiting }) => ({ isInWaiting: !isInWaiting }),
+            () => waitingAdd(item.itemCode, item)
         );
     }
 
     handleCartAdd = () => {
-        const { storage, ...item } = this.props;
+        const { storage: { cartRemove, cartAdd }, ...item } = this.props;
         const { amount, itemCode } = item;
         const { isInCart, buyAmount } = this.state;
         const itemData = { ...item, amount: buyAmount }
 
-        if (!!amount && isInCart) {
+        if (!amount) {
             return;
         }
 
-        this.setState(
-            { isInCart: true },
-            () => storage.cart[itemCode] = itemData
+        isInCart && this.setState(
+            ({ isInCart }) => ({ isInCart: !isInCart }),
+            () => cartRemove(itemCode)
+        );
+
+        !isInCart && this.setState(
+            ({ isInCart }) => ({ isInCart: !isInCart }),
+            () => cartAdd(itemCode, itemData)
         )
     }
 
@@ -244,7 +255,6 @@ class ProductTile extends Component {
                     color="black"
                     fontColor="white"
                     title="В корзине"
-                    isDisabled={true}
                     onClick={this.handleCartAdd}
                 />
             </div>

@@ -23,8 +23,14 @@ class ContextProvider extends Component {
             mainYmap: this.fetchMainYmap,
             footerMenu: this.fetchFooterMenu,
             waitingList: {},
+            waitingAdd: this.handleWaitingAdd,
+            waitingRemove: this.handleWaitingRemove,
             compareList: {},
-            cart: {}
+            compareAdd: this.handleCompareAdd,
+            compareRemove: this.handleCompareRemove,
+            cart: {},
+            cartAdd: this.handleCartAdd,
+            cartRemove: this.handleCartRemove
         };
     }
 
@@ -43,6 +49,54 @@ class ContextProvider extends Component {
     fetchMainYmap = () => dataRequest(routes.MAIN_YMAP);
 
     fetchFooterMenu = () => dataRequest(routes.FOOTER_MENU);
+
+    handleWaitingAdd = (key, item) => {
+        this.setState(({ waitingList }) => {
+            waitingList[key] = item;
+
+            return { waitingList };
+        });
+    };
+
+    handleWaitingRemove = key => {
+        this.setState(({ waitingList }) => {
+            delete waitingList[key];
+
+            return { waitingList };
+        }); 
+    }
+
+    handleCompareAdd = (key, item) => {
+        this.setState(({ compareList }) => {
+            compareList[key] = item;
+
+            return { compareList };
+        });
+    };
+
+    handleCompareRemove = key => {
+        this.setState(({ compareList }) => {
+            delete compareList[key];
+
+            return { compareList };
+        }); 
+    }
+
+    handleCartAdd = (key, item) => {
+        this.setState(({ cart }) => {
+            cart[key] = item;
+
+            return { cart };
+        });
+    };
+
+    handleCartRemove = key => {
+        this.setState(({ cart }) => {
+            delete cart[key];
+
+            return { cart };
+        }); 
+    }
 
     render() {
         return (

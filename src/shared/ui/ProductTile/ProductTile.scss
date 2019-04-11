@@ -49,7 +49,6 @@ $block: product-tile;
         }
 
         &_active {
-            cursor: default;
             background: url('./i/tile-equality-active.png') no-repeat center;
         }
     }
@@ -65,7 +64,6 @@ $block: product-tile;
         }
 
         &_active {
-            cursor: default;
             background: url('./i/tile-waiting-active.png') no-repeat center;
         }
     }
