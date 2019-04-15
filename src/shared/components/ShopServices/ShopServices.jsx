@@ -11,16 +11,31 @@ class ShopServices extends Component {
 
         return (
             <ApiConsumer>
-                {({ compareList, waitingList, cart }) => (
+                {({ compareList, waitingList, cart, storageRemove }) => (
                     <div className={cx('shop-services')}>
                         <div className={cx('shop-services__element')}>
-                            <ShopService storage={compareList} icon={EQUALITY} />
+                            <ShopService
+                                storage={compareList}
+                                storageName="compareList"
+                                icon={EQUALITY}
+                                removeItem={storageRemove}
+                            />
                         </div>
                         <div className={cx('shop-services__element')}>
-                            <ShopService storage={waitingList} icon={WAITING} />
+                            <ShopService
+                                storage={waitingList}
+                                storageName="waitingList"
+                                icon={WAITING}
+                                removeItem={storageRemove}
+                            />
                         </div>
                         <div className={cx('shop-services__element')}>
-                            <ShopService storage={cart} icon={CART} isCart={true} />
+                            <ShopService
+                                storage={cart}
+                                storageName="cart"
+                                icon={CART} isCart={true}
+                                removeItem={storageRemove}
+                            />
                         </div>
                     </div>
                 )}

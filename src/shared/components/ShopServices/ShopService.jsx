@@ -10,7 +10,9 @@ class ShopService extends Component {
     static propTypes = {
         storage: PropTypes.object.isRequired,
         icon: PropTypes.string.isRequired,
-        isCart: PropTypes.bool
+        storageName: PropTypes.string,
+        isCart: PropTypes.bool,
+        removeItem: PropTypes.func,
     };
 
     static defaultProps = {
@@ -21,17 +23,29 @@ class ShopService extends Component {
         super(props);
 
         this.state = {
-            isHovered: false
+            isHovered: false,
+            bottomPosition: 0,
+            rightPosition: 0,
         };
     }
 
-    handleMouseIn = () => this.setState({ isHovered: true })
+    handleMouseIn = () => {
+        const { bottom, right } = this.service.getBoundingClientRect();
+
+        this.setState({
+            bottomPosition: bottom,
+            rightPosition: right,
+            isHovered: true 
+        });
+    }
 
     handleMouseOut = () => this.setState({ isHovered: false })
 
+    getServiceRef = service => this.service = service
+
     render() {
-        const { storage, icon, isCart } = this.props;
-        const { isHovered } = this.state;
+        const { storage, icon, isCart, removeItem, storageName } = this.props;
+        const { isHovered, bottomPosition, rightPosition } = this.state;
         const storageItems = Object.keys(storage).length;
 
         return (
@@ -39,13 +53,22 @@ class ShopService extends Component {
                 className={cx('shop-service')}
                 onMouseEnter={this.handleMouseIn}
                 onMouseLeave={this.handleMouseOut}
+                ref={this.getServiceRef}
             >
                 <Icon className={cx('shop-service__icon')} icon={icon} />
                 {isCart ? 
                     <div className={cx('shop-service__number')}>{`${storageItems} ${cartGoods(storageItems)}`}</div> :
                     <div className={cx('shop-service__number')}>{storageItems}</div>
                 }
-                {isHovered && !!storageItems && <ServicesHint items={storage} />}
+                {isHovered && !!storageItems &&
+                    <ServicesHint
+                        items={storage}
+                        bottom={bottomPosition}
+                        right={rightPosition}
+                        removeItem={removeItem}
+                        storageName={storageName}
+                    />
+                }
             </div>
         );
     }

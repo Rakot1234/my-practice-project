@@ -3,5 +3,11 @@
 $block: services-hint;
 
 .#{$block} {
-
+    position: absolute;
+    padding: 25px;
+    color: black;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.22);;
+    z-index: 10;
+    background-color: #{$white};
+    width: 400px;
 };
