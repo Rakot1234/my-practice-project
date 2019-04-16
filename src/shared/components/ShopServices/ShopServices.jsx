@@ -33,7 +33,8 @@ class ShopServices extends Component {
                             <ShopService
                                 storage={cart}
                                 storageName="cart"
-                                icon={CART} isCart={true}
+                                icon={CART}
+                                isCart={true}
                                 removeItem={storageRemove}
                             />
                         </div>

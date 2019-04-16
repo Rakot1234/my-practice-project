@@ -12,13 +12,13 @@ class ServicesItem extends PureComponent {
         image: PropTypes.string,
         itemCode: PropTypes.string,
         price: PropTypes.string,
-        handleRemoveItem: PropTypes.func
+        onRemoveItem: PropTypes.func
     };
 
-    onRemoveClick = () => {
-        const { handleRemoveItem, itemCode } = this.props;
+    handleRemoveClick = () => {
+        const { onRemoveItem, itemCode } = this.props;
 
-        handleRemoveItem && handleRemoveItem(itemCode);
+        onRemoveItem && onRemoveItem(itemCode);
     }
 
     render() {
@@ -34,7 +34,7 @@ class ServicesItem extends PureComponent {
                 </div>
                 <div className={cx('services-item__title')}>{title}</div>
                 <div className={cx('services-item__price')}>{`${priceValue} ₽`}</div>
-                <div className={cx('services-item__remove')} onClick={this.onRemoveClick}>x</div>
+                <div className={cx('services-item__remove')} onClick={this.handleRemoveClick}>x</div>
             </div>
         );
     }

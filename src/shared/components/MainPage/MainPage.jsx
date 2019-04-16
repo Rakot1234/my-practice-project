@@ -1,37 +1,18 @@
 import React, { Component } from 'react'
 import cx from 'classnames'
-import PageHeader from '../../components/PageHeader/PageHeader'
-import Contacts from '../../components/Contacts/Contacts'
-import Search from '../../components/Search/Search'
-import MainMenu from '../../components/MainMenu/MainMenu'
-import Slider from '../../components/HeadSlider/HeadSlider'
-import BrandsCarousel from '../../components/BrandsCarousel/BrandsCarousel'
-import CallbackForm from '../../components/CallbackForm/CallbackForm'
 import GoodsCarousel from '../../components/GoodsCarousel/GoodsCarousel'
 import ShopAdvantages from '../../components/ShopAdvantages/ShopAdvantages'
 import MainNewsList from '../../components/MainNewsList/MainNewsList'
 import MainReviewsList from '../../components/MainReviewsList/MainReviewsList'
 import BlockWrapper from '../../ui/BlockWrapper/BlockWrapper'
 import TwoColumenedBlock from '../../ui/TwoColumenedBlock/TwoColumenedBlock'
-import Popup from '../../ui/Popup/Popup'
 import MainMap from '../../components/MainMap/MainMap'
-import PageFooter from '../../components/PageFooter/PageFooter'
 import { ApiConsumer } from '../../utils/context-provider'
 import texts from './constants/main-texts'
 import images from '../../constants/images'
 import './MainPage.scss'
 
 class MainPage extends Component {
-	constructor(props) {
-		super(props)
-
-		this.state = {
-			isPopupOpened: false,
-		}
-	}
-
-	handlePopupShow = () => this.setState(({ isPopupOpened }) => ({ isPopupOpened: !isPopupOpened }))
-
 	renderMainAbout() {
 		const { ABOUT_TITLE, ABOUT_TEXT } = texts;
 
@@ -52,29 +33,6 @@ class MainPage extends Component {
 				</div>
 			</div>
 		);
-	}
-
-	renderPageHeader(api) {
-		return (
-			<>
-				<PageHeader handleFetchMenu={api.topMenu} />
-				<Contacts onDescriptionClick={this.handlePopupShow} />
-				<BlockWrapper
-					innerColor="white"
-					className={cx('main-page__header-wrapper')}
-					bottomBorder={true}
-				>
-					<div className={cx('main-page__header-left')}>
-						<MainMenu handleFetchMenu={api.mainMenu} />
-					</div>
-					<div className={cx('main-page__header-right')}>
-						<Search />
-						<Slider handleFetchSlider={api.sliderParams} />
-						<BrandsCarousel handleFetchCarousel={api.brandsCarousel} />
-					</div>
-				</BlockWrapper>
-			</>
-		)
 	}
 
 	renderPageBody(api) {
@@ -104,22 +62,13 @@ class MainPage extends Component {
 	}
 	
 	render() {
-		const { isPopupOpened } = this.state
-
 		return (
 			<ApiConsumer>
 				{api => (
-						<>
-							{this.renderPageHeader(api)}
+						<div className={cx('main-page')}>
 							{this.renderPageBody(api)}
 							<MainMap handleFetchMap={api.mainYmap} />
-							<PageFooter handleFetchMenu={api.footerMenu} onDescriptionClick={this.handlePopupShow}/>
-							{isPopupOpened &&
-								<Popup handleClose={this.handlePopupShow}>
-									<CallbackForm />
-								</Popup>
-							}
-						</>
+						</div>
 					)
 				}
 			</ApiConsumer>

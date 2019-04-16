@@ -10,15 +10,21 @@ import { menuParams } from './constants/settings';
 
 class MainMenu extends Component {
     static propTypes = {
+        isHidden: PropTypes.bool,
         handleFetchMenu: PropTypes.func
+    };
+
+    static defaultProps = {
+        isHidden: false,
+        isFullHeight: true,
     };
 
     constructor(props) {
         super(props);
 
         this.state = {
-            isHidden: false,
-            isFullHeight: true,
+            isHidden: props.isHidden,
+            isFullHeight: !props.isHidden,
             title: '',
             items: [],
             isFetching: true
@@ -90,10 +96,12 @@ class MainMenu extends Component {
 
         return (
             <div className={cx('main-menu')}>
-                {isFetching ?
-                    <Preloader /> :
-                    this.renderMenu()
-                }
+                <div className={cx('main-menu__wrapper')}>
+                    {isFetching ?
+                        <Preloader /> :
+                        this.renderMenu()
+                    }
+                </div>
             </div>
         );
     }

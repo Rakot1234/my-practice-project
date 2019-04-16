@@ -15,6 +15,7 @@
     "react-dom": "^16.8.3",
     "react-input-mask": "^2.0.4",
     "react-responsive-carousel": "https://github.com/Rakot1234/react-responsive-carousel",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.5",
     "react-tabs": "^3.0.0",
     "react-yandex-maps": "^3.0.2",

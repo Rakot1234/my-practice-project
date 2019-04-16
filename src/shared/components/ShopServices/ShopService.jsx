@@ -65,7 +65,7 @@ class ShopService extends Component {
                         items={storage}
                         bottom={bottomPosition}
                         right={rightPosition}
-                        removeItem={removeItem}
+                        onRemoveItem={removeItem}
                         storageName={storageName}
                     />
                 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './ProductTile.scss';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -9,7 +9,7 @@ import { goodsImages } from '../../constants/images';
 import texts, { activeBuyButton, passiveBuyButton, STARS } from './constants/constants';
 import STORAGES from '../../constants/storages';
 
-class ProductTile extends Component {
+class ProductTile extends PureComponent {
     static propTypes = {
         id: PropTypes.number,
         itemCode: PropTypes.string,
@@ -31,6 +31,25 @@ class ProductTile extends Component {
             isInWaiting: false,
             isInCart: false
         }
+    }
+
+    componentDidMount() {
+        this.handleStorageCheck();
+    }
+
+    componentDidUpdate() {
+        this.handleStorageCheck();
+    }
+
+    handleStorageCheck = () => {
+        const { COMPARE, WAITING, CART } = STORAGES;
+        const { itemCode, storage } = this.props;
+
+        this.setState({
+            isInCompare: !!storage[COMPARE][itemCode],
+            isInWaiting: !!storage[WAITING][itemCode],
+            isInCart: !!storage[CART][itemCode]
+        });
     }
 
     handlePlusClick = () => {

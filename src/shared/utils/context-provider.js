@@ -24,9 +24,9 @@ class ApiProvider extends Component {
             footerMenu: this.fetchFooterMenu,
             storageAdd: this.handleStorageAdd,
             storageRemove: this.handleStorageRemove,
-            waitingList: {},
-            compareList: {},
-            cart: {}
+            waitingList: localStorage.waitingList ? JSON.parse(localStorage.waitingList) : {},
+            compareList: localStorage.compareList ? JSON.parse(localStorage.compareList) : {},
+            cart: localStorage.cart ? JSON.parse(localStorage.cart) : {}
         };
     }
 
@@ -50,6 +50,8 @@ class ApiProvider extends Component {
         this.setState(({ [storage]: storageList }) => {
             const updatedList = {...storageList, [key]: item };
 
+            localStorage.setItem(storage, JSON.stringify(updatedList));
+
             return { [storage]: updatedList };
         });
     };
@@ -57,6 +59,8 @@ class ApiProvider extends Component {
     handleStorageRemove = (storage, key) => {
         this.setState(({ [storage]: storageList }) => {
             const {[key]: value, ...updatedList} = storageList;
+
+            localStorage.setItem(storage, JSON.stringify(updatedList));
 
             return { [storage]: updatedList };
         }); 

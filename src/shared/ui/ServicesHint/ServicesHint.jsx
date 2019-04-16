@@ -11,15 +11,15 @@ class ServicesHint extends Component {
         items: PropTypes.object,
         bottom: PropTypes.number,
         right: PropTypes.number, 
-        removeItem: PropTypes.func
+        onRemoveItem: PropTypes.func
     };
 
     constructor(props) {
         super(props);
 
         this.state = {
-            topPosition: this.props.bottom,
-            leftPosition: this.props.right
+            topPosition: props.bottom,
+            leftPosition: props.right
         }
     }
 
@@ -33,30 +33,33 @@ class ServicesHint extends Component {
     getHintRef = hint => this.hint = hint;
 
     handleRemoveItem = itemCode => {
-        const { storageName, removeItem } = this.props;
+        const { storageName, onRemoveItem } = this.props;
         
-        removeItem(storageName, itemCode);
+        onRemoveItem(storageName, itemCode);
     }
 
     render() {
         const { items } = this.props;
         const { leftPosition, topPosition } = this.state;
+        const servicePosition = { top: `${topPosition}px`, left: `${leftPosition}px` };
 
         return (
             <Portal>
                 <div
                     className={cx('services-hint')}
-                    style={{ top: `${topPosition}px`, left: `${leftPosition}px` }}
+                    style={servicePosition}
                     ref={this.getHintRef}
                 >
                     {Object.keys(items).map(key => {
                         const { id, ...itemProps } = items[key];
 
-                        return <ServicesItem
-                            {...itemProps}
-                            key={id}
-                            handleRemoveItem={this.handleRemoveItem}
-                        />;
+                        return (
+                            <ServicesItem
+                                {...itemProps}
+                                key={id}
+                                onRemoveItem={this.handleRemoveItem}
+                            />
+                        );
                     })}
                 </div>
             </Portal>

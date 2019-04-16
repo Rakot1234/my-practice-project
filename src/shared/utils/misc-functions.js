@@ -28,3 +28,5 @@ export const cartGoods = amount => {
           return 'товаров';
     }
 };
+
+export const isMainPage = () => window.location.pathname === '/';
