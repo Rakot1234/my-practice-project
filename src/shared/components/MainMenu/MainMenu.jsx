@@ -96,7 +96,7 @@ class MainMenu extends Component {
 
         return (
             <div className={cx('main-menu')}>
-                <div className={cx('main-menu__wrapper')}>
+                <div className={cx('main-menu__inner-wrapper')}>
                     {isFetching ?
                         <Preloader /> :
                         this.renderMenu()

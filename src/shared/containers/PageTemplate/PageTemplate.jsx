@@ -58,7 +58,7 @@ class PageTemplate extends Component {
     render() {
         return (
             <ApiConsumer>
-				{api => (
+                {api => (
                     <div className={cx('page-template')}>
                         {this.renderPageHeader(api)}
                         <div className={cx('page-template__content')}>

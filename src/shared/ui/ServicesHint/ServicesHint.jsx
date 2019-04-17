@@ -11,7 +11,7 @@ class ServicesHint extends Component {
         items: PropTypes.object,
         bottom: PropTypes.number,
         right: PropTypes.number, 
-        onRemoveItem: PropTypes.func
+        onRemoveItem: PropTypes.func.isRequired,
     };
 
     constructor(props) {

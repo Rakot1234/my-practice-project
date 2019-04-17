@@ -48,7 +48,7 @@ $block: main-menu;
             animation: close 1s;
         }
     }
-    &__wrapper {
+    &__inner-wrapper {
         position: absolute;
         box-shadow: 0 0 0 1px #{$lightGray};
         border-radius: 4px;
