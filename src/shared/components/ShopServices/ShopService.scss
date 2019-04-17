@@ -1,0 +1,15 @@
+@import '../../../styles/variables.scss';
+
+$block: shop-service;
+
+.#{$block} {
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+
+    &__icon {
+        margin-right: 8px;
+    }
+};

@@ -14,8 +14,6 @@ $block: main-menu;
 
 .#{$block} {
     position: relative;
-    border-radius: 4px;
-    box-shadow: 0 0 0 1px #{$lightGray};
     color: #{$black};
     font-size: 14px;
     line-height: 15px;
@@ -41,6 +39,7 @@ $block: main-menu;
 
     &__list {
         overflow: hidden;
+        background-color: #{$white};
         
         &_visible {
             animation: open 1s;
@@ -48,5 +47,14 @@ $block: main-menu;
         &_hidden {
             animation: close 1s;
         }
+    }
+    &__inner-wrapper {
+        position: absolute;
+        box-shadow: 0 0 0 1px #{$lightGray};
+        border-radius: 4px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 4;
     }
 }
